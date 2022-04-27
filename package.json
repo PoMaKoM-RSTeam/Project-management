@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "lintfix": "ng lint -- --fix",
-    "pre": "prettier --write \"src/**/*.{js,jsx,scss,css,json,html}\""
+    "pre": "prettier --write \"src/**/*.{js,jsx,scss,css,json,html}\"",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
