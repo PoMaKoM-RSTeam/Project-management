@@ -63,6 +63,6 @@
   "lint-staged": {
     "*.{js,ts,json,css,md,html,less,scss,ejs}": "prettier --write",
     "*.{js,ts,json,css,md,html,less,scss}": "eslint --fix",
-    "*.{js,ts}": "eslint ./src"
+    "*.{js,ts}": "eslint ./"
   }
 }
