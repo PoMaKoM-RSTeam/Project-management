@@ -63,6 +63,6 @@
   },
   "lint-staged": {
     "*.{json,css,md,html,less,scss,ejs}": "prettier --write",
-    "*.{js,ts}": "npm run lintfix"
+    "*.{js,ts}": "eslint ./"
   }
 }
