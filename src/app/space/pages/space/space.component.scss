@@ -1,0 +1,10 @@
+@import '../../../core/styles/variables.scss';
+
+.space {
+  min-height: 100%;
+  background-color: $main-color;
+  display: flex;
+  &__main {
+    background-color: azure;
+  }
+}

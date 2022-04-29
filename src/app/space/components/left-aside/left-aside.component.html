@@ -1,0 +1,57 @@
+<!--close aside-->
+<strong
+  (click)="closeAside($event)"
+  class="space-aside__close-button"
+  [class.space-aside__close-button_visible]="!isCollapsed"
+>
+  ‹
+</strong>
+<aside class="space-aside" [class.space-aside_open]="!isCollapsed" (click)="this.isCollapsed = false">
+  <!--Title-->
+  <h2 class="space-aside__title">{{ pageName }}</h2>
+
+  <div class="bar">
+    <h3 class="bar__title">{{ title }}</h3>
+
+    <button
+      class="bar__search-button"
+      nz-icon
+      nzType="search"
+      nzTheme="outline"
+      (click)="openSearchInput($event, barSearch.value)"
+    ></button>
+    <input
+      class="bar__search-input"
+      #barSearch
+      [class.bar__search-input_visible]="isSpaceSearchVisible"
+      type="search"
+    />
+  </div>
+
+  <ul (click)="stopPropagation($event)" nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+    <li nz-menu-item nz-tooltip [nzTooltipTitle]="isCollapsed ? 'Navigation One' : ''" nzSelected>
+      <i nz-icon nzType="mail"></i>
+      <span>Navigation One</span>
+    </li>
+    <li nz-submenu nzTitle="Navigation Two" nzIcon="appstore">
+      <ul>
+        <li nz-menu-item>Option 5</li>
+        <li nz-menu-item>Option 6</li>
+        <li nz-submenu nzTitle="Submenu">
+          <ul>
+            <li nz-menu-item>Option 7</li>
+            <li nz-menu-item>Option 8</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li nz-submenu nzTitle="Navigation Three" nzIcon="setting">
+      <ul>
+        <li nz-menu-item>Option 9</li>
+        <li nz-menu-item>Option 10</li>
+        <li nz-menu-item>Option 11</li>
+      </ul>
+    </li>
+  </ul>
+  <button (click)="stopPropagation($event)" class="space-aside__add-button">+ Add Space</button>
+</aside>

@@ -7,7 +7,10 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border-bottom: $header-border;
+
+  &_with-border {
+    border-bottom: $header-border;
+  }
 
   &__link {
     margin: 6px 0;

@@ -9,4 +9,6 @@ import { INavLink } from '../../interfaces/nav-link.interface';
 })
 export class NavComponent {
   @Input() links: INavLink[] = [] as INavLink[];
+
+  @Input() withBorder: boolean = false;
 }
