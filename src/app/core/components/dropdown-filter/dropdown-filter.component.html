@@ -1,0 +1,12 @@
+<div class="dropdown-filter">
+  <h5 class="dropdown-filter__title">{{ title }}:</h5>
+  <a class="dropdown-filter__current" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+    {{ items.current }}
+    <i nz-icon nzType="down"></i>
+  </a>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+      <li *ngFor="let item of items.items" nz-menu-item>{{ item }}</li>
+    </ul>
+  </nz-dropdown-menu>
+</div>

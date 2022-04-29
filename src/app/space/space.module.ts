@@ -10,10 +10,28 @@ import { LeftAsideComponent } from './components/left-aside/left-aside.component
 import { SpaceRoutingModule } from './space-routing.module';
 import { SpaceHaederComponent } from './components/space-haeder/space-haeder.component';
 import { SpaceNavComponent } from './components/space-nav/space-nav.component';
+import { ListComponent } from './components/list/list.component';
+import { ListBarComponent } from './components/list-bar/list-bar.component';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
-  declarations: [SpaceComponent, LeftAsideComponent, SpaceHaederComponent, SpaceNavComponent],
-  imports: [CommonModule, AppRoutingModule, SpaceRoutingModule, NzMenuModule, NzIconModule, NzToolTipModule],
+  declarations: [
+    SpaceComponent,
+    LeftAsideComponent,
+    SpaceHaederComponent,
+    SpaceNavComponent,
+    ListComponent,
+    ListBarComponent,
+  ],
+  imports: [
+    CommonModule,
+    AppRoutingModule,
+    SpaceRoutingModule,
+    NzMenuModule,
+    NzIconModule,
+    NzToolTipModule,
+    CoreModule,
+  ],
   exports: [SpaceComponent],
 })
 export class SpaceModule {}
