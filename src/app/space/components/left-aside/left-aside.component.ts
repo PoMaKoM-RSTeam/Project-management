@@ -22,6 +22,7 @@ export class LeftAsideComponent {
   closeAside(event: Event) {
     this.stopPropagation(event);
     this.isCollapsed = true;
+    this.isSpaceSearchVisible = false;
   }
 
   openSearchInput(event: Event, search: string) {

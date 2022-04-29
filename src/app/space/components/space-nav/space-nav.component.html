@@ -1,0 +1,13 @@
+<nav class="space-nav">
+  <a
+    class="space-nav__link"
+    [class.space-nav__link_active]="link.title === links.active"
+    *ngFor="let link of links.links"
+    [routerLink]="link.url"
+    ><span nz-icon [nzType]="link.icon"></span> {{ link.title }}</a
+  >
+  <a class="space-nav__link space-nav__link_section" routerLink=""><span nz-icon nzType="align-left"></span> Gantt</a>
+  <a class="space-nav__link space-nav__link_section space-nav__link_strong" routerLink=""
+    ><span nz-icon nzType="plus"></span> View</a
+  >
+</nav>

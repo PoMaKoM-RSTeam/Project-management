@@ -5,6 +5,7 @@
   background-color: $main-color;
   display: flex;
   &__main {
+    width: 100%;
     background-color: azure;
   }
 }
