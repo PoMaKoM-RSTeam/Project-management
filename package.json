@@ -9,19 +9,21 @@
     "test": "ng test",
     "lint": "ng lint",
     "lintfix": "ng lint -- --fix",
-    "pre": "prettier --write \"src/**/*.{js,jsx,scss,css,json,html}\"",
-    "prepare": "husky install"
+    "pre": "prettier --write \"src/**/*.{js,jsx,scss,css,json,html}\""
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.3.0",
+    "@angular/cdk": "^13.3.5",
     "@angular/common": "~13.3.0",
     "@angular/compiler": "~13.3.0",
     "@angular/core": "~13.3.0",
     "@angular/forms": "~13.3.0",
+    "@angular/material": "^13.3.5",
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "bootstrap": "^4.6.0",
     "ng-zorro-antd": "^13.2.1",
     "normalize-scss": "^7.0.1",
     "rxjs": "~7.5.0",

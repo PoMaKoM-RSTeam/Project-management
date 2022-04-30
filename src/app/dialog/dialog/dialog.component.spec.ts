@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpaceHaederComponent } from './space-haeder.component';
+import { DialogComponent } from './dialog.component';
 
-describe('SpaceHaederComponent', () => {
-  let component: SpaceHaederComponent;
-  let fixture: ComponentFixture<SpaceHaederComponent>;
+describe('DialogComponent', () => {
+  let component: DialogComponent;
+  let fixture: ComponentFixture<DialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SpaceHaederComponent],
+      declarations: [DialogComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpaceHaederComponent);
+    fixture = TestBed.createComponent(DialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

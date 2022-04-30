@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { INavLinks } from 'src/app/core/interfaces/nav-links.interface';
 
 @Component({
-  selector: 'space-haeder',
-  templateUrl: './space-haeder.component.html',
-  styleUrls: ['./space-haeder.component.scss'],
+  selector: 'space-header',
+  templateUrl: './space-header.component.html',
+  styleUrls: ['./space-header.component.scss'],
 })
-export class SpaceHaederComponent {
+export class SpaceHeaderComponent {
   @Input() title = 'Title';
 
   isBoardSearchVisible = false;
@@ -14,17 +14,17 @@ export class SpaceHaederComponent {
   navLinks: INavLinks = {
     links: [
       {
-        url: '',
+        url: 'list',
         icon: 'unordered-list',
         title: 'List',
       },
       {
-        url: '',
+        url: 'board',
         icon: 'fund',
         title: 'Board',
       },
       {
-        url: '',
+        url: 'calendar',
         icon: 'calendar',
         title: 'Calendar',
       },
