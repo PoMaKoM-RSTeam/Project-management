@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'space-left-aside',
   templateUrl: './left-aside.component.html',
   styleUrls: ['./left-aside.component.scss'],

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'space-list-bar',
   templateUrl: './list-bar.component.html',
   styleUrls: ['./list-bar.component.scss'],

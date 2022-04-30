@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { INavLinks } from 'src/app/core/interfaces/nav-links.interface';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'space-haeder',
   templateUrl: './space-haeder.component.html',
   styleUrls: ['./space-haeder.component.scss'],
