@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { INavLinks } from '../core/interfaces/nav-links.interface';
+import { PathTitle, PathUrl, LinkIcon } from '../../constants/enums';
 
 @Injectable({
   providedIn: 'root',
@@ -8,17 +9,17 @@ export class SpaceHeaderService {
   navLinks: INavLinks = {
     links: [
       {
-        url: '',
-        icon: 'unordered-list',
-        title: 'List',
+        url: PathUrl.HOME,
+        icon: LinkIcon.LIST,
+        title: PathTitle.LIST,
       },
       {
-        url: 'board',
-        icon: 'fund',
-        title: 'Board',
+        url: PathUrl.BOARD,
+        icon: LinkIcon.BOARD,
+        title: PathTitle.BOARD,
       },
     ],
-    active: '',
+    active: PathUrl.HOME,
   };
 
   setActive(value: string) {

@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBodyComponent } from '../dialog-body/dialog-body.component';
+import { Width } from '../../../constants/enums';
 
 @Component({
   selector: 'app-dialog',
@@ -16,7 +17,7 @@ export class DialogComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogBodyComponent, {
-      width: '400px',
+      width: Width.MEDIUM,
       data: { question: this.question },
     });
 

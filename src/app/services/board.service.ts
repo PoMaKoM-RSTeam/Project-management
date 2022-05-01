@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Card, Column, Comment } from '../models/column.model';
+import { Colors, Board } from '../../constants/enums';
 
 @Injectable({
   providedIn: 'root',
@@ -9,17 +10,17 @@ export class BoardService {
   private initBoard = [
     {
       id: 1,
-      title: 'To Do',
-      color: '#009886',
+      title: Board.TITLE,
+      color: Colors.GREEN,
       list: [
         {
           id: 1,
-          text: 'Example card item',
+          text: Board.TEXT,
           like: 1,
           comments: [
             {
               id: 1,
-              text: 'Some comment',
+              text: Board.COMMENT,
             },
           ],
         },
@@ -51,7 +52,7 @@ export class BoardService {
     const newColumn: Column = {
       id: Date.now(),
       title,
-      color: '#009886',
+      color: Colors.GREEN,
       list: [],
     };
 
