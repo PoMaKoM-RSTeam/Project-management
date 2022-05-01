@@ -1,4 +1,6 @@
-@import './app/core/styles/variables.scss';
+@import './styles/variables';
+@import 'styles/elements/button';
+@import 'styles/elements/input';
 
 *::-webkit-scrollbar-thumb {
   display: block;
@@ -50,13 +52,6 @@ $project-management-theme: mat-light-theme(
 /* You can add global styles to this file, and also import other style files */
 
 // Imports functions, variables, and mixins that are needed by other Bootstrap files
-@import './styles/variables';
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
-@import '~bootstrap/scss/reboot';
-@import '~bootstrap/scss/grid'; // add the grid
-@import '~bootstrap/scss/utilities'; // add css utilities
 @import './styles/reset';
 
 html,

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BoardService } from 'src/app/services/board.service';
 
 @Component({
-  selector: 'app-header',
+  selector: 'board-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })

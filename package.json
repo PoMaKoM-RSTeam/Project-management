@@ -9,7 +9,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "lintfix": "ng lint -- --fix",
-    "pre": "prettier --write \"src/**/*.{js,jsx,scss,css,json,html}\""
+    "lint-check": "eslint ./",
+    "pre": "prettier --write \"src/**/*.{js,jsx,scss,css,json,html}\"",
+    "prettier-check": "prettier --check ./src"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +25,6 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
-    "bootstrap": "^4.6.0",
     "ng-zorro-antd": "^13.2.1",
     "normalize-scss": "^7.0.1",
     "rxjs": "~7.5.0",

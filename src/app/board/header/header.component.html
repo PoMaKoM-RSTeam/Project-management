@@ -1,10 +1,10 @@
-<mat-toolbar class="shadow justify-content-between px-5 mb-4">
+<div class="header">
   <div>
     <span class="mat-h2">Test Board</span>
   </div>
   <div>
     <app-dialog (emitText)="addColumn($event)" question="Add new column">
-      <button mat-raised-button color="primary">New Column</button>
+      <button nz-button nzType="primary">New Column</button>
     </app-dialog>
   </div>
-</mat-toolbar>
+</div>

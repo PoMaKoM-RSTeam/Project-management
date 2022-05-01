@@ -30,7 +30,7 @@
           "error",
           {
             "type": "element",
-            "prefix": ["app", "space", "auth", "header"],
+            "prefix": ["app", "space", "auth", "header", "board"],
             "style": "kebab-case"
           }
         ],

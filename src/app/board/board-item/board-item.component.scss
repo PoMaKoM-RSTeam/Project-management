@@ -1,38 +1,28 @@
-.icon {
-  font-size: 18px;
-}
+@import '../../../styles/variables.scss';
 
-.mat-icon-button {
-  width: 25px;
-  height: 25px;
+.board-item {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+
+  .mt-1 {
+    margin-top: 0.25rem;
+  }
+}
+
+.board-item-next {
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  transition: color ease 0.2s;
-}
-
-.mat-icon-button:hover {
-  color: rgb(255, 255, 255);
-}
-
-.mat-icon-button .mat-button-wrapper > * {
-  vertical-align: none !important;
-}
-
-mat-form-field.mat-form-field {
-  background-color: rgb(212, 212, 212);
-  padding: 10px 10px 0 10px;
+  margin-bottom: 0.5rem;
 }
 
 ::ng-deep .mat-form-field.mat-focused {
   .mat-form-field-required-marker {
-    color: #000000;
+    color: $first-color;
   }
   .mat-input-element {
-    color: #000000;
+    color: $first-color;
   }
-}
-
-.icon-confirm {
-  font-size: 20px !important;
 }

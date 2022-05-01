@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-plusplus */
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Card, Column, Comment } from '../models/column.model';
@@ -39,8 +37,10 @@ export class BoardService {
 
   changeColumnColor(color: string, columnId: number) {
     this.board = this.board.map((column: Column) => {
+      const col = column;
       if (column.id === columnId) {
-        column.color = color;
+        col.color = color;
+        return col;
       }
       return column;
     });
@@ -68,8 +68,10 @@ export class BoardService {
     };
 
     this.board = this.board.map((column: Column) => {
+      const col = column;
       if (column.id === columnId) {
-        column.list = [newCard, ...column.list];
+        col.list = [newCard, ...column.list];
+        return col;
       }
       return column;
     });
@@ -84,8 +86,10 @@ export class BoardService {
 
   deleteCard(cardId: number, columnId: number) {
     this.board = this.board.map((column: Column) => {
+      const col = column;
       if (column.id === columnId) {
-        column.list = column.list.filter((card: Card) => card.id !== cardId);
+        col.list = column.list.filter((card: Card) => card.id !== cardId);
+        return col;
       }
       return column;
     });
@@ -96,19 +100,22 @@ export class BoardService {
   changeLike(cardId: number, columnId: number, increase: boolean) {
     this.board = this.board.map((column: Column) => {
       if (column.id === columnId) {
-        const list = column.list.map((card: Card) => {
+        const col = column;
+        col.list = column.list.map((card: Card) => {
+          const item = card;
           if (card.id === cardId) {
             if (increase) {
-              card.like++;
-            } else if (card.like > 0) {
-              card.like--;
+              item.like += 1;
+              return item;
+            }
+            if (card.like > 0) {
+              item.like -= 1;
+              return item;
             }
           }
           return card;
         });
-
-        column.list = list;
-        return column;
+        return col;
       }
       return column;
     });
@@ -119,18 +126,20 @@ export class BoardService {
   addComment(columnId: number, cardId: number, text: string) {
     this.board = this.board.map((column: Column) => {
       if (column.id === columnId) {
-        const list = column.list.map((card: Card) => {
+        const col = column;
+        col.list = column.list.map((card: Card) => {
+          const item = card;
           if (card.id === cardId) {
             const newComment = {
               id: Date.now(),
               text,
             };
-            card.comments = [newComment, ...card.comments];
+            item.comments = [newComment, ...card.comments];
+            return item;
           }
           return card;
         });
-
-        column.list = list;
+        return col;
       }
       return column;
     });
@@ -141,15 +150,18 @@ export class BoardService {
   deleteComment(columnId: number, itemId: number, commentId: number) {
     this.board = this.board.map((column: Column) => {
       if (column.id === columnId) {
-        const list = column.list.map((item) => {
-          if (item.id === itemId) {
-            item.comments = item.comments.filter((comment: Comment) => {
+        const col = column;
+        col.list = column.list.map((card: Card) => {
+          if (card.id === itemId) {
+            const item = card;
+            item.comments = card.comments.filter((comment: Comment) => {
               return comment.id !== commentId;
             });
+            return item;
           }
-          return item;
+          return card;
         });
-        column.list = list;
+        return col;
       }
       return column;
     });

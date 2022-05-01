@@ -1,3 +1,50 @@
+@import '../../../styles/variables';
+
+.container-fluid {
+  width: 100%;
+  padding-right: 5%;
+  padding-left: 5%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.board-card {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  max-width: 25%;
+  flex: 0 0 25%;
+
+  margin-bottom: 1rem;
+}
+
+.board-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.col-sm-6 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  float: left;
+  width: 66.666667%;
+}
+
 .example-list {
   min-height: 60px;
   border-radius: 4px;
@@ -38,9 +85,22 @@
 }
 
 .btn-add {
+  width: 100%;
+  margin-bottom: 0.25rem;
   background-color: rgb(206, 206, 206);
 }
 
 .column-header {
   border: 1px solid rgb(207, 207, 207);
+}
+
+.space {
+  min-height: 100%;
+  background-color: $main-color;
+  display: flex;
+  &__main {
+    width: 100%;
+    min-height: 100%;
+    background-color: $fourth-color;
+  }
 }

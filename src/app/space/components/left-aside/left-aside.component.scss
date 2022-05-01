@@ -1,9 +1,9 @@
-@import '../../../core/styles/variables.scss';
+@import '../../../../styles/variables.scss';
 
 .space-aside {
   max-width: $space-aside-width;
   position: sticky;
-  height: calc(100vh - $footer-height);
+  height: calc(100vh - #{$footer-height});
   overflow-y: auto;
   background-color: $main-color;
   border-right: $header-border;
@@ -19,7 +19,7 @@
 
     & > .space-aside__add-button {
       width: 100%;
-      padding: calc($space-aside-button-size/3) $space-aside-button-size;
+      padding: calc(#{$space-aside-button-size}/ 3) $space-aside-button-size;
       font-size: 1rem;
     }
 
@@ -29,7 +29,7 @@
   }
 
   &__title {
-    padding: calc($space-aside-button-size/2);
+    padding: calc(#{$space-aside-button-size}/ 2);
     max-width: 80px;
     font-size: 0.7rem;
     overflow: hidden;
@@ -41,7 +41,7 @@
     width: 80px;
     border: 0;
     font-weight: 600;
-    padding: calc($space-aside-button-size/5);
+    padding: calc(#{$space-aside-button-size}/ 5);
     text-align: left;
     color: $border-color;
     font-size: 0.7rem;
@@ -60,11 +60,11 @@
     position: absolute;
     display: none;
     top: 5%;
-    left: calc($header-width/1.5 + $space-aside-width);
+    left: calc(#{$header-width}/ 1.5 + #{$space-aside-width});
     font-size: 1.5rem;
     height: $space-aside-button-size;
     width: $space-aside-button-size;
-    line-height: calc($space-aside-button-size * 0.73);
+    line-height: calc(#{$space-aside-button-size} * 0.73);
     text-align: center;
     border-radius: 50%;
     border: $header-border;
@@ -81,11 +81,11 @@
 .bar {
   display: flex;
   justify-content: space-around;
-  padding: calc($space-aside-button-size/2);
+  padding: calc(#{$space-aside-button-size}/ 2);
 
   &__search-input {
     display: none;
-    width: 0%;
+    width: 0;
     border: $header-border;
     border-radius: $space-search-input-border;
 

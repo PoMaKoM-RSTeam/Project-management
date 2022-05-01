@@ -1,4 +1,50 @@
+//
+// color
+//
+$main-color: #fff;
+$first-color: #000000ff;
+$second-color: #2c2c2cff;
+$fourth-color: #eeeeeeff;
+
+$border-color: #dfdfdfff;
+
+$icont-first-color: #07a092ff;
+$icont-second-color: #fff;
+
 $link-color: #3f51b5;
+
+//
+// sizes
+//
+$header-width: 50px;
+$header-border-size: 1px;
+
+$footer-height: 50px;
+
+$main-padding: 5%;
+
+$login-container-height: 75px;
+
+$space-aside-width: 350px;
+$space-aside-button-size: 30px;
+$space-search-input-border: 10px;
+
+$space-header-height: 50px;
+$space-header-padding: 5%;
+$space-header-gap: 10px;
+$space-header-user-size: 25px;
+
+$list-bar-height: 50px;
+$list-bar-button: 12px;
+$list-bar-count: 6px;
+$list-bar-gap: 10px;
+
+$phase-margin: 12px;
+
+//
+// var
+//
+$header-border: $header-border-size solid $border-color;
 $link-hover-color: currentColor;
 $link-hover-decoration: none;
 $label-margin-bottom: 0;

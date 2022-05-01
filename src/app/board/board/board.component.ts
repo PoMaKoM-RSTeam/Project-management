@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { BoardService } from 'src/app/services/board.service';
 import { Card } from 'src/app/models/column.model';
@@ -8,13 +8,8 @@ import { Card } from 'src/app/models/column.model';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent {
   constructor(public boardService: BoardService) {}
-
-  ngOnInit(): void {
-    // eslint-disable-next-line no-console
-    console.log('BOARD - INIT');
-  }
 
   onColorChange(color: string, columnId: number) {
     this.boardService.changeColumnColor(color, columnId);
