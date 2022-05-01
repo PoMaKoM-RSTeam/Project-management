@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+.footer {
+  height: 100%;
+  display: flex;
+  padding: 0 $main-padding;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $main-color;
+
+  &__text {
+    margin: 0;
+    color: $second-color;
+  }
+
+  &__img-link {
+    height: 50%;
+    width: 20%;
+  }
+
+  &__img {
+    max-height: 100%;
+  }
+
+  &__link {
+    color: $second-color;
+    text-decoration: underline;
+  }
+}

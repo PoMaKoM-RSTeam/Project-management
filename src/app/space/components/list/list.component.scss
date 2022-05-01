@@ -1,0 +1,12 @@
+@import '../../../core/styles/variables.scss';
+
+.space-list {
+  min-height: 100%;
+  background-color: $fourth-color;
+  padding: 0 $space-header-padding;
+
+  &__content {
+    height: 100%;
+    overflow: hidden;
+  }
+}

@@ -9,8 +9,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "lintfix": "ng lint -- --fix",
+    "lint-check": "eslint ./",
     "pre": "prettier --write \"src/**/*.{js,jsx,scss,css,json,html}\"",
-    "prepare": "husky install"
+    "prettier-check": "prettier --check ./src"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,8 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "ng-zorro-antd": "^13.2.1",
+    "normalize-scss": "^7.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

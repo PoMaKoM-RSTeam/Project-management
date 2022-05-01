@@ -1,0 +1,21 @@
+<button class="login">
+  <nz-avatar-group *ngIf="isAuth; else auth">
+    <nz-avatar
+      class="login__user"
+      nzIcon="user"
+      nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    ></nz-avatar>
+    <nz-avatar class="login__user_second" style="background-color: #fde3cf; color: #f56a00" nzText="+1"></nz-avatar>
+  </nz-avatar-group>
+
+  <ng-template #auth>
+    <svg class="login__authorization" viewBox="0 0 70 70" width="100%">
+      <path d="M35,35m-23,0a23,23 0 1,1 46,0a23,23 0 1,1 -46,0" fill="transparent" id="tophalf" />
+      <text>
+        <textPath xlink:href="#tophalf" startOffset="0%">Log in ·</textPath>
+        <textPath xlink:href="#tophalf" startOffset="33%">Log in ·</textPath>
+        <textPath xlink:href="#tophalf" startOffset="66%">Log in ·</textPath>
+      </text>
+    </svg>
+  </ng-template>
+</button>

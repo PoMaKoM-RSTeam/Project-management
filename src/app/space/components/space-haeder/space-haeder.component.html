@@ -1,0 +1,26 @@
+<div class="space-header">
+  <h3 class="space-header__title">
+    <i class="space-header__icon_gray" nz-icon nzType="folder" nzTheme="outline"></i>
+    {{ title }}
+  </h3>
+  <div class="space-header__creator_bot">
+    <i nz-icon nzType="robot" nzTheme="outline"></i>
+  </div>
+  <space-nav [links]="navLinks"></space-nav>
+  <div class="space-header__search">
+    <input
+      class="space-header__search-input"
+      #boardSearchInput
+      type="search"
+      [class.space-header__search-input_visible]="isBoardSearchVisible"
+    />
+    <button
+      class="space-header__search-button space-header__icon"
+      nz-icon
+      nzType="search"
+      nzTheme="outline"
+      (click)="openSearchInput(boardSearchInput.value)"
+    ></button>
+  </div>
+  <a class="space-header__icon" nz-icon nzType="thunderbolt" nzTheme="outline"></a>
+</div>
