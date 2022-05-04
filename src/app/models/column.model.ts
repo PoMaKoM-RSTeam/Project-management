@@ -16,3 +16,25 @@ export interface Column {
   color: string;
   list: Card[];
 }
+
+export interface User {
+  id: number;
+  name: string;
+  login: string;
+}
+
+export interface Board {
+  id: number;
+  title: string;
+  columns: [];
+}
+
+export interface Task {
+  id: string;
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
+  boardId: string;
+  columnId: string;
+}
