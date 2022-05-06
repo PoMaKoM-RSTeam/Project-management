@@ -6,10 +6,9 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
 import { SpaceComponent } from './pages/space/space.component';
-import { AppRoutingModule } from '../app-routing.module';
 import { LeftAsideComponent } from './components/left-aside/left-aside.component';
 import { SpaceRoutingModule } from './space-routing.module';
-import { SpaceHaederComponent } from './components/space-haeder/space-haeder.component';
+import { SpaceHeaderComponent } from './components/space-header/space-header.component';
 import { SpaceNavComponent } from './components/space-nav/space-nav.component';
 import { ListComponent } from './components/list/list.component';
 import { ListBarComponent } from './components/list-bar/list-bar.component';
@@ -20,7 +19,7 @@ import { PhaseComponent } from './components/phase/phase.component';
   declarations: [
     SpaceComponent,
     LeftAsideComponent,
-    SpaceHaederComponent,
+    SpaceHeaderComponent,
     SpaceNavComponent,
     ListComponent,
     ListBarComponent,
@@ -28,7 +27,6 @@ import { PhaseComponent } from './components/phase/phase.component';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
     SpaceRoutingModule,
     NzMenuModule,
     NzIconModule,
@@ -36,6 +34,6 @@ import { PhaseComponent } from './components/phase/phase.component';
     NzCollapseModule,
     CoreModule,
   ],
-  exports: [SpaceComponent],
+  exports: [SpaceComponent, SpaceHeaderComponent, LeftAsideComponent],
 })
 export class SpaceModule {}

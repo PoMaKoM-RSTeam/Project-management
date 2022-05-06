@@ -1,12 +1,12 @@
 <div class="space-header">
   <h3 class="space-header__title">
     <i class="space-header__icon_gray" nz-icon nzType="folder" nzTheme="outline"></i>
-    {{ title }}
+    <a routerLink="{{ title }}" routerLinkActive="active"></a>
   </h3>
   <div class="space-header__creator_bot">
     <i nz-icon nzType="robot" nzTheme="outline"></i>
   </div>
-  <space-nav [links]="navLinks"></space-nav>
+  <space-nav></space-nav>
   <div class="space-header__search">
     <input
       class="space-header__search-input"

@@ -1,8 +1,8 @@
-@import '../../styles/variables.scss';
+@import '../../../../styles/variables.scss';
 
 .not-found {
   display: flex;
-  height: calc(100vh - $footer-height);
+  height: calc(100vh - #{$footer-height});
   flex-direction: column;
   justify-content: center;
   align-items: center;

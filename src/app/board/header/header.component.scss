@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  box-sizing: border-box;
+  padding: 30px 5%;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  height: 64px;
+}

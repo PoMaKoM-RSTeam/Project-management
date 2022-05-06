@@ -1,15 +1,17 @@
 //
 // color
 //
-$main-color: rgb(255, 255, 255);
-$first-color: rgb(0, 0, 0);
-$second-color: rgb(44, 44, 44);
-$fourth-color: rgb(238, 238, 238);
+$main-color: #fff;
+$first-color: #000000ff;
+$second-color: #2c2c2cff;
+$fourth-color: #eeeeeeff;
 
-$border-color: rgb(223, 223, 223);
+$border-color: #dfdfdfff;
 
-$icont-first-color: rgb(7, 160, 146);
-$icont-second-color: rgb(255, 255, 255);
+$icont-first-color: #07a092ff;
+$icont-second-color: #fff;
+
+$link-color: #3f51b5;
 
 //
 // sizes
@@ -43,3 +45,6 @@ $phase-margin: 12px;
 // var
 //
 $header-border: $header-border-size solid $border-color;
+$link-hover-color: currentColor;
+$link-hover-decoration: none;
+$label-margin-bottom: 0;

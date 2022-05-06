@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SpaceModule } from './space/space.module';
+import { BoardModule } from './board/board.module';
+import { DialogModule } from './dialog/dialog.module';
 
 registerLocaleData(en);
 
@@ -26,6 +28,8 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     CoreModule,
     SpaceModule,
+    BoardModule,
+    DialogModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

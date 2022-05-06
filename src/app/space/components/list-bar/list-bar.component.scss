@@ -1,4 +1,4 @@
-@import '../../../core/styles/variables.scss';
+@import '../../../../styles/variables.scss';
 
 .list-bar {
   display: flex;
@@ -23,7 +23,7 @@
   }
 
   &__green-block {
-    padding: calc($list-bar-button/3) $list-bar-button;
+    padding: calc(#{$list-bar-button}/ 3) $list-bar-button;
     border-radius: 3px;
     background-color: $icont-first-color;
     margin-right: $list-bar-gap;
@@ -32,8 +32,8 @@
   &__green-block-count {
     font-size: 0.66rem;
     display: inline-block;
-    margin: 0 calc($list-bar-count/2);
-    padding: calc($list-bar-count/10) $list-bar-count;
+    margin: 0 calc(#{$list-bar-count}/ 2);
+    padding: calc(#{$list-bar-count}/ 10) $list-bar-count;
     border-radius: 50%;
     color: $icont-first-color;
     background-color: $main-color;
@@ -47,7 +47,7 @@
 
   &__button {
     color: $second-color;
-    padding: calc($list-bar-button/4) $list-bar-button;
+    padding: calc(#{$list-bar-button}/ 4) $list-bar-button;
     border: $second-color solid 1px;
     border-radius: 3px;
     background-color: transparent;

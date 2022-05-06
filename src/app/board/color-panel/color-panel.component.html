@@ -1,0 +1,5 @@
+<div class="color-panel">
+  <div *ngFor="let color of colorsData">
+    <div [ngStyle]="{ background: color }" class="color-panel-item" (click)="onColorEmit(color)"></div>
+  </div>
+</div>
