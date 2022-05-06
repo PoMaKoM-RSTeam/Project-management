@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { Component, OnInit } from '@angular/core';
-import { BackendAPIService } from 'src/app/services/backend-api-service.service';
+import { BoardsAPIService } from 'src/app/services/boards-api.service';
+import { UsersAPIService } from 'src/app/services/users-api.service';
 
 @Component({
   selector: 'space-list',
@@ -10,15 +11,21 @@ import { BackendAPIService } from 'src/app/services/backend-api-service.service'
 export class ListComponent implements OnInit {
   students = [];
 
-  constructor(private reqToApi: BackendAPIService) {}
+  constructor(private reqToUsersApi: UsersAPIService, private reqToBoardsApi: BoardsAPIService) {}
 
   ngOnInit(): void {
-    this.reqToApi.getUsers().subscribe((data) => {
+    this.reqToUsersApi.getAllUsers().subscribe((data) => {
       console.log(data);
     });
 
-    this.reqToApi.getBoard('8a63303a-d041-4b98-8f96-7f7de9cbea8d').subscribe((data) => {
+    this.reqToBoardsApi.getBoardByID('8a63303a-d041-4b98-8f96-7f7de9cbea8d').subscribe((data) => {
       console.log(data);
     });
+
+    // this.reqToBoardsApi.createBoard('Hello world!').subscribe((data) => {
+    //   console.log(data);
+    // });
+
+    this.reqToBoardsApi.getAllBoards().subscribe((data) => console.log(data));
   }
 }
