@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { IEmitCardItem, IEmitText } from './board-item.models';
 
 @Component({
   selector: 'app-board-item',
@@ -8,9 +9,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class BoardItemComponent {
   @Input() item: any;
 
-  @Output() emitText: EventEmitter<{ id: number; text: string }> = new EventEmitter();
+  @Output() emitText: EventEmitter<IEmitText> = new EventEmitter();
 
-  @Output() emitCardItem: EventEmitter<{ card: any; increase: boolean }> = new EventEmitter();
+  @Output() emitCardItem: EventEmitter<IEmitCardItem> = new EventEmitter();
 
   @Output() emitDeleteCard: EventEmitter<number> = new EventEmitter();
 
