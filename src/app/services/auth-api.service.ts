@@ -21,7 +21,7 @@ export class AuthAPIService {
 
   signIn(user: ILogin): Observable<any> {
     const body = { login: user.login, password: user.password };
-    return this.http.post<ISignInResponse>(`https://nest-backend-den.herokuapp.com/signin`, body, this.headers).pipe(
+    return this.http.post<ISignInResponse>(`${environment.apiURL}/signin`, body, this.headers).pipe(
       map((data) => {
         this.message.create(Message.SUCCESS, `Welcome, ${user.login}!`);
         return data;

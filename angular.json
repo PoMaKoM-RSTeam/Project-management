@@ -33,7 +33,8 @@
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
                 "output": "/assets/"
-              }
+              },
+              "src/_redirects"
             ],
             "styles": ["src/theme.less", "./node_modules/normalize-scss/sass/_normalize.scss", "src/styles.scss"],
             "scripts": []
@@ -75,8 +76,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "project-management:build:production",
-              "proxyConfig": "./proxy.conf.json"
+              "browserTarget": "project-management:build:production"
             },
             "development": {
               "browserTarget": "project-management:build:development"
