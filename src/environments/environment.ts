@@ -1,9 +1,12 @@
+/* eslint-disable max-len */
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   production: false,
+  apiURL: 'http://localhost:4200/api',
+  auth_token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MWUxMGExNC1mN2Q3LTQ0MTYtOGJmOS1hYjVmZmUzZjMyMTIiLCJsb2dpbiI6InVzZXIwMDEiLCJpYXQiOjE2NTE0MjgxMDZ9.ZmSzIt14wNdi_-pxgrn88d9peWn3BJHEK2CkmS3snVQ`,
 };
 
 /*

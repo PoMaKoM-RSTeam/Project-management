@@ -16,3 +16,15 @@ export interface Column {
   color: string;
   list: Card[];
 }
+
+export interface User {
+  id: number;
+  name: string;
+  login: string;
+  password: string;
+}
+
+export interface Login {
+  login: string;
+  password: string;
+}
