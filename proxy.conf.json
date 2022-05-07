@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://nest-backend-den.herokuapp.com/",
+    "target": "https://nest-backend-den.herokuapp.com",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
