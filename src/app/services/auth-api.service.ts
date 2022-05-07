@@ -1,9 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, map } from 'rxjs';
+import { of, Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { ISignInResponse, ISignUnResponse, Login, User } from '../models/column.model';
+import { ILogin, ISignInResponse, ISignUpResponse, ISignUp } from '../models/column.model';
 import { Message } from '../../constants/enums';
 
 @Injectable({
@@ -19,7 +20,7 @@ export class AuthAPIService {
     }),
   };
 
-  signIn(user: Login): Observable<any> {
+  signIn(user: ILogin): Observable<any> {
     const body = { login: user.login, password: user.password };
     return this.http.post<ISignInResponse>(`${environment.apiURL}/signin`, body, this.headers).pipe(
       map((data) => {
@@ -28,13 +29,19 @@ export class AuthAPIService {
       }),
       catchError((err) => {
         this.message.create(Message.ERROR, err?.error?.message);
-        return err;
+        return of(false);
       }),
     );
   }
 
-  signUp(user: User): Observable<ISignUnResponse> {
+  signUp(user: ISignUp): Observable<any> {
     const body = { name: user.name, login: user.login, password: user.password };
-    return this.http.post<ISignUnResponse>(`${environment.apiURL}/signup`, body, this.headers);
+    return this.http.post<ISignUpResponse>(`${environment.apiURL}/signup`, body, this.headers).pipe(
+      map((data) => data),
+      catchError((err) => {
+        this.message.create(Message.ERROR, err?.error?.message);
+        return of(false);
+      }),
+    );
   }
 }

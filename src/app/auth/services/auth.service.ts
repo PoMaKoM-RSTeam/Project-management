@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { AuthAPIService } from '../../services/auth-api.service';
+import { Message } from '../../../constants/enums';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +13,7 @@ export class AuthService {
 
   private authState$$ = new BehaviorSubject<boolean>(false);
 
-  constructor(private router: Router, private authAPIService: AuthAPIService) {
+  constructor(private router: Router, private authAPIService: AuthAPIService, private message: NzMessageService) {
     this.authState$ = this.authState$$.asObservable();
   }
 
@@ -19,12 +21,30 @@ export class AuthService {
 
   password = '';
 
+  signUpName = '';
+
+  signUpLogin = '';
+
+  signUpPassword = '';
+
   loginHandle(value: string) {
     this.login = value;
   }
 
   passwordHandle(value: string) {
     this.password = value;
+  }
+
+  signUpNameHandle(value: string) {
+    this.signUpName = value;
+  }
+
+  signUpLoginHandle(value: string) {
+    this.signUpLogin = value;
+  }
+
+  signUpPasswordHandle(value: string) {
+    this.signUpPassword = value;
   }
 
   logoutHandle() {
@@ -39,11 +59,32 @@ export class AuthService {
   comeIn() {
     if (this.login && this.password) {
       this.authAPIService.signIn({ login: this.login, password: this.password }).subscribe((response) => {
-        console.log('response', response);
-        window.localStorage.setItem('userTokenMid', response.token);
-        this.router.navigate(['']);
-        this.authState$$.next(true);
+        if (response) {
+          window.localStorage.setItem('userTokenMid', response.token);
+          this.login = '';
+          this.password = '';
+          this.router.navigate(['']);
+          this.authState$$.next(true);
+        }
       });
+    }
+  }
+
+  signUpNewUser() {
+    if (this.signUpName && this.signUpLogin && this.signUpPassword) {
+      this.authAPIService
+        .signUp({ name: this.signUpName, login: this.signUpLogin, password: this.signUpPassword })
+        .subscribe((response) => {
+          if (response) {
+            this.message.create(
+              Message.SUCCESS,
+              `Great! ${response.name}, you created new account. Please sign in system.`,
+            );
+            this.signUpName = '';
+            this.signUpLogin = '';
+            this.signUpPassword = '';
+          }
+        });
     }
   }
 

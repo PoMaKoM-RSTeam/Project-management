@@ -24,7 +24,13 @@ export interface User {
   password: string;
 }
 
-export interface Login {
+export interface ILogin {
+  login: string;
+  password: string;
+}
+
+export interface ISignUp {
+  name: string;
   login: string;
   password: string;
 }
@@ -33,7 +39,7 @@ export interface ISignInResponse {
   token: string;
 }
 
-export interface ISignUnResponse {
+export interface ISignUpResponse {
   id: string;
   name: string;
   login: string;
