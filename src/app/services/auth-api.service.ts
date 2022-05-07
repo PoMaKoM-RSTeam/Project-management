@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { ILogin, ISignInResponse, ISignUpResponse, ISignUp } from '../models/column.model';
 import { Message } from '../../constants/enums';
