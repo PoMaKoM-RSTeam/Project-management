@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'http://localhost:4200/api',
+  apiURL: 'https://deploy-preview-5--pomakom-pm.netlify.app/api',
 };
