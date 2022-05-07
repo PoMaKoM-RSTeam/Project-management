@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthAPIService } from '../../services/auth-api.service';
 // import { Login } from '../../models/column.model';
 
@@ -39,15 +39,11 @@ export class AuthService {
 
   comeIn() {
     if (this.login && this.password) {
-      console.log(this.login, this.password);
-      this.authAPIService.signIn({ login: this.login, password: this.password }).subscribe(
-        map((user) => {
-          console.log('u', user);
-        }),
-      );
-      // window.localStorage.setItem('youtube-login', 'tokenId');
-      // this.router.navigate(['']);
-      // this.authState$$.next(true);
+      this.authAPIService.signIn({ login: this.login, password: this.password }).subscribe((response) => {
+        console.log('response', response);
+        window.localStorage.setItem('userTokenMid', response.token);
+        this.router.navigate(['']);
+      });
     }
   }
 

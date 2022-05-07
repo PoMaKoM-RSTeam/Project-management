@@ -28,3 +28,13 @@ export interface Login {
   login: string;
   password: string;
 }
+
+export interface ISignInResponse {
+  token: string;
+}
+
+export interface ISignUnResponse {
+  id: string;
+  name: string;
+  login: string;
+}

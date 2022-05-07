@@ -31,3 +31,9 @@ export enum Board {
   TEXT = 'Example card item',
   COMMENT = 'Some comment',
 }
+
+export enum Message {
+  SUCCESS = 'success',
+  ERROR = 'error',
+  WARNING = 'warning',
+}
