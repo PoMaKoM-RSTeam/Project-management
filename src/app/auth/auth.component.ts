@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 
@@ -7,7 +7,7 @@ import { AuthService } from './services/auth.service';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
   form: FormGroup;
 
   formSignUp: FormGroup;
@@ -29,11 +29,6 @@ export class AuthComponent implements OnInit {
         Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
       ]),
     });
-  }
-
-  ngOnInit() {
-    console.log('auth ngOnInit');
-    // this.store.dispatch(hideHeader());
   }
 
   submit() {

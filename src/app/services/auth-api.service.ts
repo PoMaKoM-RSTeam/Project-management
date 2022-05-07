@@ -16,7 +16,6 @@ export class AuthAPIService {
   headers = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${environment.auth_token}`,
     }),
   };
 
