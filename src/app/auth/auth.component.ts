@@ -21,7 +21,7 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('12313');
+    console.log('auth ngOnInit');
     // this.store.dispatch(hideHeader());
   }
 

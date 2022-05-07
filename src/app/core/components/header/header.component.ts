@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { INavLink } from '../../interfaces/nav-link.interface';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,8 @@ import { INavLink } from '../../interfaces/nav-link.interface';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  constructor(private authService: AuthService) {}
+
   public nav_links: INavLink[] = [
     { url: '', icon: 'home' },
     { url: 'space', icon: 'check-square' },
@@ -19,4 +22,8 @@ export class HeaderComponent {
     { url: '', icon: 'trophy' },
     { url: '', icon: 'more' },
   ];
+
+  logoutUser() {
+    this.authService.logoutHandle();
+  }
 }

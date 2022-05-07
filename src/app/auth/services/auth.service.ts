@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthAPIService } from '../../services/auth-api.service';
-// import { Login } from '../../models/column.model';
 
 @Injectable({
   providedIn: 'root',
@@ -29,9 +28,9 @@ export class AuthService {
   }
 
   logoutHandle() {
-    const tokenId = window.localStorage.getItem('youtube-login');
+    const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
-      window.localStorage.removeItem('youtube-login');
+      window.localStorage.removeItem('userTokenMid');
       this.authState$$.next(false);
       this.router.navigate(['/auth']);
     }
@@ -43,12 +42,13 @@ export class AuthService {
         console.log('response', response);
         window.localStorage.setItem('userTokenMid', response.token);
         this.router.navigate(['']);
+        this.authState$$.next(true);
       });
     }
   }
 
   isLogged() {
-    if (window.localStorage.getItem('youtube-login')) {
+    if (window.localStorage.getItem('userTokenMid')) {
       this.authState$$.next(true);
       return true;
     }

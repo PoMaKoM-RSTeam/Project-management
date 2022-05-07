@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
+import { AuthGuard } from './auth/guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./space/space.module').then((m) => m.SpaceModule),
+    canActivate: [AuthGuard],
   },
   { path: '**', component: NotFoundComponent },
 ];
