@@ -20,7 +20,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "browserTarget": "project-management:build",
             "proxyConfig": "./proxy.conf.json",
             "outputPath": "dist/project-management",
             "index": "src/index.html",
