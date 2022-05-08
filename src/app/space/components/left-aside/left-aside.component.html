@@ -32,6 +32,18 @@
     <li *ngFor="let board of boards" nz-menu-item>
       <i nz-icon [nzType]="iconBoard"></i>
       <span>{{ board.title }}</span>
+      <span class="bar_right">
+        <app-dialog (emitText)="editBoard($event, board.id)" question="Edit board">
+          <button class="button button__icon" nz-icon nzType="edit" nzTheme="outline"></button>
+        </app-dialog>
+        <button
+          class="button button__icon"
+          nz-icon
+          nzType="delete"
+          nzTheme="outline"
+          (click)="removeBoard(board.id)"
+        ></button>
+      </span>
     </li>
   </ul>
   <app-dialog (emitText)="addBoard($event)" question="Add new board">

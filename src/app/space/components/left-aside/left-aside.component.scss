@@ -104,4 +104,22 @@
     background-color: transparent;
     cursor: pointer;
   }
+
+  &_right {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: $link-color;
+
+    &:hover {
+      transition: 0.5s color;
+      color: $second-color;
+    }
+  }
+}
+
+.ant-menu.ant-menu-inline-collapsed {
+  width: 120px;
 }

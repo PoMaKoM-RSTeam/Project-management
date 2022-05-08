@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LinkIcon } from '../../../../constants/enums';
+import { NgIcon } from '../../../../constants/enums';
 import { BoardsAPIService } from '../../../../services/boards-api.service';
 import { Board } from '../../../../models/column.model';
 
@@ -15,7 +15,7 @@ export class LeftAsideComponent implements OnInit {
 
   @Input() title: string = 'Title';
 
-  iconBoard = LinkIcon.BOARD;
+  iconBoard = NgIcon.BOARD;
 
   isCollapsed = false;
 
@@ -51,5 +51,20 @@ export class LeftAsideComponent implements OnInit {
         this.boards = [...this.boards, response];
       });
     }
+  }
+
+  editBoard(title: string, id: string) {
+    this.boardsAPIService.updateBoard(id, { title }).subscribe((response) => {
+      const index = this.boards.findIndex((board) => board.id === id);
+      this.boards[index] = response;
+    });
+  }
+
+  removeBoard(id: string) {
+    this.boardsAPIService.deleteBoard(id).subscribe((response) => {
+      if (response === null) {
+        this.boards = this.boards.filter((board) => board.id !== id);
+      }
+    });
   }
 }

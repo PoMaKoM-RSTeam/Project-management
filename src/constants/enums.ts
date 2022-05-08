@@ -19,13 +19,15 @@ export enum PathTitle {
   BOARD = 'Board',
 }
 
-export enum LinkIcon {
+export enum NgIcon {
   HOME = 'home',
   LIST = 'unordered-list',
   BOARD = 'project',
   SEARCH = 'eye',
   ABOUT = 'question',
   SETTINGS = 'more',
+  EDIT = 'edit',
+  DELETE = 'delete',
 }
 
 export enum Width {
