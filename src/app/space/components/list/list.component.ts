@@ -22,10 +22,6 @@ export class ListComponent implements OnInit {
       console.log(data);
     });
 
-    // this.reqToBoardsApi.createBoard('Hello world!').subscribe((data) => {
-    //   console.log(data);
-    // });
-
     this.reqToBoardsApi.getAllBoards().subscribe((data) => console.log(data));
   }
 }
