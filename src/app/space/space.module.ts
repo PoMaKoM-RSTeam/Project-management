@@ -15,6 +15,7 @@ import { ListComponent } from './components/list/list.component';
 import { CoreModule } from '../core/core.module';
 import { PhaseComponent } from './components/phase/phase.component';
 import { DialogModule } from '../dialog/dialog.module';
+import { ConfirmModule } from '../confirm/confirm.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { DialogModule } from '../dialog/dialog.module';
     NzButtonModule,
     CoreModule,
     DialogModule,
+    ConfirmModule,
   ],
   exports: [SpaceComponent, SpaceHeaderComponent, LeftAsideComponent],
 })

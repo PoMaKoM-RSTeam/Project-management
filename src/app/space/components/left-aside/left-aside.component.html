@@ -36,13 +36,12 @@
         <app-dialog (emitText)="editBoard($event, board.id)" question="Edit board">
           <button class="button button__icon" nz-icon nzType="edit" nzTheme="outline"></button>
         </app-dialog>
-        <button
-          class="button button__icon"
-          nz-icon
-          nzType="delete"
-          nzTheme="outline"
-          (click)="removeBoard(board.id)"
-        ></button>
+        <app-confirm
+          [question]="'Are you sure you want to delete \'' + board.title + '\'?'"
+          (emitConfirm)="removeBoard($event, board.id)"
+        >
+          <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+        </app-confirm>
       </span>
     </li>
   </ul>

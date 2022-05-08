@@ -60,11 +60,13 @@ export class LeftAsideComponent implements OnInit {
     });
   }
 
-  removeBoard(id: string) {
-    this.boardsAPIService.deleteBoard(id).subscribe((response) => {
-      if (response === null) {
-        this.boards = this.boards.filter((board) => board.id !== id);
-      }
-    });
+  removeBoard(isConfirm: boolean, id: string) {
+    if (isConfirm) {
+      this.boardsAPIService.deleteBoard(id).subscribe((response) => {
+        if (response === null) {
+          this.boards = this.boards.filter((board) => board.id !== id);
+        }
+      });
+    }
   }
 }
