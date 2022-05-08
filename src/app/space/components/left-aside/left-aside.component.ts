@@ -44,4 +44,12 @@ export class LeftAsideComponent implements OnInit {
 
     if (!search) this.isSpaceSearchVisible = !this.isSpaceSearchVisible;
   }
+
+  addBoard(title: string) {
+    if (title) {
+      this.boardsAPIService.createBoard(title).subscribe((response) => {
+        this.boards = [...this.boards, response];
+      });
+    }
+  }
 }

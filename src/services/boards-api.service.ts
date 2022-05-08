@@ -25,9 +25,9 @@ export class BoardsAPIService {
     return this.http.get<Board[]>(`${environment.apiURL}/boards/${id}`, this.headers);
   }
 
-  createBoard(title: string): Observable<Board[]> {
+  createBoard(title: string): Observable<Board> {
     const body = { title };
-    return this.http.post<Board[]>(`${environment.apiURL}/boards`, body, this.headers);
+    return this.http.post<Board>(`${environment.apiURL}/boards`, body, this.headers);
   }
 
   deleteBoard(id: string): Observable<Board[]> {

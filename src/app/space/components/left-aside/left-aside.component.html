@@ -34,5 +34,7 @@
       <span>{{ board.title }}</span>
     </li>
   </ul>
-  <button (click)="stopPropagation($event)" class="space-aside__add-button">+ Add Board</button>
+  <app-dialog (emitText)="addBoard($event)" question="Add new board">
+    <button class="space-aside__add-button">+ Add Board</button>
+  </app-dialog>
 </aside>

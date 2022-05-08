@@ -38,13 +38,15 @@
   }
 
   &__add-button {
-    width: 80px;
+    width: 120px;
     border: 0;
     font-weight: 600;
-    padding: calc(#{$space-aside-button-size}/ 5);
+    padding: calc(#{$space-aside-button-size}/ 5) calc(#{$space-aside-button-size}/ 5)
+      calc(#{$space-aside-button-size}/ 5) 24px;
     text-align: left;
-    color: $border-color;
-    font-size: 0.7rem;
+    color: $link-color;
+    font-size: 14px;
+    line-height: 40px;
     background-color: transparent;
     cursor: pointer;
     transition: 0.5s color;
