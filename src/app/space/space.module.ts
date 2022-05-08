@@ -11,7 +11,6 @@ import { SpaceRoutingModule } from './space-routing.module';
 import { SpaceHeaderComponent } from './components/space-header/space-header.component';
 import { SpaceNavComponent } from './components/space-nav/space-nav.component';
 import { ListComponent } from './components/list/list.component';
-import { ListBarComponent } from './components/list-bar/list-bar.component';
 import { CoreModule } from '../core/core.module';
 import { PhaseComponent } from './components/phase/phase.component';
 
@@ -22,7 +21,6 @@ import { PhaseComponent } from './components/phase/phase.component';
     SpaceHeaderComponent,
     SpaceNavComponent,
     ListComponent,
-    ListBarComponent,
     PhaseComponent,
   ],
   imports: [
