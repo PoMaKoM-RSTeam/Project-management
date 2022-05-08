@@ -47,12 +47,16 @@ export class AuthService {
     this.signUpPassword = value;
   }
 
+  redirectToAuth() {
+    this.router.navigate(['/auth']);
+  }
+
   logoutHandle() {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
       window.localStorage.removeItem('userTokenMid');
       this.authState$$.next(false);
-      this.router.navigate(['/auth']);
+      this.redirectToAuth();
     }
   }
 
