@@ -14,7 +14,7 @@
     & > .space-aside__title {
       max-width: 100%;
       font-size: 1rem;
-      transition: 0.4s all;
+      transition: 0.1s all;
     }
 
     & > .space-aside__add-button {
@@ -34,7 +34,7 @@
     font-size: 0.7rem;
     overflow: hidden;
     color: $second-color;
-    transition: 0.4s font-size, 0.4s max-width;
+    transition: 0.1s font-size, 0.1s max-width;
   }
 
   &__add-button {
@@ -49,10 +49,10 @@
     line-height: 40px;
     background-color: transparent;
     cursor: pointer;
-    transition: 0.5s color;
+    transition: 0.1s color;
 
     &:hover {
-      transition: 0.5s color;
+      transition: 0.1s color;
       color: $second-color;
     }
   }

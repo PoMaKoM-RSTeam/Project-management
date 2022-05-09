@@ -9,5 +9,5 @@
   <div>
     <header-nav [links]="nav_more" [withBorder]="false"></header-nav>
   </div>
-  <auth-button class="header__login-container"></auth-button>
+  <auth-button class="header__login-container" (click)="logoutUser()"></auth-button>
 </header>
