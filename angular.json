@@ -81,6 +81,10 @@
               "browserTarget": "project-management:build:development"
             }
           },
+          "options": {
+            "browserTarget": "project-management:build",
+            "proxyConfig": "./proxy.conf.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

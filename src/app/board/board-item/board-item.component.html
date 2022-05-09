@@ -32,7 +32,14 @@
 <div *ngIf="open">
   <form class="w-100 mb-2">
     <div>Leave a comment</div>
-    <input class="input" type="text" name="comment" [(ngModel)]="commentInput" (mousedown)="$event.stopPropagation()" />
+    <input
+      class="input"
+      type="text"
+      name="comment"
+      id="comment"
+      [(ngModel)]="commentInput"
+      (mousedown)="$event.stopPropagation()"
+    />
     <button
       *ngIf="commentInput"
       class="button button__icon"
