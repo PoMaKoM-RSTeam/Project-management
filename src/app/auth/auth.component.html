@@ -33,8 +33,7 @@
               formControlName="userPassword"
               [class]="{
                 input: true,
-                error: (form.controls['userPassword'].errors?.['required']
-                    || form.controls['userPassword'].errors?.['pattern'])
+                error: form.controls['userPassword'].errors?.['required']
                     && form.controls['userPassword'].touched
               }"
             />
@@ -44,13 +43,6 @@
                 && form.controls['userPassword'].touched"
             >
               Please enter a password
-            </div>
-            <div
-              class="alert alert-danger"
-              *ngIf="form.controls['userPassword'].errors?.['pattern']
-                && form.controls['userPassword'].touched"
-            >
-              Your password isn't strong enough
             </div>
           </label>
           <button class="login-button" nzType="primary" nz-button>Sign in</button>

@@ -4,7 +4,7 @@ export interface Comment {
 }
 
 export interface Card {
-  id: number;
+  id: string;
   text: string;
   like: number;
   comments: Comment[];
@@ -15,11 +15,11 @@ export interface Column {
   order: number;
   title: string;
   color: string;
-  list: Card[];
+  tasks: Card[];
 }
 
 export interface User {
-  id: number;
+  id: string;
   name: string;
   login: string;
   password: string;
@@ -50,6 +50,7 @@ export interface ColumnInBoard {
   id: string;
   title: string;
   order: number;
+  tasks: Task[];
 }
 
 export interface Board {
@@ -70,6 +71,13 @@ export interface Task {
   userId: string;
   boardId: string;
   columnId: string;
+}
+
+export interface TaskPost {
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
 }
 
 export interface IColumnPost {

@@ -26,7 +26,7 @@
   ></button>
   <span>{{ item.like }}</span>
   <button class="button button__icon" nz-icon nzType="comment" nzTheme="outline" (click)="onOpenComment()"></button>
-  <span>{{ item.comments.length }}</span>
+  <span>{{ item.comments?.length }}</span>
 </div>
 
 <div *ngIf="open">

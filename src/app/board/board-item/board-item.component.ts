@@ -13,7 +13,7 @@ export class BoardItemComponent {
 
   @Output() emitCardItem: EventEmitter<IEmitCardItem> = new EventEmitter();
 
-  @Output() emitDeleteCard: EventEmitter<number> = new EventEmitter();
+  @Output() emitDeleteCard: EventEmitter<string> = new EventEmitter();
 
   commentInput = '';
 
@@ -23,7 +23,7 @@ export class BoardItemComponent {
     this.open = !this.open;
   }
 
-  onCommentTextEmit(id: number) {
+  onCommentTextEmit(id: string) {
     this.emitText.emit({ id, text: this.commentInput });
     this.commentInput = '';
   }
@@ -32,7 +32,7 @@ export class BoardItemComponent {
     this.emitCardItem.emit({ card, increase });
   }
 
-  onCardDelete(id: number) {
+  onCardDelete(id: string) {
     this.emitDeleteCard.emit(id);
   }
 }

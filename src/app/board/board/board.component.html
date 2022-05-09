@@ -1,5 +1,5 @@
 <div class="space">
-  <space-left-aside></space-left-aside>
+  <space-left-aside pageName="Board Page"></space-left-aside>
   <div class="space__main">
     <space-header></space-header>
 
@@ -29,9 +29,8 @@
 
           <!-- Color Panel -->
           <app-color-panel (emitColor)="onColorChange($event, column.id)"></app-color-panel>
-
-          <div cdkDropList [cdkDropListData]="column.list" class="example-list" (cdkDropListDropped)="drop($event)">
-            <div cdkDrag class="example-box" [ngStyle]="{ background: column.color }" *ngFor="let item of column.list">
+          <div cdkDropList [cdkDropListData]="column.tasks" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div cdkDrag class="example-box" [ngStyle]="{ background: column.color }" *ngFor="let item of column.tasks">
               <app-board-item
                 [item]="item"
                 (emitText)="onAddComment($event, column.id)"

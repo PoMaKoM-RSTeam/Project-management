@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -11,26 +10,32 @@ import { User } from '../models/column.model';
 export class UsersAPIService {
   constructor(private http: HttpClient) {}
 
-  headers = {
+  headers = (auth_token: string) => ({
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MWUxMGExNC1mN2Q3LTQ0MTYtOGJmOS1hYjVmZmUzZjMyMTIiLCJsb2dpbiI6InVzZXIwMDEiLCJpYXQiOjE2NTE0MjgxMDZ9.ZmSzIt14wNdi_-pxgrn88d9peWn3BJHEK2CkmS3snVQ`,
+      Authorization: `Bearer ${auth_token}`,
     }),
-  };
+  });
 
-  getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${environment.apiURL}/users`, this.headers);
+  headersWithoutJson = (auth_token: string) => ({
+    headers: new HttpHeaders({
+      Authorization: `Bearer ${auth_token}`,
+    }),
+  });
+
+  getAllUsers(auth_token: string): Observable<User[]> {
+    return this.http.get<User[]>(`${environment.apiURL}/users`, this.headers(auth_token));
   }
 
-  getUserByID(userID: string): Observable<User[]> {
-    return this.http.get<User[]>(`${environment.apiURL}/users/${userID}`, this.headers);
+  getUserByID(userID: string, auth_token: string): Observable<User[]> {
+    return this.http.get<User[]>(`${environment.apiURL}/users/${userID}`, this.headers(auth_token));
   }
 
-  deleteUser(userID: string) {
-    return this.http.delete<Task[]>(`${environment.apiURL}/users/${userID}`, this.headers);
+  deleteUser(userID: string, auth_token: string) {
+    return this.http.delete<Task[]>(`${environment.apiURL}/users/${userID}`, this.headersWithoutJson(auth_token));
   }
 
-  updateUser(userID: string, data: User) {
-    return this.http.put<Task[]>(`${environment.apiURL}/users/${userID}`, data, this.headers);
+  updateUser(userID: string, data: User, auth_token: string) {
+    return this.http.put<Task[]>(`${environment.apiURL}/users/${userID}`, data, this.headers(auth_token));
   }
 }

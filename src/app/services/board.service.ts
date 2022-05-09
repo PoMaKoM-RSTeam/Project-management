@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Card, Column, Comment, IColumnPost } from '../models/column.model';
+import { Card, Column, Comment, IColumnPost, TaskPost, User } from '../models/column.model';
 // import { Colors, Board } from '../../constants/enums';
 import { Colors } from '../../constants/enums';
 import { ColumnsAPIService } from './columns-api.service';
+import { TasksAPIService } from './tasks-api.service';
+import { UsersAPIService } from './users-api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BoardService {
-  constructor(private reqToColumnsApi: ColumnsAPIService) {}
+  constructor(
+    private reqToColumnsApi: ColumnsAPIService,
+    private reqToTasksApi: TasksAPIService,
+    private reqToUsersApi: UsersAPIService,
+  ) {}
 
   private initBoard = [
     // {
@@ -40,13 +46,15 @@ export class BoardService {
 
   public titleBoard = 'Loading Board';
 
+  private users: User[] = [];
+
   editTitleHandle(newTitle: string) {
     this.editTitle = newTitle;
-  }
+  } /* done */
 
   changeTitleBoard(newTitle: string) {
     this.titleBoard = newTitle;
-  }
+  } /* done */
 
   getBoard$() {
     return this.board$.asObservable();
@@ -55,7 +63,7 @@ export class BoardService {
   changeBoardColumnsAll(value: any) {
     this.board = [...value];
     this.board$.next([...value]);
-  }
+  } /* done */
 
   changeColumnColor(color: string, columnId: string) {
     this.board = this.board.map((column: Column) => {
@@ -67,7 +75,7 @@ export class BoardService {
       return column;
     });
     this.board$.next([...this.board]);
-  }
+  } /* to-do or done */
 
   createColumn(body: IColumnPost, id: string, tokenId: string, order: number) {
     this.reqToColumnsApi.createColumn(body, id, tokenId).subscribe((response) => {
@@ -75,13 +83,13 @@ export class BoardService {
         id: response.id,
         title: response.title,
         color: Colors.GREEN,
-        list: [],
+        tasks: [],
         order,
       };
       this.board = [...this.board, newColumn];
       this.board$.next([...this.board]);
     });
-  }
+  } /* done */
 
   addColumn(title: string, id: string) {
     const tokenId = window.localStorage.getItem('userTokenMid');
@@ -104,26 +112,70 @@ export class BoardService {
         this.createColumn(body, id, tokenId, 1);
       }
     }
+  } /* done */
+
+  createCard(boardId: string, columnId: string, newCard: TaskPost, tokenId: string) {
+    this.reqToTasksApi.createTask(boardId, columnId, newCard, tokenId).subscribe((response) => {
+      this.board = this.board.map((column: Column) => {
+        const col = column;
+        if (column.id === columnId) {
+          col.tasks = [...column.tasks, { id: response.id, text: response.title, like: 0, comments: [] }];
+          return col;
+        }
+        return column;
+      });
+
+      this.board$.next([...this.board]);
+    });
   }
 
-  addCard(text: string, columnId: string) {
-    const newCard: Card = {
-      id: Date.now(),
-      text,
-      like: 0,
-      comments: [],
-    };
+  addCard(text: string, columnId: string, boardId: string) {
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      const order = window.localStorage.getItem('orderTask');
+      if (order) {
+        const nextOrder = +order + 1;
+        window.localStorage.setItem('orderTask', `${nextOrder}`);
 
-    this.board = this.board.map((column: Column) => {
-      const col = column;
-      if (column.id === columnId) {
-        col.list = [newCard, ...column.list];
-        return col;
+        this.reqToUsersApi.getAllUsers(tokenId).subscribe((users) => {
+          this.users = users;
+
+          const userLogin = window.localStorage.getItem('userLogin');
+          if (userLogin) {
+            const currentUser = this.users.find((user) => user.login === userLogin);
+            if (currentUser) {
+              const newCard: TaskPost = {
+                title: text,
+                order: nextOrder,
+                description: text,
+                userId: currentUser.id,
+              };
+              this.createCard(boardId, columnId, newCard, tokenId);
+            }
+          }
+        });
+      } else {
+        window.localStorage.setItem('orderTask', '1');
+
+        this.reqToUsersApi.getAllUsers(tokenId).subscribe((users) => {
+          this.users = users;
+
+          const userLogin = window.localStorage.getItem('userLogin');
+          if (userLogin) {
+            const currentUser = this.users.find((user) => user.login === userLogin);
+            if (currentUser) {
+              const newCard: TaskPost = {
+                title: text,
+                order: 1,
+                description: text,
+                userId: currentUser.id,
+              };
+              this.createCard(boardId, columnId, newCard, tokenId);
+            }
+          }
+        });
       }
-      return column;
-    });
-
-    this.board$.next([...this.board]);
+    }
   }
 
   deleteColumn(columnId: string, boardId: string) {
@@ -136,26 +188,26 @@ export class BoardService {
         }
       });
     }
-  }
+  } /* done */
 
-  deleteCard(cardId: number, columnId: string) {
+  deleteCard(cardId: string, columnId: string) {
     this.board = this.board.map((column: Column) => {
       const col = column;
       if (column.id === columnId) {
-        col.list = column.list.filter((card: Card) => card.id !== cardId);
+        col.tasks = column.tasks.filter((card: Card) => card.id !== cardId);
         return col;
       }
       return column;
     });
 
     this.board$.next([...this.board]);
-  }
+  } /* to-do */
 
-  changeLike(cardId: number, columnId: string, increase: boolean) {
+  changeLike(cardId: string, columnId: string, increase: boolean) {
     this.board = this.board.map((column: Column) => {
       if (column.id === columnId) {
         const col = column;
-        col.list = column.list.map((card: Card) => {
+        col.tasks = column.tasks.map((card: Card) => {
           const item = card;
           if (card.id === cardId) {
             if (increase) {
@@ -175,13 +227,13 @@ export class BoardService {
     });
 
     this.board$.next([...this.board]);
-  }
+  } /* to-do */
 
-  addComment(columnId: string, cardId: number, text: string) {
+  addComment(columnId: string, cardId: string, text: string) {
     this.board = this.board.map((column: Column) => {
       if (column.id === columnId) {
         const col = column;
-        col.list = column.list.map((card: Card) => {
+        col.tasks = column.tasks.map((card: Card) => {
           const item = card;
           if (card.id === cardId) {
             const newComment = {
@@ -199,13 +251,13 @@ export class BoardService {
     });
 
     this.board$.next([...this.board]);
-  }
+  } /* to-do */
 
-  deleteComment(columnId: string, itemId: number, commentId: number) {
+  deleteComment(columnId: string, itemId: string, commentId: number) {
     this.board = this.board.map((column: Column) => {
       if (column.id === columnId) {
         const col = column;
-        col.list = column.list.map((card: Card) => {
+        col.tasks = column.tasks.map((card: Card) => {
           if (card.id === itemId) {
             const item = card;
             item.comments = card.comments.filter((comment: Comment) => {
@@ -220,7 +272,7 @@ export class BoardService {
       return column;
     });
     this.board$.next([...this.board]);
-  }
+  } /* to-do */
 
   editColumn(title: string, boardId: string, column: Column) {
     const tokenId = window.localStorage.getItem('userTokenMid');
@@ -237,5 +289,5 @@ export class BoardService {
         }
       });
     }
-  }
+  } /* done */
 }

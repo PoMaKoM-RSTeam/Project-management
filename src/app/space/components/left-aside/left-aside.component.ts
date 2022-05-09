@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgIcon } from '../../../../constants/enums';
+import { Colors, NgIcon } from '../../../../constants/enums';
 import { BoardsAPIService } from '../../../services/boards-api.service';
 import { Board } from '../../../models/column.model';
 import { BoardService } from '../../../services/board.service';
@@ -84,7 +84,9 @@ export class LeftAsideComponent implements OnInit {
     this.reqToBoardsApi.getBoardByID(id).subscribe((data) => {
       console.log(1, data);
       this.boardService.changeTitleBoard(data.title);
-      this.boardService.changeBoardColumnsAll(data.columns);
+      this.boardService.changeBoardColumnsAll(
+        data.columns.sort((a, b) => (a.order > b.order ? 1 : -1)).map((item) => ({ ...item, color: Colors.GREEN })),
+      );
     });
   }
 }

@@ -15,10 +15,7 @@ export class AuthComponent {
   constructor(public authService: AuthService) {
     this.form = new FormGroup({
       userEmail: new FormControl('', [Validators.required]),
-      userPassword: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
-      ]),
+      userPassword: new FormControl('', [Validators.required]),
     });
 
     this.formSignUp = new FormGroup({
