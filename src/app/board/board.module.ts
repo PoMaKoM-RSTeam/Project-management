@@ -14,6 +14,7 @@ import { DialogModule } from '../dialog/dialog.module';
 import { ColorPanelComponent } from './color-panel/color-panel.component';
 import { HeaderComponent } from './header/header.component';
 import { SpaceModule } from '../space/space.module';
+import { ConfirmModule } from '../confirm/confirm.module';
 
 @NgModule({
   declarations: [BoardComponent, BoardItemComponent, CommentItemComponent, ColorPanelComponent, HeaderComponent],
@@ -25,6 +26,7 @@ import { SpaceModule } from '../space/space.module';
     NzIconModule,
     SpaceModule,
     NzButtonModule,
+    ConfirmModule,
     // BoardRoutingModule,
   ],
   exports: [BoardComponent],

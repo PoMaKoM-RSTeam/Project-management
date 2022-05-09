@@ -21,7 +21,7 @@ export class BoardComponent implements OnInit {
     this.reqToBoardsApi.getBoardByID(this.route.snapshot.params['id']).subscribe((data) => {
       console.log(2, data);
       this.boardService.changeTitleBoard(data.title);
-      this.boardService.changeBoardColumnsAll(data.columns);
+      this.boardService.changeBoardColumnsAll(data.columns.sort((a, b) => (a.order > b.order ? 1 : -1)));
     });
   }
 
@@ -35,8 +35,10 @@ export class BoardComponent implements OnInit {
     }
   }
 
-  onDeleteColumn(columnId: string) {
-    this.boardService.deleteColumn(columnId);
+  onDeleteColumn(isConfirm: boolean, columnId: string) {
+    if (isConfirm) {
+      this.boardService.deleteColumn(columnId, this.route.snapshot.params['id']);
+    }
   }
 
   onDeleteCard(cardId: number, columnId: string) {

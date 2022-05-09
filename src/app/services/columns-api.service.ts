@@ -10,14 +10,18 @@ import { Column, IColumnPost } from '../models/column.model';
 export class ColumnsAPIService {
   constructor(private http: HttpClient) {}
 
-  headers = (auth_token: string) => {
-    return {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${auth_token}`,
-      }),
-    };
-  };
+  headers = (auth_token: string) => ({
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${auth_token}`,
+    }),
+  });
+
+  headersWithoutJson = (auth_token: string) => ({
+    headers: new HttpHeaders({
+      Authorization: `Bearer ${auth_token}`,
+    }),
+  });
 
   getAllColumns(boardId: string, auth_token: string): Observable<Column[]> {
     return this.http.get<Column[]>(`${environment.apiURL}/boards/${boardId}/columns`, this.headers(auth_token));
@@ -34,10 +38,10 @@ export class ColumnsAPIService {
     );
   }
 
-  deleteColumn(boardId: string, columnId: string, auth_token: string): Observable<Column[]> {
-    return this.http.delete<Column[]>(
+  deleteColumn(boardId: string, columnId: string, auth_token: string): Observable<null> {
+    return this.http.delete<null>(
       `${environment.apiURL}/boards/${boardId}/columns/${columnId}`,
-      this.headers(auth_token),
+      this.headersWithoutJson(auth_token),
     );
   }
 

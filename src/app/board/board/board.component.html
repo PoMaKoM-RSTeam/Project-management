@@ -10,13 +10,13 @@
           <!-- Column Title -->
           <div class="board-title column-header">
             <h2>{{ column.title }}</h2>
-            <button
-              class="button button__icon"
-              nz-icon
-              nzType="delete"
-              nzTheme="outline"
-              (click)="onDeleteColumn(column.id)"
-            ></button>
+            <app-confirm
+              [question]="'Are you sure you want to delete \'' + column.title + '\'?'"
+              (click)="$event.stopPropagation()"
+              (emitConfirm)="onDeleteColumn($event, column.id)"
+            >
+              <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+            </app-confirm>
           </div>
 
           <!-- Add New Card To Column -->

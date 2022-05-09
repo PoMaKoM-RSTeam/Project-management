@@ -45,10 +45,16 @@ export interface ISignUpResponse {
   login: string;
 }
 
+export interface ColumnInBoard {
+  id: string;
+  title: string;
+  order: number;
+}
+
 export interface Board {
   id: string;
   title: string;
-  columns: [];
+  columns: ColumnInBoard[];
 }
 
 export interface BoardEdit {

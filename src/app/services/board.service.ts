@@ -65,8 +65,6 @@ export class BoardService {
 
   createColumn(body: IColumnPost, id: string, tokenId: string) {
     this.reqToColumnsApi.createColumn(body, id, tokenId).subscribe((response) => {
-      console.log('res', response);
-
       const newColumn: Column = {
         id: response.id,
         title: response.title,
@@ -121,11 +119,16 @@ export class BoardService {
     this.board$.next([...this.board]);
   }
 
-  deleteColumn(columnId: string) {
-    console.log('this.board', this.board);
-    console.log('columnId', columnId);
-    this.board = this.board.filter((column: Column) => column.id !== columnId);
-    this.board$.next([...this.board]);
+  deleteColumn(columnId: string, boardId: string) {
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      this.reqToColumnsApi.deleteColumn(boardId, columnId, tokenId).subscribe((response) => {
+        if (response === null) {
+          this.board = this.board.filter((column: Column) => column.id !== columnId);
+          this.board$.next([...this.board]);
+        }
+      });
+    }
   }
 
   deleteCard(cardId: number, columnId: string) {
