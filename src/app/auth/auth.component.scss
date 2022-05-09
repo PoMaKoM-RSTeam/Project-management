@@ -1,0 +1,57 @@
+@import '../../styles/variables';
+
+.login-tabs {
+  width: 100%;
+}
+
+.login-page {
+  padding: 50px 10px;
+  display: flex;
+  justify-content: center;
+
+  .login-wrapper {
+    padding: 20px;
+    width: 265px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+
+    border: 1px solid $border-color;
+    background-color: $main-color;
+    border-radius: 6px;
+
+    h3 {
+      color: $first-color;
+      margin: 0;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .label {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14px;
+      color: $error-color;
+
+      input {
+        color: $first-color;
+
+        &.error {
+          border: 1px solid $error-color;
+          background-color: $fourth-color;
+        }
+      }
+    }
+  }
+}

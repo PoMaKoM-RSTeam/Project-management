@@ -24,6 +24,27 @@ export interface User {
   password: string;
 }
 
+export interface ILogin {
+  login: string;
+  password: string;
+}
+
+export interface ISignUp {
+  name: string;
+  login: string;
+  password: string;
+}
+
+export interface ISignInResponse {
+  token: string;
+}
+
+export interface ISignUpResponse {
+  id: string;
+  name: string;
+  login: string;
+}
+
 export interface Board {
   id: number;
   title: string;
