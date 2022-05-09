@@ -5,6 +5,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { SpaceComponent } from './pages/space/space.component';
 import { LeftAsideComponent } from './components/left-aside/left-aside.component';
@@ -30,6 +32,7 @@ import { ConfirmModule } from '../confirm/confirm.module';
     CommonModule,
     SpaceRoutingModule,
     NzMenuModule,
+    NzTableModule,
     NzIconModule,
     NzToolTipModule,
     NzCollapseModule,
@@ -37,6 +40,7 @@ import { ConfirmModule } from '../confirm/confirm.module';
     CoreModule,
     DialogModule,
     ConfirmModule,
+    DragDropModule,
   ],
   exports: [SpaceComponent, SpaceHeaderComponent, LeftAsideComponent],
 })

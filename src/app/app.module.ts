@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { BoardModule } from './board/board.module';
 import { DialogModule } from './dialog/dialog.module';
 
 import { ErrorIntercept } from './services/error.interceptor';
+import { DemoMaterialModule } from './material-modules';
 
 registerLocaleData(en);
 
@@ -24,14 +26,18 @@ registerLocaleData(en);
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     CoreModule,
     SpaceModule,
     BoardModule,
     DialogModule,
+    DragDropModule,
+    DemoMaterialModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

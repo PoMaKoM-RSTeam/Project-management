@@ -46,7 +46,7 @@ export interface ISignUpResponse {
 }
 
 export interface Board {
-  id: number;
+  id: string;
   title: string;
   columns: [];
 }

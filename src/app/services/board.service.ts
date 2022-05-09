@@ -12,6 +12,7 @@ export class BoardService {
       id: 1,
       title: Board.TITLE,
       color: Colors.GREEN,
+      order: 1,
       list: [
         {
           id: 1,

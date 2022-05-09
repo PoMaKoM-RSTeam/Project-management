@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { BoardService } from 'src/app/services/board.service';
-import { Card } from 'src/app/models/column.model';
+import { Card, Column } from 'src/app/models/column.model';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
 })
-export class BoardComponent {
+export class BoardComponent implements OnInit {
   constructor(public boardService: BoardService) {}
+
+  boardData: Column[] = [];
+
+  ngOnInit() {
+    this.boardService.getBoard$().subscribe((response) => {
+      this.boardData = response;
+    });
+  }
 
   onColorChange(color: string, columnId: number) {
     this.boardService.changeColumnColor(color, columnId);
@@ -51,5 +59,10 @@ export class BoardComponent {
     } else {
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
     }
+  }
+
+  dropColumns(event: CdkDragDrop<Column[]>) {
+    console.log(event.previousIndex, event.currentIndex);
+    moveItemInArray(this.boardData, event.previousIndex, event.currentIndex);
   }
 }

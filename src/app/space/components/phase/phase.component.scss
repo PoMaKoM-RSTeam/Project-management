@@ -4,3 +4,11 @@
   border: $header-border;
   margin: $phase-margin 0;
 }
+
+::ng-deep .cdk-drag-preview {
+  display: table;
+}
+
+::ng-deep .cdk-drag-placeholder {
+  opacity: 0;
+}
