@@ -10,10 +10,18 @@ import { AuthModule } from '../auth/auth.module';
 import { NavComponent } from './components/nav/nav.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-filter.component';
+import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, NavComponent, NotFoundComponent, DropdownFilterComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    NavComponent,
+    NotFoundComponent,
+    DropdownFilterComponent,
+    WelcomePageComponent,
+  ],
   imports: [CommonModule, AuthModule, NzIconModule, NzDropDownModule, RouterModule],
-  exports: [HeaderComponent, FooterComponent, DropdownFilterComponent],
+  exports: [HeaderComponent, FooterComponent, DropdownFilterComponent, WelcomePageComponent],
 })
 export class CoreModule {}
