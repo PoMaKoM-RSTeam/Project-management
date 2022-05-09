@@ -3,7 +3,7 @@
   <div class="space__main">
     <space-header></space-header>
 
-    <board-header></board-header>
+    <board-header [title]="boardService.titleBoard"></board-header>
     <div class="container-fluid">
       <div cdkDropListGroup class="board">
         <div class="board-card" *ngFor="let column of boardService.getBoard$() | async">

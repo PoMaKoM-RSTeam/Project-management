@@ -29,15 +29,16 @@
   </div>
 
   <ul (click)="stopPropagation($event)" nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-    <li *ngFor="let board of boards" nz-menu-item>
+    <li *ngFor="let board of boards" nz-menu-item (click)="redirectToBoard(board.id)">
       <i nz-icon [nzType]="iconBoard"></i>
       <span>{{ board.title }}</span>
       <span class="bar_right">
-        <app-dialog (emitText)="editBoard($event, board.id)" question="Edit board">
+        <app-dialog question="Edit board" (click)="$event.stopPropagation()" (emitText)="editBoard($event, board.id)">
           <button class="button button__icon" nz-icon nzType="edit" nzTheme="outline"></button>
         </app-dialog>
         <app-confirm
           [question]="'Are you sure you want to delete \'' + board.title + '\'?'"
+          (click)="$event.stopPropagation()"
           (emitConfirm)="removeBoard($event, board.id)"
         >
           <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>

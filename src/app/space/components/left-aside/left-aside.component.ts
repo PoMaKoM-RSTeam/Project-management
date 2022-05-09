@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgIcon } from '../../../../constants/enums';
-import { BoardsAPIService } from '../../../../services/boards-api.service';
-import { Board } from '../../../../models/column.model';
+import { BoardsAPIService } from '../../../services/boards-api.service';
+import { Board } from '../../../models/column.model';
+import { BoardService } from '../../../services/board.service';
 
 @Component({
   selector: 'space-left-aside',
@@ -9,11 +11,16 @@ import { Board } from '../../../../models/column.model';
   styleUrls: ['./left-aside.component.scss'],
 })
 export class LeftAsideComponent implements OnInit {
-  constructor(private boardsAPIService: BoardsAPIService) {}
+  constructor(
+    private boardsAPIService: BoardsAPIService,
+    private router: Router,
+    private reqToBoardsApi: BoardsAPIService,
+    public boardService: BoardService,
+  ) {}
 
   @Input() pageName: string = 'Page Name';
 
-  @Input() title: string = 'Title';
+  @Input() title: string = 'All Boards';
 
   iconBoard = NgIcon.BOARD;
 
@@ -54,6 +61,7 @@ export class LeftAsideComponent implements OnInit {
   }
 
   editBoard(title: string, id: string) {
+    console.log('$event', title);
     this.boardsAPIService.updateBoard(id, { title }).subscribe((response) => {
       const index = this.boards.findIndex((board) => board.id === id);
       this.boards[index] = response;
@@ -68,5 +76,15 @@ export class LeftAsideComponent implements OnInit {
         }
       });
     }
+  }
+
+  redirectToBoard(id: string) {
+    this.router.navigate([`/board/${id}`]);
+
+    this.reqToBoardsApi.getBoardByID(id).subscribe((data) => {
+      console.log(1, data);
+      this.boardService.changeTitleBoard(data.title);
+      this.boardService.changeBoardColumnsAll(data.columns);
+    });
   }
 }

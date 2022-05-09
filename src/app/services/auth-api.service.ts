@@ -26,8 +26,8 @@ export class AuthAPIService {
         this.message.create(Message.SUCCESS, `Welcome, ${user.login}!`);
         return data;
       }),
-      catchError((err) => {
-        this.message.create(Message.ERROR, err?.error?.message);
+      catchError((error) => {
+        this.message.create(Message.ERROR, error);
         return of(false);
       }),
     );
@@ -37,8 +37,8 @@ export class AuthAPIService {
     const body = { name: user.name, login: user.login, password: user.password };
     return this.http.post<ISignUpResponse>(`${environment.apiURL}/signup`, body, this.headers).pipe(
       map((data) => data),
-      catchError((err) => {
-        this.message.create(Message.ERROR, err?.error?.message);
+      catchError((error) => {
+        this.message.create(Message.ERROR, error);
         return of(false);
       }),
     );

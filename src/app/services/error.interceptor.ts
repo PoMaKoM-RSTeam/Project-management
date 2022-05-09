@@ -8,14 +8,14 @@ export class ErrorIntercept implements HttpInterceptor {
       retry(1),
       catchError((error: HttpErrorResponse) => {
         let errorMessage = '';
-        if (error.error instanceof ErrorEvent) {
-          // client-side error
-          errorMessage = `Error: ${error.error.message}`;
-        } else {
-          // server-side error
-          errorMessage = `Error Status: ${error.status}\nMessage: ${error.message}`;
-        }
-        console.error(errorMessage);
+        // if (error.error instanceof ErrorEvent) {
+        // client-side error
+        errorMessage = `Error: ${error.error.message}`;
+        // } else {
+        //   // server-side error
+        //   errorMessage = `Error Status: ${error.status}\nMessage: ${error.message}`;
+        // }
+        // console.error(errorMessage);
         return throwError(() => errorMessage);
       }),
     );

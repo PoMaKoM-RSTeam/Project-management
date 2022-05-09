@@ -4,8 +4,9 @@ import { SpaceComponent } from './pages/space/space.component';
 import { BoardComponent } from '../board/board/board.component';
 
 const routes: Routes = [
-  { path: '', component: SpaceComponent },
-  { path: 'board', component: BoardComponent },
+  { path: '', component: SpaceComponent }, // заменить компонент на homePage
+  { path: 'list', component: SpaceComponent }, // заменить строки на enum
+  { path: 'board/:id', component: BoardComponent },
 ];
 
 @NgModule({

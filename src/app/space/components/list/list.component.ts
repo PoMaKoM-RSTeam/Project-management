@@ -18,9 +18,9 @@ export class ListComponent implements OnInit {
       console.log(data);
     });
 
-    this.reqToBoardsApi.getBoardByID('8a63303a-d041-4b98-8f96-7f7de9cbea8d').subscribe((data) => {
-      console.log(data);
-    });
+    // this.reqToBoardsApi.getBoardByID('8a63303a-d041-4b98-8f96-7f7de9cbea8d').subscribe((data) => {
+    //   console.log(data);
+    // });
 
     this.reqToBoardsApi.getAllBoards().subscribe((data) => console.log(data));
   }

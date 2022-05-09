@@ -1,42 +1,57 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Card, Column, Comment } from '../models/column.model';
-import { Colors, Board } from '../../constants/enums';
+import { Card, Column, Comment, IColumnPost } from '../models/column.model';
+// import { Colors, Board } from '../../constants/enums';
+import { Colors } from '../../constants/enums';
+import { ColumnsAPIService } from './columns-api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BoardService {
+  constructor(private reqToColumnsApi: ColumnsAPIService) {}
+
   private initBoard = [
-    {
-      id: 1,
-      title: Board.TITLE,
-      color: Colors.GREEN,
-      list: [
-        {
-          id: 1,
-          text: Board.TEXT,
-          like: 1,
-          comments: [
-            {
-              id: 1,
-              text: Board.COMMENT,
-            },
-          ],
-        },
-      ],
-    },
+    // {
+    //   id: 1,
+    //   title: Board.TITLE,
+    //   color: Colors.GREEN,
+    //   list: [
+    //     {
+    //       id: 1,
+    //       text: Board.TEXT,
+    //       like: 1,
+    //       comments: [
+    //         {
+    //           id: 1,
+    //           text: Board.COMMENT,
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
   ];
 
   private board: Column[] = this.initBoard;
 
   private board$ = new BehaviorSubject<Column[]>(this.initBoard);
 
+  public titleBoard = 'Loading Board';
+
+  changeTitleBoard(newTitle: string) {
+    this.titleBoard = newTitle;
+  }
+
   getBoard$() {
     return this.board$.asObservable();
   }
 
-  changeColumnColor(color: string, columnId: number) {
+  changeBoardColumnsAll(value: any) {
+    this.board = [...value];
+    this.board$.next([...value]);
+  }
+
+  changeColumnColor(color: string, columnId: string) {
     this.board = this.board.map((column: Column) => {
       const col = column;
       if (column.id === columnId) {
@@ -48,19 +63,45 @@ export class BoardService {
     this.board$.next([...this.board]);
   }
 
-  addColumn(title: string) {
-    const newColumn: Column = {
-      id: Date.now(),
-      title,
-      color: Colors.GREEN,
-      list: [],
-    };
+  createColumn(body: IColumnPost, id: string, tokenId: string) {
+    this.reqToColumnsApi.createColumn(body, id, tokenId).subscribe((response) => {
+      console.log('res', response);
 
-    this.board = [...this.board, newColumn];
-    this.board$.next([...this.board]);
+      const newColumn: Column = {
+        id: response.id,
+        title: response.title,
+        color: Colors.GREEN,
+        list: [],
+      };
+      this.board = [...this.board, newColumn];
+      this.board$.next([...this.board]);
+    });
   }
 
-  addCard(text: string, columnId: number) {
+  addColumn(title: string, id: string) {
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      const order = window.localStorage.getItem('orderColumn');
+      if (order) {
+        const nextOrder = +order + 1;
+        const body = {
+          title,
+          order: nextOrder,
+        };
+        window.localStorage.setItem('orderColumn', `${nextOrder}`);
+        this.createColumn(body, id, tokenId);
+      } else {
+        window.localStorage.setItem('orderColumn', '1');
+        const body = {
+          title,
+          order: 1,
+        };
+        this.createColumn(body, id, tokenId);
+      }
+    }
+  }
+
+  addCard(text: string, columnId: string) {
     const newCard: Card = {
       id: Date.now(),
       text,
@@ -80,12 +121,14 @@ export class BoardService {
     this.board$.next([...this.board]);
   }
 
-  deleteColumn(columnId: number) {
+  deleteColumn(columnId: string) {
+    console.log('this.board', this.board);
+    console.log('columnId', columnId);
     this.board = this.board.filter((column: Column) => column.id !== columnId);
     this.board$.next([...this.board]);
   }
 
-  deleteCard(cardId: number, columnId: number) {
+  deleteCard(cardId: number, columnId: string) {
     this.board = this.board.map((column: Column) => {
       const col = column;
       if (column.id === columnId) {
@@ -98,7 +141,7 @@ export class BoardService {
     this.board$.next([...this.board]);
   }
 
-  changeLike(cardId: number, columnId: number, increase: boolean) {
+  changeLike(cardId: number, columnId: string, increase: boolean) {
     this.board = this.board.map((column: Column) => {
       if (column.id === columnId) {
         const col = column;
@@ -124,7 +167,7 @@ export class BoardService {
     this.board$.next([...this.board]);
   }
 
-  addComment(columnId: number, cardId: number, text: string) {
+  addComment(columnId: string, cardId: number, text: string) {
     this.board = this.board.map((column: Column) => {
       if (column.id === columnId) {
         const col = column;
@@ -148,7 +191,7 @@ export class BoardService {
     this.board$.next([...this.board]);
   }
 
-  deleteComment(columnId: number, itemId: number, commentId: number) {
+  deleteComment(columnId: string, itemId: number, commentId: number) {
     this.board = this.board.map((column: Column) => {
       if (column.id === columnId) {
         const col = column;

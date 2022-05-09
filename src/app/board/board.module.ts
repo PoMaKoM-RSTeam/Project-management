@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+// import { BoardRoutingModule } from './board-routing.module';
 import { BoardComponent } from './board/board.component';
 import { BoardItemComponent } from './board-item/board-item.component';
 import { CommentItemComponent } from './comment-item/comment-item.component';
@@ -16,7 +17,16 @@ import { SpaceModule } from '../space/space.module';
 
 @NgModule({
   declarations: [BoardComponent, BoardItemComponent, CommentItemComponent, ColorPanelComponent, HeaderComponent],
-  imports: [CommonModule, DragDropModule, FormsModule, DialogModule, NzIconModule, SpaceModule, NzButtonModule],
+  imports: [
+    CommonModule,
+    DragDropModule,
+    FormsModule,
+    DialogModule,
+    NzIconModule,
+    SpaceModule,
+    NzButtonModule,
+    // BoardRoutingModule,
+  ],
   exports: [BoardComponent],
 })
 export class BoardModule {}

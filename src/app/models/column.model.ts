@@ -11,7 +11,7 @@ export interface Card {
 }
 
 export interface Column {
-  id: number;
+  id: string;
   title: string;
   color: string;
   list: Card[];
@@ -46,9 +46,13 @@ export interface ISignUpResponse {
 }
 
 export interface Board {
-  id: number;
+  id: string;
   title: string;
   columns: [];
+}
+
+export interface BoardEdit {
+  title: string;
 }
 
 export interface Task {
@@ -59,4 +63,9 @@ export interface Task {
   userId: string;
   boardId: string;
   columnId: string;
+}
+
+export interface IColumnPost {
+  title: string;
+  order: number;
 }
