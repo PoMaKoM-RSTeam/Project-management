@@ -9,7 +9,9 @@ export enum Colors {
 
 export enum PathUrl {
   HOME = '',
+  LIST = 'list',
   BOARD = 'board',
+  SEARCH = 'search',
 }
 
 export enum PathTitle {
@@ -17,9 +19,15 @@ export enum PathTitle {
   BOARD = 'Board',
 }
 
-export enum LinkIcon {
+export enum NgIcon {
+  HOME = 'home',
   LIST = 'unordered-list',
-  BOARD = 'fund',
+  BOARD = 'project',
+  SEARCH = 'eye',
+  ABOUT = 'question',
+  SETTINGS = 'more',
+  EDIT = 'edit',
+  DELETE = 'delete',
 }
 
 export enum Width {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { INavLinks } from '../core/interfaces/nav-links.interface';
-import { PathTitle, PathUrl, LinkIcon } from '../../constants/enums';
+import { PathTitle, PathUrl, NgIcon } from '../../constants/enums';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +10,12 @@ export class SpaceHeaderService {
     links: [
       {
         url: PathUrl.HOME,
-        icon: LinkIcon.LIST,
+        icon: NgIcon.LIST,
         title: PathTitle.LIST,
       },
       {
         url: PathUrl.BOARD,
-        icon: LinkIcon.BOARD,
+        icon: NgIcon.BOARD,
         title: PathTitle.BOARD,
       },
     ],

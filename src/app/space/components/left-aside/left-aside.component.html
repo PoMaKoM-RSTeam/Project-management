@@ -29,29 +29,23 @@
   </div>
 
   <ul (click)="stopPropagation($event)" nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-    <li nz-menu-item nz-tooltip [nzTooltipTitle]="isCollapsed ? 'Navigation One' : ''" nzSelected>
-      <i nz-icon nzType="mail"></i>
-      <span>Navigation One</span>
-    </li>
-    <li nz-submenu nzTitle="Navigation Two" nzIcon="appstore">
-      <ul>
-        <li nz-menu-item>Option 5</li>
-        <li nz-menu-item>Option 6</li>
-        <li nz-submenu nzTitle="Submenu">
-          <ul>
-            <li nz-menu-item>Option 7</li>
-            <li nz-menu-item>Option 8</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li nz-submenu nzTitle="Navigation Three" nzIcon="setting">
-      <ul>
-        <li nz-menu-item>Option 9</li>
-        <li nz-menu-item>Option 10</li>
-        <li nz-menu-item>Option 11</li>
-      </ul>
+    <li *ngFor="let board of boards" nz-menu-item>
+      <i nz-icon [nzType]="iconBoard"></i>
+      <span>{{ board.title }}</span>
+      <span class="bar_right">
+        <app-dialog (emitText)="editBoard($event, board.id)" question="Edit board">
+          <button class="button button__icon" nz-icon nzType="edit" nzTheme="outline"></button>
+        </app-dialog>
+        <app-confirm
+          [question]="'Are you sure you want to delete \'' + board.title + '\'?'"
+          (emitConfirm)="removeBoard($event, board.id)"
+        >
+          <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+        </app-confirm>
+      </span>
     </li>
   </ul>
-  <button (click)="stopPropagation($event)" class="space-aside__add-button">+ Add Space</button>
+  <app-dialog (emitText)="addBoard($event)" question="Add new board">
+    <button class="space-aside__add-button">+ Add Board</button>
+  </app-dialog>
 </aside>

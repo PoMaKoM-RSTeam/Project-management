@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: $main-color;
+  border-top: 1px solid $border-color;
 
   &__text {
     margin: 0;
@@ -22,8 +23,23 @@
     max-height: 100%;
   }
 
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
   &__link {
-    color: $second-color;
-    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    color: $second-color !important;
+
+    &:hover {
+      color: $link-color !important;
+    }
   }
 }

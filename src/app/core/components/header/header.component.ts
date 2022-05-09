@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { INavLink } from '../../interfaces/nav-link.interface';
+import { NgIcon, PathUrl } from '../../../../constants/enums';
 import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
@@ -11,16 +12,15 @@ export class HeaderComponent {
   constructor(private authService: AuthService) {}
 
   public nav_links: INavLink[] = [
-    { url: '', icon: 'home' },
-    { url: 'space', icon: 'check-square' },
-    { url: 'notification', icon: 'bell' },
+    { url: PathUrl.HOME, icon: NgIcon.HOME },
+    { url: PathUrl.LIST, icon: NgIcon.LIST },
+    { url: PathUrl.BOARD, icon: NgIcon.BOARD },
+    { url: PathUrl.SEARCH, icon: NgIcon.SEARCH },
   ];
 
   public nav_more: INavLink[] = [
-    { url: '', icon: 'file-text' },
-    { url: '', icon: 'question' },
-    { url: '', icon: 'trophy' },
-    { url: '', icon: 'more' },
+    { url: PathUrl.HOME, icon: NgIcon.ABOUT },
+    { url: PathUrl.HOME, icon: NgIcon.SETTINGS },
   ];
 
   logoutUser() {
