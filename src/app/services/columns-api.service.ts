@@ -45,8 +45,8 @@ export class ColumnsAPIService {
     );
   }
 
-  updateColumn(boardId: string, columnId: string, data: Column[], auth_token: string): Observable<Column[]> {
-    return this.http.put<Column[]>(
+  updateColumn(boardId: string, columnId: string, data: IColumnPost, auth_token: string): Observable<Column> {
+    return this.http.put<Column>(
       `${environment.apiURL}/boards/${boardId}/columns/${columnId}`,
       data,
       this.headers(auth_token),

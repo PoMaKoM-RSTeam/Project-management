@@ -9,7 +9,7 @@
         <div class="board-card" *ngFor="let column of boardService.getBoard$() | async">
           <!-- Column Title -->
           <div class="board-title column-header">
-            <h2>{{ column.title }}</h2>
+            <app-edit-column-title [column]="column"></app-edit-column-title>
             <app-confirm
               [question]="'Are you sure you want to delete \'' + column.title + '\'?'"
               (click)="$event.stopPropagation()"

@@ -32,11 +32,17 @@ export class BoardService {
     // },
   ];
 
+  public editTitle = '';
+
   private board: Column[] = this.initBoard;
 
   private board$ = new BehaviorSubject<Column[]>(this.initBoard);
 
   public titleBoard = 'Loading Board';
+
+  editTitleHandle(newTitle: string) {
+    this.editTitle = newTitle;
+  }
 
   changeTitleBoard(newTitle: string) {
     this.titleBoard = newTitle;
@@ -63,13 +69,14 @@ export class BoardService {
     this.board$.next([...this.board]);
   }
 
-  createColumn(body: IColumnPost, id: string, tokenId: string) {
+  createColumn(body: IColumnPost, id: string, tokenId: string, order: number) {
     this.reqToColumnsApi.createColumn(body, id, tokenId).subscribe((response) => {
       const newColumn: Column = {
         id: response.id,
         title: response.title,
         color: Colors.GREEN,
         list: [],
+        order,
       };
       this.board = [...this.board, newColumn];
       this.board$.next([...this.board]);
@@ -87,14 +94,14 @@ export class BoardService {
           order: nextOrder,
         };
         window.localStorage.setItem('orderColumn', `${nextOrder}`);
-        this.createColumn(body, id, tokenId);
+        this.createColumn(body, id, tokenId, nextOrder);
       } else {
         window.localStorage.setItem('orderColumn', '1');
         const body = {
           title,
           order: 1,
         };
-        this.createColumn(body, id, tokenId);
+        this.createColumn(body, id, tokenId, 1);
       }
     }
   }
@@ -213,5 +220,22 @@ export class BoardService {
       return column;
     });
     this.board$.next([...this.board]);
+  }
+
+  editColumn(title: string, boardId: string, column: Column) {
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      const body = {
+        title,
+        order: column.order,
+      };
+      this.reqToColumnsApi.updateColumn(boardId, column.id, body, tokenId).subscribe((response) => {
+        if (response) {
+          const index = this.board.findIndex((item) => item.id === response.id);
+          this.board[index] = response;
+          this.board$.next([...this.board]);
+        }
+      });
+    }
   }
 }
