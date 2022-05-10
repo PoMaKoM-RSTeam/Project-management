@@ -8,6 +8,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { SpaceComponent } from './pages/space/space.component';
 import { LeftAsideComponent } from './components/left-aside/left-aside.component';
 import { SpaceRoutingModule } from './space-routing.module';
@@ -41,6 +42,7 @@ import { ConfirmModule } from '../confirm/confirm.module';
     DialogModule,
     ConfirmModule,
     DragDropModule,
+    ReactiveFormsModule,
   ],
   exports: [SpaceComponent, SpaceHeaderComponent, LeftAsideComponent],
 })

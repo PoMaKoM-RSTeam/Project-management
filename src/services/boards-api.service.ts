@@ -28,8 +28,8 @@ export class BoardsAPIService {
     return this.http.get<Board[]>(`${environment.apiURL}/boards`, this.headers);
   }
 
-  getBoardByID(id: string): Observable<Board[]> {
-    return this.http.get<Board[]>(`${environment.apiURL}/boards/${id}`, this.headers);
+  getBoardByID(id: string): Observable<Board> {
+    return this.http.get<Board>(`${environment.apiURL}/boards/${id}`, this.headers);
   }
 
   createBoard(title: string): Observable<Board> {
