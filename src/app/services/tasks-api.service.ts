@@ -45,8 +45,8 @@ export class TasksAPIService {
     );
   }
 
-  deleteTask(boardId: string, columnId: string, taskId: string, auth_token: string): Observable<Task[]> {
-    return this.http.delete<Task[]>(
+  deleteTask(boardId: string, columnId: string, taskId: string, auth_token: string): Observable<null> {
+    return this.http.delete<null>(
       `${environment.apiURL}/boards/${boardId}/columns/${columnId}/tasks/${taskId}`,
       this.headersWithoutJson(auth_token),
     );

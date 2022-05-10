@@ -38,9 +38,9 @@ export class BoardComponent implements OnInit {
     this.boardService.changeColumnColor(color, columnId);
   }
 
-  onAddCard(text: string, columnId: string) {
+  onAddCard(text: { text: string; description: string }, columnId: string) {
     if (text) {
-      this.boardService.addCard(text, columnId, this.route.snapshot.params['id']);
+      this.boardService.addCard(text.text, columnId, this.route.snapshot.params['id'], text.description);
     }
   }
 
@@ -51,7 +51,7 @@ export class BoardComponent implements OnInit {
   }
 
   onDeleteCard(cardId: string, columnId: string) {
-    this.boardService.deleteCard(cardId, columnId);
+    this.boardService.deleteCard(cardId, columnId, this.route.snapshot.params['id']);
   }
 
   onChangeLike(event: { card: any; increase: boolean }, columnId: string) {

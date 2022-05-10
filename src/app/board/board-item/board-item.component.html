@@ -1,12 +1,15 @@
 <div class="board-item">
-  <div class="mt-1">{{ item.text }}</div>
-  <button
-    class="button button__icon"
-    nz-icon
-    nzType="delete"
-    nzTheme="outline"
-    (click)="onCardDelete(item.id)"
-  ></button>
+  <div class="board-item__text">
+    <div class="mt-1">{{ item.text }}</div>
+    <div class="mt-1">{{ item.description }}</div>
+  </div>
+  <app-confirm
+    [question]="'Are you sure you want to delete \'' + item.text + '\'?'"
+    (click)="$event.stopPropagation()"
+    (emitConfirm)="onCardDelete($event, item.id)"
+  >
+    <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+  </app-confirm>
 </div>
 
 <div class="board-item-next">

@@ -7,6 +7,7 @@ export interface Card {
   id: string;
   text: string;
   like: number;
+  description: string;
   comments: Comment[];
 }
 

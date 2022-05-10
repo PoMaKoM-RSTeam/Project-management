@@ -119,7 +119,10 @@ export class BoardService {
       this.board = this.board.map((column: Column) => {
         const col = column;
         if (column.id === columnId) {
-          col.tasks = [...column.tasks, { id: response.id, text: response.title, like: 0, comments: [] }];
+          col.tasks = [
+            ...column.tasks,
+            { id: response.id, text: response.title, description: response.description, like: 0, comments: [] },
+          ];
           return col;
         }
         return column;
@@ -129,7 +132,7 @@ export class BoardService {
     });
   }
 
-  addCard(text: string, columnId: string, boardId: string) {
+  addCard(text: string, columnId: string, boardId: string, description: string) {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
       const order = window.localStorage.getItem('orderTask');
@@ -147,7 +150,7 @@ export class BoardService {
               const newCard: TaskPost = {
                 title: text,
                 order: nextOrder,
-                description: text,
+                description,
                 userId: currentUser.id,
               };
               this.createCard(boardId, columnId, newCard, tokenId);
@@ -167,7 +170,7 @@ export class BoardService {
               const newCard: TaskPost = {
                 title: text,
                 order: 1,
-                description: text,
+                description,
                 userId: currentUser.id,
               };
               this.createCard(boardId, columnId, newCard, tokenId);
@@ -190,17 +193,24 @@ export class BoardService {
     }
   } /* done */
 
-  deleteCard(cardId: string, columnId: string) {
-    this.board = this.board.map((column: Column) => {
-      const col = column;
-      if (column.id === columnId) {
-        col.tasks = column.tasks.filter((card: Card) => card.id !== cardId);
-        return col;
-      }
-      return column;
-    });
+  deleteCard(cardId: string, columnId: string, boardId: string) {
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      this.reqToTasksApi.deleteTask(boardId, columnId, cardId, tokenId).subscribe((response) => {
+        if (response === null) {
+          this.board = this.board.map((column: Column) => {
+            const col = column;
+            if (column.id === columnId) {
+              col.tasks = column.tasks.filter((card: Card) => card.id !== cardId);
+              return col;
+            }
+            return column;
+          });
 
-    this.board$.next([...this.board]);
+          this.board$.next([...this.board]);
+        }
+      });
+    }
   } /* to-do */
 
   changeLike(cardId: string, columnId: string, increase: boolean) {

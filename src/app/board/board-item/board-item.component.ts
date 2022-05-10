@@ -32,7 +32,9 @@ export class BoardItemComponent {
     this.emitCardItem.emit({ card, increase });
   }
 
-  onCardDelete(id: string) {
-    this.emitDeleteCard.emit(id);
+  onCardDelete(isConfirm: boolean, id: string) {
+    if (isConfirm) {
+      this.emitDeleteCard.emit(id);
+    }
   }
 }

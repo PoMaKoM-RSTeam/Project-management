@@ -22,6 +22,7 @@
           <!-- Add New Card To Column -->
           <app-dialog
             (emitText)="onAddCard($event, column.id)"
+            [isNeedDescription]="true"
             [question]="'Add new card in ' + column.title + ' column'"
           >
             <button class="btn-add" nzType="default" nz-button>+</button>
