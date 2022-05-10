@@ -1,0 +1,33 @@
+@import '../../../../styles/variables';
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__input {
+    display: none;
+    border: $header-border;
+    border-radius: $space-search-input-border;
+
+    &_visible {
+      display: inline-block;
+    }
+  }
+
+  &_left-element {
+    order: -1;
+  }
+
+  &__button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  &__icon {
+    transform: scale(1.4);
+    &_gray {
+      color: $border-color;
+    }
+  }
+}

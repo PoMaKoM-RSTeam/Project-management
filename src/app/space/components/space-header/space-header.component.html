@@ -1,18 +1,4 @@
 <div class="space-header">
   <space-nav></space-nav>
-  <div class="space-header__search">
-    <input
-      class="space-header__search-input"
-      #boardSearchInput
-      type="search"
-      [class.space-header__search-input_visible]="isBoardSearchVisible"
-    />
-    <button
-      class="space-header__search-button space-header__icon"
-      nz-icon
-      nzType="search"
-      nzTheme="outline"
-      (click)="openSearchInput(boardSearchInput.value)"
-    ></button>
-  </div>
+  <app-search class="space-header__search"></app-search>
 </div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
@@ -11,6 +12,10 @@ import { NavComponent } from './components/nav/nav.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-filter.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { SearchComponent } from './components/search/search.component';
+
+import { SearchPipe } from './pipes/search/search.pipe';
 
 @NgModule({
   declarations: [
@@ -20,8 +25,18 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
     NotFoundComponent,
     DropdownFilterComponent,
     WelcomePageComponent,
+    AboutPageComponent,
+    SearchComponent,
+    SearchPipe,
   ],
-  imports: [CommonModule, AuthModule, NzIconModule, NzDropDownModule, RouterModule],
-  exports: [HeaderComponent, FooterComponent, DropdownFilterComponent, WelcomePageComponent],
+  imports: [CommonModule, AuthModule, NzIconModule, NzDropDownModule, RouterModule, NzCollapseModule],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    DropdownFilterComponent,
+    WelcomePageComponent,
+    AboutPageComponent,
+    SearchComponent,
+  ],
 })
 export class CoreModule {}

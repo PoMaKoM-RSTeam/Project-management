@@ -1,0 +1,17 @@
+@import '../../../../styles/variables';
+
+.about {
+  height: 100%;
+  padding: $about-padding;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+}

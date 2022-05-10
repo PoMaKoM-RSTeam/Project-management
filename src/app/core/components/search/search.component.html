@@ -1,0 +1,17 @@
+<div class="search">
+  <input
+    class="search__input"
+    #searchInput
+    type="search"
+    [class.search__input_visible]="isBoardSearchVisible"
+    (input)="changeSearchLine(searchInput.value)"
+  />
+  <button
+    class="search__button search__icon"
+    [class.search_left-element]="buttonDirection === 'left'"
+    nz-icon
+    nzType="search"
+    nzTheme="outline"
+    (click)="openSearchInput(searchInput.value)"
+  ></button>
+</div>

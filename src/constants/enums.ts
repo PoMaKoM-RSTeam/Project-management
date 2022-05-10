@@ -12,6 +12,8 @@ export enum PathUrl {
   LIST = 'list',
   BOARD = 'board',
   SEARCH = 'search',
+  ABOUT = 'about',
+  SETTINGS = 'settings',
 }
 
 export enum PathTitle {

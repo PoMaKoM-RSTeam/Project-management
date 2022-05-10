@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 import { AuthGuard } from './auth/guard/auth.guard';
 import { WelcomePageComponent } from './core/pages/welcome-page/welcome-page.component';
+import { AboutPageComponent } from './core/pages/about-page/about-page.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: '',
     component: WelcomePageComponent,
+  },
+  {
+    path: 'about',
+    component: AboutPageComponent,
   },
   {
     path: '',
