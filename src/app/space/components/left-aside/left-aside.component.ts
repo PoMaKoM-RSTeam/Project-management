@@ -95,7 +95,6 @@ export class LeftAsideComponent implements OnInit {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
       this.reqToBoardsApi.getBoardByID(id, tokenId).subscribe((data) => {
-        console.log(1, data);
         this.boardService.changeTitleBoard(data.title);
         this.boardService.changeBoardColumnsAll(
           data.columns.sort((a, b) => (a.order > b.order ? 1 : -1)).map((item) => ({ ...item, color: Colors.GREEN })),

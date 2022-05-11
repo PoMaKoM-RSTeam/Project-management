@@ -23,7 +23,6 @@ export class BoardComponent implements OnInit {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
       this.reqToBoardsApi.getBoardByID(this.route.snapshot.params['id'], tokenId).subscribe((data) => {
-        console.log(2, data);
         this.boardService.changeTitleBoard(data.title);
         this.boardService.changeBoardColumnsAll(
           data.columns

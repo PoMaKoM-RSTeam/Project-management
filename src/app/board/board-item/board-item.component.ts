@@ -47,6 +47,5 @@ export class BoardItemComponent {
     if (text && text.text && text.description) {
       this.boardService.editTask(text, item, this.route.snapshot.params['id']);
     }
-    console.log('text', text, item);
   }
 }
