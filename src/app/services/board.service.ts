@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Card, Column, Comment, IColumnPost, TaskPost, TaskPut, User } from '../models/column.model';
+import jwt_decode from 'jwt-decode';
+import { Card, Column, Comment, IColumnPost, ITokenInfo, TaskPost, TaskPut, User } from '../models/column.model';
 // import { Colors, Board } from '../../constants/enums';
 import { Colors } from '../../constants/enums';
 import { ColumnsAPIService } from './columns-api.service';
@@ -140,44 +141,29 @@ export class BoardService {
       if (order) {
         const nextOrder = +order + 1;
         window.localStorage.setItem('orderTask', `${nextOrder}`);
-
-        this.reqToUsersApi.getAllUsers(tokenId).subscribe((users) => {
-          this.users = users;
-
-          const userLogin = window.localStorage.getItem('userLogin');
-          if (userLogin) {
-            const currentUser = this.users.find((user) => user.login === userLogin);
-            if (currentUser) {
-              const newCard: TaskPost = {
-                title: text,
-                order: nextOrder,
-                description,
-                userId: currentUser.id,
-              };
-              this.createCard(boardId, columnId, newCard, tokenId);
-            }
-          }
-        });
+        const tokenInfo: ITokenInfo = jwt_decode(tokenId);
+        if (tokenInfo) {
+          const newCard: TaskPost = {
+            title: text,
+            order: nextOrder,
+            description,
+            userId: tokenInfo.userId,
+          };
+          this.createCard(boardId, columnId, newCard, tokenId);
+        }
       } else {
         window.localStorage.setItem('orderTask', '1');
 
-        this.reqToUsersApi.getAllUsers(tokenId).subscribe((users) => {
-          this.users = users;
-
-          const userLogin = window.localStorage.getItem('userLogin');
-          if (userLogin) {
-            const currentUser = this.users.find((user) => user.login === userLogin);
-            if (currentUser) {
-              const newCard: TaskPost = {
-                title: text,
-                order: 1,
-                description,
-                userId: currentUser.id,
-              };
-              this.createCard(boardId, columnId, newCard, tokenId);
-            }
-          }
-        });
+        const tokenInfo: ITokenInfo = jwt_decode(tokenId);
+        if (tokenInfo) {
+          const newCard: TaskPost = {
+            title: text,
+            order: 1,
+            description,
+            userId: tokenInfo.userId,
+          };
+          this.createCard(boardId, columnId, newCard, tokenId);
+        }
       }
     }
   } /* done */

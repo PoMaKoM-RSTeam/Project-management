@@ -94,3 +94,9 @@ export interface IColumnPost {
   title: string;
   order: number;
 }
+
+export interface ITokenInfo {
+  userId: string;
+  login: string;
+  iat: number;
+}
