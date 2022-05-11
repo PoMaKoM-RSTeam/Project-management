@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,25 +7,19 @@ import { environment } from 'src/environments/environment';
 export class FilesAPIService {
   constructor(private http: HttpClient) {}
 
-  headers = {
+  headers = (auth_token: string, contentType: string) => ({
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${environment.auth_token}`,
+      'Content-Type': contentType,
+      Authorization: `Bearer ${auth_token}`,
     }),
-  };
+  });
 
-  downloadFile(taskid: string, filename: string) {
-    return this.http.get(`/file/${taskid}/${filename}`, this.headers);
+  downloadFile(taskid: string, filename: string, auth_token: string) {
+    return this.http.get(`/file/${taskid}/${filename}`, this.headers(auth_token, 'application/json'));
   }
 
-  uploadFile(taskid: string, file: any) {
-    this.headers = {
-      headers: new HttpHeaders({
-        'Content-Type': 'multipart/form-data',
-        Authorization: `Bearer ${environment.auth_token}`,
-      }),
-    };
+  uploadFile(taskid: string, file: any, auth_token: string) {
     const body = { taskid, file };
-    return this.http.post(`/file/`, body, this.headers);
+    return this.http.post(`/file/`, body, this.headers(auth_token, 'multipart/form-data'));
   }
 }

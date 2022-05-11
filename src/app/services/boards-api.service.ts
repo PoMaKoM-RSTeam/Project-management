@@ -11,37 +11,37 @@ import { Board, BoardEdit } from '../models/column.model';
 export class BoardsAPIService {
   constructor(private http: HttpClient) {}
 
-  headers = {
+  headers = (auth_token: string) => ({
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MWUxMGExNC1mN2Q3LTQ0MTYtOGJmOS1hYjVmZmUzZjMyMTIiLCJsb2dpbiI6InVzZXIwMDEiLCJpYXQiOjE2NTE0MjgxMDZ9.ZmSzIt14wNdi_-pxgrn88d9peWn3BJHEK2CkmS3snVQ`,
+      Authorization: `Bearer ${auth_token}`,
     }),
-  };
+  });
 
-  headersWithoutJson = {
+  headersWithoutJson = (auth_token: string) => ({
     headers: new HttpHeaders({
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MWUxMGExNC1mN2Q3LTQ0MTYtOGJmOS1hYjVmZmUzZjMyMTIiLCJsb2dpbiI6InVzZXIwMDEiLCJpYXQiOjE2NTE0MjgxMDZ9.ZmSzIt14wNdi_-pxgrn88d9peWn3BJHEK2CkmS3snVQ`,
+      Authorization: `Bearer ${auth_token}`,
     }),
-  };
+  });
 
-  getAllBoards(): Observable<Board[]> {
-    return this.http.get<Board[]>(`${environment.apiURL}/boards`, this.headers);
+  getAllBoards(auth_token: string): Observable<Board[]> {
+    return this.http.get<Board[]>(`${environment.apiURL}/boards`, this.headers(auth_token));
   }
 
-  getBoardByID(id: string): Observable<Board> {
-    return this.http.get<Board>(`${environment.apiURL}/boards/${id}`, this.headers);
+  getBoardByID(id: string, auth_token: string): Observable<Board> {
+    return this.http.get<Board>(`${environment.apiURL}/boards/${id}`, this.headers(auth_token));
   }
 
-  createBoard(title: string): Observable<Board> {
+  createBoard(title: string, auth_token: string): Observable<Board> {
     const body = { title };
-    return this.http.post<Board>(`${environment.apiURL}/boards`, body, this.headers);
+    return this.http.post<Board>(`${environment.apiURL}/boards`, body, this.headers(auth_token));
   }
 
-  deleteBoard(id: string): Observable<null> {
-    return this.http.delete<null>(`${environment.apiURL}/boards/${id}`, this.headersWithoutJson);
+  deleteBoard(id: string, auth_token: string): Observable<null> {
+    return this.http.delete<null>(`${environment.apiURL}/boards/${id}`, this.headersWithoutJson(auth_token));
   }
 
-  updateBoard(id: string, data: BoardEdit): Observable<Board> {
-    return this.http.put<Board>(`${environment.apiURL}/boards/${id}`, data, this.headers);
+  updateBoard(id: string, data: BoardEdit, auth_token: string): Observable<Board> {
+    return this.http.put<Board>(`${environment.apiURL}/boards/${id}`, data, this.headers(auth_token));
   }
 }

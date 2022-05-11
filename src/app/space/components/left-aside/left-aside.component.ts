@@ -31,9 +31,12 @@ export class LeftAsideComponent implements OnInit {
   boards: Board[] = [];
 
   ngOnInit() {
-    this.boardsAPIService.getAllBoards().subscribe((response) => {
-      this.boards = response;
-    });
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      this.boardsAPIService.getAllBoards(tokenId).subscribe((response) => {
+        this.boards = response;
+      });
+    }
   }
 
   stopPropagation(event: Event) {
@@ -54,39 +57,50 @@ export class LeftAsideComponent implements OnInit {
 
   addBoard(title: string) {
     if (title) {
-      this.boardsAPIService.createBoard(title).subscribe((response) => {
-        this.boards = [...this.boards, response];
-      });
+      const tokenId = window.localStorage.getItem('userTokenMid');
+      if (tokenId) {
+        this.boardsAPIService.createBoard(title, tokenId).subscribe((response) => {
+          this.boards = [...this.boards, response];
+        });
+      }
     }
   }
 
   editBoard(title: string, id: string) {
-    console.log('$event', title);
-    this.boardsAPIService.updateBoard(id, { title }).subscribe((response) => {
-      const index = this.boards.findIndex((board) => board.id === id);
-      this.boards[index] = response;
-    });
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      this.boardsAPIService.updateBoard(id, { title }, tokenId).subscribe((response) => {
+        const index = this.boards.findIndex((board) => board.id === id);
+        this.boards[index] = response;
+      });
+    }
   }
 
   removeBoard(isConfirm: boolean, id: string) {
     if (isConfirm) {
-      this.boardsAPIService.deleteBoard(id).subscribe((response) => {
-        if (response === null) {
-          this.boards = this.boards.filter((board) => board.id !== id);
-        }
-      });
+      const tokenId = window.localStorage.getItem('userTokenMid');
+      if (tokenId) {
+        this.boardsAPIService.deleteBoard(id, tokenId).subscribe((response) => {
+          if (response === null) {
+            this.boards = this.boards.filter((board) => board.id !== id);
+          }
+        });
+      }
     }
   }
 
   redirectToBoard(id: string) {
     this.router.navigate([`/board/${id}`]);
 
-    this.reqToBoardsApi.getBoardByID(id).subscribe((data) => {
-      console.log(1, data);
-      this.boardService.changeTitleBoard(data.title);
-      this.boardService.changeBoardColumnsAll(
-        data.columns.sort((a, b) => (a.order > b.order ? 1 : -1)).map((item) => ({ ...item, color: Colors.GREEN })),
-      );
-    });
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      this.reqToBoardsApi.getBoardByID(id, tokenId).subscribe((data) => {
+        console.log(1, data);
+        this.boardService.changeTitleBoard(data.title);
+        this.boardService.changeBoardColumnsAll(
+          data.columns.sort((a, b) => (a.order > b.order ? 1 : -1)).map((item) => ({ ...item, color: Colors.GREEN })),
+        );
+      });
+    }
   }
 }

@@ -20,19 +20,28 @@ export class BoardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.reqToBoardsApi.getBoardByID(this.route.snapshot.params['id']).subscribe((data) => {
-      console.log(2, data);
-      this.boardService.changeTitleBoard(data.title);
-      this.boardService.changeBoardColumnsAll(
-        data.columns
-          .sort((a, b) => (a.order > b.order ? 1 : -1))
-          .map((item) => ({
-            ...item,
-            color: Colors.GREEN,
-            tasks: item.tasks.map((task) => ({ ...task, text: task.title, like: 0, comments: [], columnId: item.id })),
-          })),
-      );
-    });
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      this.reqToBoardsApi.getBoardByID(this.route.snapshot.params['id'], tokenId).subscribe((data) => {
+        console.log(2, data);
+        this.boardService.changeTitleBoard(data.title);
+        this.boardService.changeBoardColumnsAll(
+          data.columns
+            .sort((a, b) => (a.order > b.order ? 1 : -1))
+            .map((item) => ({
+              ...item,
+              color: Colors.GREEN,
+              tasks: item.tasks.map((task) => ({
+                ...task,
+                text: task.title,
+                like: 0,
+                comments: [],
+                columnId: item.id,
+              })),
+            })),
+        );
+      });
+    }
   }
 
   onColorChange(color: string, columnId: string) {
