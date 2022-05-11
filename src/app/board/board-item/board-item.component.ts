@@ -1,5 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IEmitCardItem, IEmitText } from './board-item.models';
+import { IDialogModel } from '../../models/dialog.model';
+import { BoardService } from '../../services/board.service';
 
 @Component({
   selector: 'app-board-item',
@@ -7,6 +10,8 @@ import { IEmitCardItem, IEmitText } from './board-item.models';
   styleUrls: ['./board-item.component.scss'],
 })
 export class BoardItemComponent {
+  constructor(public boardService: BoardService, private route: ActivatedRoute) {}
+
   @Input() item: any;
 
   @Output() emitText: EventEmitter<IEmitText> = new EventEmitter();
@@ -36,5 +41,12 @@ export class BoardItemComponent {
     if (isConfirm) {
       this.emitDeleteCard.emit(id);
     }
+  }
+
+  editTask(text: IDialogModel, item: any) {
+    if (text && text.text && text.description) {
+      this.boardService.editTask(text, item, this.route.snapshot.params['id']);
+    }
+    console.log('text', text, item);
   }
 }

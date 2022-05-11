@@ -81,6 +81,15 @@ export interface TaskPost {
   userId: string;
 }
 
+export interface TaskPut {
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
+  boardId: string;
+  columnId: string;
+}
+
 export interface IColumnPost {
   title: string;
   order: number;

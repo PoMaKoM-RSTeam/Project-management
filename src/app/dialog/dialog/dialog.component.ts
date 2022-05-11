@@ -28,10 +28,9 @@ export class DialogComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('result', result);
       if (this.isNeedDescription) {
-        console.log('dialogDescriptionService', this.dialogDescriptionService.description);
         this.emitText.emit({ text: result, description: this.dialogDescriptionService.description });
+        this.dialogDescriptionService.descriptionHandle('');
       } else {
         this.emitText.emit(result);
       }

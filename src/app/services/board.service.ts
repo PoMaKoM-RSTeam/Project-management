@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Card, Column, Comment, IColumnPost, TaskPost, User } from '../models/column.model';
+import { Card, Column, Comment, IColumnPost, TaskPost, TaskPut, User } from '../models/column.model';
 // import { Colors, Board } from '../../constants/enums';
 import { Colors } from '../../constants/enums';
 import { ColumnsAPIService } from './columns-api.service';
 import { TasksAPIService } from './tasks-api.service';
 import { UsersAPIService } from './users-api.service';
+import { IDialogModel } from '../models/dialog.model';
 
 @Injectable({
   providedIn: 'root',
@@ -130,7 +131,7 @@ export class BoardService {
 
       this.board$.next([...this.board]);
     });
-  }
+  } /* done */
 
   addCard(text: string, columnId: string, boardId: string, description: string) {
     const tokenId = window.localStorage.getItem('userTokenMid');
@@ -179,7 +180,7 @@ export class BoardService {
         });
       }
     }
-  }
+  } /* done */
 
   deleteColumn(columnId: string, boardId: string) {
     const tokenId = window.localStorage.getItem('userTokenMid');
@@ -211,7 +212,7 @@ export class BoardService {
         }
       });
     }
-  } /* to-do */
+  } /* done */
 
   changeLike(cardId: string, columnId: string, increase: boolean) {
     this.board = this.board.map((column: Column) => {
@@ -300,4 +301,42 @@ export class BoardService {
       });
     }
   } /* done */
+
+  editTask(newValue: IDialogModel, oldItem: any, boardId: string) {
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      const data: TaskPut = {
+        title: newValue.text,
+        order: oldItem.order,
+        description: newValue.description,
+        userId: oldItem.userId,
+        boardId,
+        columnId: oldItem.columnId,
+      };
+      this.reqToTasksApi.updateTask(boardId, oldItem.columnId, oldItem.id, data, tokenId).subscribe((response) => {
+        if (response) {
+          this.board = this.board.map((column) => {
+            if (column.id === response.columnId) {
+              const col = column;
+              col.tasks = column.tasks.map((card) => {
+                if (card.id === response.id) {
+                  return {
+                    ...response,
+                    text: response.title,
+                    like: oldItem.like,
+                    comments: oldItem.comments,
+                    columnId: response.columnId,
+                  };
+                }
+                return card;
+              });
+              return col;
+            }
+            return column;
+          });
+          this.board$.next([...this.board]);
+        }
+      });
+    }
+  }
 }

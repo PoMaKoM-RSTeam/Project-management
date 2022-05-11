@@ -5,6 +5,7 @@ import { Card } from 'src/app/models/column.model';
 import { ActivatedRoute } from '@angular/router';
 import { BoardsAPIService } from '../../services/boards-api.service';
 import { Colors } from '../../../constants/enums';
+import { IDialogModel } from '../../models/dialog.model';
 
 @Component({
   selector: 'app-board',
@@ -28,7 +29,7 @@ export class BoardComponent implements OnInit {
           .map((item) => ({
             ...item,
             color: Colors.GREEN,
-            tasks: item.tasks.map((task) => ({ ...task, text: task.title, like: 0, comments: [] })),
+            tasks: item.tasks.map((task) => ({ ...task, text: task.title, like: 0, comments: [], columnId: item.id })),
           })),
       );
     });
@@ -38,8 +39,8 @@ export class BoardComponent implements OnInit {
     this.boardService.changeColumnColor(color, columnId);
   }
 
-  onAddCard(text: { text: string; description: string }, columnId: string) {
-    if (text) {
+  onAddCard(text: IDialogModel, columnId: string) {
+    if (text && text.text && text.description) {
       this.boardService.addCard(text.text, columnId, this.route.snapshot.params['id'], text.description);
     }
   }

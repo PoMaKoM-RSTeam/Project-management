@@ -6,6 +6,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 // import { BoardRoutingModule } from './board-routing.module';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { BoardComponent } from './board/board.component';
 import { BoardItemComponent } from './board-item/board-item.component';
 import { CommentItemComponent } from './comment-item/comment-item.component';
@@ -35,6 +36,7 @@ import { EditColumnTitleComponent } from './edit-column-title/edit-column-title.
     SpaceModule,
     NzButtonModule,
     ConfirmModule,
+    NzToolTipModule,
     // BoardRoutingModule,
   ],
   exports: [BoardComponent],

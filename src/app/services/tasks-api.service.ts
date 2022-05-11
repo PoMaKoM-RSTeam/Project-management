@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Task, TaskPost } from '../models/column.model';
+import { Task, TaskPost, TaskPut } from '../models/column.model';
 
 @Injectable({
   providedIn: 'root',
@@ -52,8 +52,8 @@ export class TasksAPIService {
     );
   }
 
-  updateTask(boardId: string, columnId: string, taskId: string, data: Task[], auth_token: string): Observable<Task[]> {
-    return this.http.put<Task[]>(
+  updateTask(boardId: string, columnId: string, taskId: string, data: TaskPut, auth_token: string): Observable<Task> {
+    return this.http.put<Task>(
       `${environment.apiURL}/boards/${boardId}/columns/${columnId}/tasks/${taskId}`,
       data,
       this.headers(auth_token),
