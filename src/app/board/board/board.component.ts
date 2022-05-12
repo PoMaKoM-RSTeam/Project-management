@@ -4,7 +4,6 @@ import { BoardService } from 'src/app/services/board.service';
 import { Card } from 'src/app/models/column.model';
 import { ActivatedRoute } from '@angular/router';
 import { BoardsAPIService } from '../../services/boards-api.service';
-import { Colors } from '../../../constants/enums';
 import { IDialogModel } from '../../models/dialog.model';
 
 @Component({
@@ -20,27 +19,7 @@ export class BoardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const tokenId = window.localStorage.getItem('userTokenMid');
-    if (tokenId) {
-      this.reqToBoardsApi.getBoardByID(this.route.snapshot.params['id'], tokenId).subscribe((data) => {
-        this.boardService.changeTitleBoard(data.title);
-        this.boardService.changeBoardColumnsAll(
-          data.columns
-            .sort((a, b) => (a.order > b.order ? 1 : -1))
-            .map((item) => ({
-              ...item,
-              color: Colors.GREEN,
-              tasks: item.tasks.map((task) => ({
-                ...task,
-                text: task.title,
-                like: 0,
-                comments: [],
-                columnId: item.id,
-              })),
-            })),
-        );
-      });
-    }
+    this.boardService.boardInit(this.route.snapshot.params['id']);
   }
 
   onColorChange(color: string, columnId: string) {

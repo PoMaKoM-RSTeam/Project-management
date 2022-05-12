@@ -6,12 +6,17 @@ import { Colors } from '../../constants/enums';
 import { ColumnsAPIService } from './columns-api.service';
 import { TasksAPIService } from './tasks-api.service';
 import { IDialogModel } from '../models/dialog.model';
+import { BoardsAPIService } from './boards-api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BoardService {
-  constructor(private reqToColumnsApi: ColumnsAPIService, private reqToTasksApi: TasksAPIService) {}
+  constructor(
+    private reqToColumnsApi: ColumnsAPIService,
+    private reqToTasksApi: TasksAPIService,
+    private reqToBoardsApi: BoardsAPIService,
+  ) {}
 
   private initBoard = [];
 
@@ -295,6 +300,30 @@ export class BoardService {
           });
           this.board$.next([...this.board]);
         }
+      });
+    }
+  }
+
+  boardInit(boardId: string) {
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      this.reqToBoardsApi.getBoardByID(boardId, tokenId).subscribe((data) => {
+        this.changeTitleBoard(data.title);
+        this.changeBoardColumnsAll(
+          data.columns
+            .sort((a, b) => (a.order > b.order ? 1 : -1))
+            .map((item) => ({
+              ...item,
+              color: Colors.GREEN,
+              tasks: item.tasks.map((task) => ({
+                ...task,
+                text: task.title,
+                like: 0,
+                comments: [],
+                columnId: item.id,
+              })),
+            })),
+        );
       });
     }
   }
