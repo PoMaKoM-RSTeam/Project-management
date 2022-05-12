@@ -25,6 +25,7 @@
 
     & .bar__search-button {
       display: block;
+      transform: scale(0.8);
     }
   }
 
@@ -84,6 +85,10 @@
   display: flex;
   justify-content: space-around;
   padding: calc(#{$space-aside-button-size}/ 2);
+
+  &__title {
+    margin: 0;
+  }
 
   &__search-input {
     display: none;

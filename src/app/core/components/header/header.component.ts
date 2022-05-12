@@ -19,8 +19,8 @@ export class HeaderComponent {
   ];
 
   public nav_more: INavLink[] = [
-    { url: PathUrl.HOME, icon: NgIcon.ABOUT },
-    { url: PathUrl.HOME, icon: NgIcon.SETTINGS },
+    { url: PathUrl.ABOUT, icon: NgIcon.ABOUT },
+    { url: PathUrl.SETTINGS, icon: NgIcon.SETTINGS },
   ];
 
   logoutUser() {

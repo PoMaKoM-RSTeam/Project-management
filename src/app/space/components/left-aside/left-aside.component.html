@@ -13,19 +13,7 @@
   <div class="bar">
     <h3 class="bar__title">{{ title }}</h3>
 
-    <button
-      class="bar__search-button"
-      nz-icon
-      nzType="search"
-      nzTheme="outline"
-      (click)="openSearchInput($event, barSearch.value)"
-    ></button>
-    <input
-      class="bar__search-input"
-      #barSearch
-      [class.bar__search-input_visible]="isSpaceSearchVisible"
-      type="search"
-    />
+    <app-search class="bar__search-button" buttonDirection="left"></app-search>
   </div>
 
   <ul (click)="stopPropagation($event)" nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
