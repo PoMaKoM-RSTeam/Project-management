@@ -1,27 +1,28 @@
 <div class="space">
-  <space-left-aside></space-left-aside>
+  <space-left-aside pageName="Board Page"></space-left-aside>
   <div class="space__main">
     <space-header></space-header>
 
-    <board-header></board-header>
+    <board-header [title]="boardService.titleBoard"></board-header>
     <div class="container-fluid">
       <div cdkDropListGroup class="board">
         <div class="board-card" *ngFor="let column of boardService.getBoard$() | async">
           <!-- Column Title -->
           <div class="board-title column-header">
-            <h2>{{ column.title }}</h2>
-            <button
-              class="button button__icon"
-              nz-icon
-              nzType="delete"
-              nzTheme="outline"
-              (click)="onDeleteColumn(column.id)"
-            ></button>
+            <app-edit-column-title [column]="column"></app-edit-column-title>
+            <app-confirm
+              [question]="'Are you sure you want to delete \'' + column.title + '\'?'"
+              (click)="$event.stopPropagation()"
+              (emitConfirm)="onDeleteColumn($event, column.id)"
+            >
+              <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+            </app-confirm>
           </div>
 
           <!-- Add New Card To Column -->
           <app-dialog
             (emitText)="onAddCard($event, column.id)"
+            [isNeedDescription]="true"
             [question]="'Add new card in ' + column.title + ' column'"
           >
             <button class="btn-add" nzType="default" nz-button>+</button>
@@ -29,9 +30,8 @@
 
           <!-- Color Panel -->
           <app-color-panel (emitColor)="onColorChange($event, column.id)"></app-color-panel>
-
-          <div cdkDropList [cdkDropListData]="column.list" class="example-list" (cdkDropListDropped)="drop($event)">
-            <div cdkDrag class="example-box" [ngStyle]="{ background: column.color }" *ngFor="let item of column.list">
+          <div cdkDropList [cdkDropListData]="column.tasks" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div cdkDrag class="example-box" [ngStyle]="{ background: column.color }" *ngFor="let item of column.tasks">
               <app-board-item
                 [item]="item"
                 (emitText)="onAddComment($event, column.id)"

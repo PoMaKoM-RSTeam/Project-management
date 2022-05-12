@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BoardService } from 'src/app/services/board.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'board-header',
@@ -7,11 +8,13 @@ import { BoardService } from 'src/app/services/board.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(public boardService: BoardService) {}
+  constructor(public boardService: BoardService, private route: ActivatedRoute) {}
+
+  @Input() title = 'Loading Board';
 
   addColumn(event: string) {
     if (event) {
-      this.boardService.addColumn(event);
+      this.boardService.addColumn(event, this.route.snapshot.params['id']);
     }
   }
 }

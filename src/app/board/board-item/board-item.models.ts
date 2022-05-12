@@ -1,5 +1,5 @@
 export interface IEmitText {
-  id: number;
+  id: string;
   text: string;
 }
 

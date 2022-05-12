@@ -4,21 +4,23 @@ export interface Comment {
 }
 
 export interface Card {
-  id: number;
+  id: string;
   text: string;
   like: number;
+  description: string;
   comments: Comment[];
 }
 
 export interface Column {
-  id: number;
+  id: string;
+  order: number;
   title: string;
   color: string;
-  list: Card[];
+  tasks: Card[];
 }
 
 export interface User {
-  id: number;
+  id: string;
   name: string;
   login: string;
   password: string;
@@ -45,10 +47,21 @@ export interface ISignUpResponse {
   login: string;
 }
 
-export interface Board {
-  id: number;
+export interface ColumnInBoard {
+  id: string;
   title: string;
-  columns: [];
+  order: number;
+  tasks: Task[];
+}
+
+export interface Board {
+  id: string;
+  title: string;
+  columns: ColumnInBoard[];
+}
+
+export interface BoardEdit {
+  title: string;
 }
 
 export interface Task {
@@ -59,4 +72,31 @@ export interface Task {
   userId: string;
   boardId: string;
   columnId: string;
+}
+
+export interface TaskPost {
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
+}
+
+export interface TaskPut {
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
+  boardId: string;
+  columnId: string;
+}
+
+export interface IColumnPost {
+  title: string;
+  order: number;
+}
+
+export interface ITokenInfo {
+  userId: string;
+  login: string;
+  iat: number;
 }

@@ -3,6 +3,17 @@
   <form class="w-100">
     <div>Title:</div>
     <input class="input" type="text" name="comment" [(ngModel)]="data.text" />
+    <span *ngIf="data.isNeedDescription">
+      <div>Description:</div>
+      <input
+        type="text"
+        name="description"
+        #description
+        [value]="dialogDescriptionService.description"
+        (input)="dialogDescriptionService.descriptionHandle(description.value)"
+        class="input"
+      />
+    </span>
   </form>
 </div>
 <div>

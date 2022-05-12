@@ -1,0 +1,27 @@
+<h2 *ngIf="!isShowInputEdit" (click)="showInputEditHandle()" class="board-title_text">{{ column?.title }}</h2>
+<div *ngIf="isShowInputEdit">
+  <div class="board-title_edit">
+    <button
+      class="button button__icon"
+      nz-icon
+      nzType="check-circle"
+      nzTheme="outline"
+      (click)="submitEditHandle(boardService.editTitle)"
+    ></button>
+    <button
+      class="button button__icon"
+      nz-icon
+      nzType="close-circle"
+      nzTheme="outline"
+      (click)="hideInputEditHandle()"
+    ></button>
+    <input
+      type="text"
+      placeholder="new title"
+      #editColumnTitle
+      [value]="boardService.editTitle"
+      (input)="boardService.editTitleHandle(editColumnTitle.value)"
+      class="input"
+    />
+  </div>
+</div>

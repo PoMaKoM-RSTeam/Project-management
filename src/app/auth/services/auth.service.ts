@@ -54,6 +54,7 @@ export class AuthService {
   logoutHandle() {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
+      window.localStorage.removeItem('userLogin');
       window.localStorage.removeItem('userTokenMid');
       this.authState$$.next(false);
       this.redirectToAuth();
@@ -64,6 +65,7 @@ export class AuthService {
     if (this.login && this.password) {
       this.authAPIService.signIn({ login: this.login, password: this.password }).subscribe((response) => {
         if (response) {
+          window.localStorage.setItem('userLogin', this.login);
           window.localStorage.setItem('userTokenMid', response.token);
           this.login = '';
           this.password = '';

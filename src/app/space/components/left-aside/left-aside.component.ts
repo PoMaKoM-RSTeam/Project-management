@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgIcon } from '../../../../constants/enums';
-import { BoardsAPIService } from '../../../../services/boards-api.service';
-import { Board } from '../../../../models/column.model';
+import { Router } from '@angular/router';
+import { Colors, NgIcon } from '../../../../constants/enums';
+import { BoardsAPIService } from '../../../services/boards-api.service';
+import { Board } from '../../../models/column.model';
+import { BoardService } from '../../../services/board.service';
 
 @Component({
   selector: 'space-left-aside',
@@ -9,11 +11,16 @@ import { Board } from '../../../../models/column.model';
   styleUrls: ['./left-aside.component.scss'],
 })
 export class LeftAsideComponent implements OnInit {
-  constructor(private boardsAPIService: BoardsAPIService) {}
+  constructor(
+    private boardsAPIService: BoardsAPIService,
+    private router: Router,
+    private reqToBoardsApi: BoardsAPIService,
+    public boardService: BoardService,
+  ) {}
 
   @Input() pageName: string = 'Page Name';
 
-  @Input() title: string = 'Title';
+  @Input() title: string = 'All Boards';
 
   iconBoard = NgIcon.BOARD;
 
@@ -24,9 +31,12 @@ export class LeftAsideComponent implements OnInit {
   boards: Board[] = [];
 
   ngOnInit() {
-    this.boardsAPIService.getAllBoards().subscribe((response) => {
-      this.boards = response;
-    });
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      this.boardsAPIService.getAllBoards(tokenId).subscribe((response) => {
+        this.boards = response;
+      });
+    }
   }
 
   stopPropagation(event: Event) {
@@ -47,25 +57,48 @@ export class LeftAsideComponent implements OnInit {
 
   addBoard(title: string) {
     if (title) {
-      this.boardsAPIService.createBoard(title).subscribe((response) => {
-        this.boards = [...this.boards, response];
-      });
+      const tokenId = window.localStorage.getItem('userTokenMid');
+      if (tokenId) {
+        this.boardsAPIService.createBoard(title, tokenId).subscribe((response) => {
+          this.boards = [...this.boards, response];
+        });
+      }
     }
   }
 
   editBoard(title: string, id: string) {
-    this.boardsAPIService.updateBoard(id, { title }).subscribe((response) => {
-      const index = this.boards.findIndex((board) => board.id === id);
-      this.boards[index] = response;
-    });
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      this.boardsAPIService.updateBoard(id, { title }, tokenId).subscribe((response) => {
+        const index = this.boards.findIndex((board) => board.id === id);
+        this.boards[index] = response;
+      });
+    }
   }
 
   removeBoard(isConfirm: boolean, id: string) {
     if (isConfirm) {
-      this.boardsAPIService.deleteBoard(id).subscribe((response) => {
-        if (response === null) {
-          this.boards = this.boards.filter((board) => board.id !== id);
-        }
+      const tokenId = window.localStorage.getItem('userTokenMid');
+      if (tokenId) {
+        this.boardsAPIService.deleteBoard(id, tokenId).subscribe((response) => {
+          if (response === null) {
+            this.boards = this.boards.filter((board) => board.id !== id);
+          }
+        });
+      }
+    }
+  }
+
+  redirectToBoard(id: string) {
+    this.router.navigate([`/board/${id}`]);
+
+    const tokenId = window.localStorage.getItem('userTokenMid');
+    if (tokenId) {
+      this.reqToBoardsApi.getBoardByID(id, tokenId).subscribe((data) => {
+        this.boardService.changeTitleBoard(data.title);
+        this.boardService.changeBoardColumnsAll(
+          data.columns.sort((a, b) => (a.order > b.order ? 1 : -1)).map((item) => ({ ...item, color: Colors.GREEN })),
+        );
       });
     }
   }
