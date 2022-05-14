@@ -14,6 +14,8 @@ export enum PathUrl {
   SEARCH = 'search',
   ABOUT = 'about',
   SETTINGS = 'settings',
+  PROFILE = 'profile',
+  AUTH = 'auth',
 }
 
 export enum PathTitle {
@@ -30,6 +32,7 @@ export enum NgIcon {
   SETTINGS = 'more',
   EDIT = 'edit',
   DELETE = 'delete',
+  PROFILE = 'user',
 }
 
 export enum Width {

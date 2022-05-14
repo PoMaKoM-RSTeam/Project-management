@@ -4,24 +4,30 @@ import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 import { AuthGuard } from './auth/guard/auth.guard';
 import { WelcomePageComponent } from './core/pages/welcome-page/welcome-page.component';
 import { AboutPageComponent } from './core/pages/about-page/about-page.component';
+import { PathUrl } from '../constants/enums';
 
 const routes: Routes = [
   {
-    path: 'auth',
+    path: PathUrl.AUTH,
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
     pathMatch: 'full',
   },
   {
-    path: '',
+    path: PathUrl.HOME,
     component: WelcomePageComponent,
   },
   {
-    path: 'about',
+    path: PathUrl.ABOUT,
     component: AboutPageComponent,
   },
   {
-    path: '',
+    path: PathUrl.HOME,
     loadChildren: () => import('./space/space.module').then((m) => m.SpaceModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: PathUrl.PROFILE,
+    loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule),
     canActivate: [AuthGuard],
   },
   { path: '**', component: NotFoundComponent },
