@@ -15,6 +15,7 @@ export class HeaderComponent {
     { url: PathUrl.HOME, icon: NgIcon.HOME },
     { url: PathUrl.LIST, icon: NgIcon.LIST },
     { url: PathUrl.BOARD, icon: NgIcon.BOARD },
+    { url: PathUrl.PROFILE, icon: NgIcon.PROFILE },
     { url: PathUrl.SEARCH, icon: NgIcon.SEARCH },
   ];
 

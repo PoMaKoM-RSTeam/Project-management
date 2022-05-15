@@ -1,0 +1,93 @@
+<div class="profile-page">
+  <div class="profile-wrapper">
+    <div>
+      <h2 class="profile-title">Profile</h2>
+      <small>Please fill all fields</small>
+    </div>
+    <form class="profile-form" [formGroup]="form" novalidate (ngSubmit)="submit()">
+      <label class="label">
+        Name:
+        <input
+          type="text"
+          placeholder="your new name"
+          #mySName
+          [value]="profileService.name"
+          (input)="profileService.nameHandle(mySName.value)"
+          formControlName="userName"
+          [class]="{
+            input: true,
+            error: form.controls['userName'].errors?.['required'] && form.controls['userName'].touched
+          }"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="form.controls['userName'].errors?.['required'] && form.controls['userName'].touched"
+        >
+          Please enter your name
+        </div>
+      </label>
+      <label class="label">
+        Login:
+        <input
+          type="text"
+          placeholder="your new login"
+          #mySLogin
+          [value]="profileService.login"
+          (input)="profileService.loginHandle(mySLogin.value)"
+          formControlName="userLogin"
+          [class]="{
+            input: true,
+            error: form.controls['userLogin'].errors?.['required'] && form.controls['userLogin'].touched
+          }"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="form.controls['userLogin'].errors?.['required'] && form.controls['userLogin'].touched"
+        >
+          Please enter a login
+        </div>
+      </label>
+      <label class="label">
+        Password:
+        <input
+          type="password"
+          placeholder="your new password"
+          #mySPassword
+          [value]="profileService.password"
+          (input)="profileService.passwordHandle(mySPassword.value)"
+          formControlName="userNewPassword"
+          [class]="{
+            input: true,
+            error: (form.controls['userNewPassword'].errors?.['required']
+                || form.controls['userNewPassword'].errors?.['pattern'])
+                && form.controls['userNewPassword'].touched
+          }"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="form.controls['userNewPassword'].errors?.['required']
+            && form.controls['userNewPassword'].touched"
+        >
+          Please enter a password
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="form.controls['userNewPassword'].errors?.['pattern']
+            && form.controls['userNewPassword'].touched"
+        >
+          Your password isn't strong enough
+        </div>
+      </label>
+      <button class="login-button" nzType="primary" nz-button>Save</button>
+    </form>
+    <div class="profile-remove">
+      <app-confirm
+        [question]="profileService.name + ', are you sure you want to delete your account?'"
+        (click)="$event.stopPropagation()"
+        (emitConfirm)="onUserDelete($event)"
+      >
+        <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+      </app-confirm>
+    </div>
+  </div>
+</div>
