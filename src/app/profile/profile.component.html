@@ -1,7 +1,7 @@
 <div class="profile-page">
   <div class="profile-wrapper">
     <div>
-      <h2>Profile</h2>
+      <h2 class="profile-title">Profile</h2>
       <small>Please fill all fields</small>
     </div>
     <form class="profile-form" [formGroup]="form" novalidate (ngSubmit)="submit()">
@@ -15,9 +15,9 @@
           (input)="profileService.nameHandle(mySName.value)"
           formControlName="userName"
           [class]="{
-          input: true,
-          error: form.controls['userName'].errors?.['required'] && form.controls['userName'].touched
-        }"
+            input: true,
+            error: form.controls['userName'].errors?.['required'] && form.controls['userName'].touched
+          }"
         />
         <div
           class="alert alert-danger"

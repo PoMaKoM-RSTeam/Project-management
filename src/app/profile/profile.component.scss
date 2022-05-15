@@ -20,7 +20,7 @@
     background-color: $main-color;
     border-radius: 6px;
 
-    h2 {
+    .profile-title {
       color: $first-color;
       margin: 0;
     }
@@ -40,7 +40,7 @@
       gap: 6px;
       font-size: 14px;
 
-      input {
+      .input {
         color: $first-color;
 
         &.error {

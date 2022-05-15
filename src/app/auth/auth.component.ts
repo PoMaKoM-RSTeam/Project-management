@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { regexpPassword } from '../../constants/constants';
 
 @Component({
   selector: 'app-auth',
@@ -21,10 +22,7 @@ export class AuthComponent {
     this.formSignUp = new FormGroup({
       userName: new FormControl('', [Validators.required]),
       userLogin: new FormControl('', [Validators.required]),
-      userNewPassword: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
-      ]),
+      userNewPassword: new FormControl('', [Validators.required, Validators.pattern(regexpPassword)]),
     });
   }
 
