@@ -42,7 +42,6 @@
       flex-direction: column;
       gap: 6px;
       font-size: 14px;
-      color: $error-color;
 
       input {
         color: $first-color;
@@ -54,4 +53,8 @@
       }
     }
   }
+}
+
+.alert {
+  color: $error-color;
 }

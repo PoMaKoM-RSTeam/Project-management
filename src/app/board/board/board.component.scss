@@ -10,18 +10,20 @@
 
 .board {
   display: flex;
-  flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+
+  overflow-x: auto;
 }
 
 .board-card {
   position: relative;
   width: 100%;
+  max-width: 25%;
+  min-width: 225px;
   padding-right: 15px;
   padding-left: 15px;
 
-  max-width: 25%;
   flex: 0 0 25%;
 
   margin-bottom: 1rem;
@@ -104,6 +106,6 @@
   &__main {
     width: 100%;
     min-height: 100%;
-    background-color: $fourth-color;
+    background-color: $main-color;
   }
 }
