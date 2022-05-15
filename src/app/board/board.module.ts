@@ -37,6 +37,6 @@ import { EditColumnTitleComponent } from './edit-column-title/edit-column-title.
     ConfirmModule,
     NzToolTipModule,
   ],
-  exports: [BoardComponent],
+  exports: [BoardComponent, BoardItemComponent],
 })
 export class BoardModule {}

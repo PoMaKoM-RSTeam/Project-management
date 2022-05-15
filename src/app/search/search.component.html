@@ -1,0 +1,24 @@
+<div class="search">
+  <input
+    class="space-header__search-input mat-app-background"
+    #boardSearchInput
+    type="search"
+    [formControl]="findControl"
+    [class.space-header__search-input_visible]="isBoardSearchVisible"
+  />
+  <button
+    class="space-header__search-button space-header__icon mat-app-background"
+    nz-icon
+    nzType="search"
+    nzTheme="outline"
+    (click)="openSearchInput(boardSearchInput.value)"
+  ></button>
+  <div style="color: #000" *ngFor="let item of result | json">
+    <div class="search-result">
+      <div class="search-item">
+        <!--        <div class="search-item__title">{{item.title}}</div>-->
+        <!--        <div class="search-item__description">{{item.description}}</div>-->
+      </div>
+    </div>
+  </div>
+</div>
