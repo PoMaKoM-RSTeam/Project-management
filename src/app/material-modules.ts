@@ -41,6 +41,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   exports: [
@@ -87,6 +90,18 @@ import { MatTreeModule } from '@angular/material/tree';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatDialogModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatExpansionModule,
   ],
 })
 export class DemoMaterialModule {}

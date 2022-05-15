@@ -1,15 +1,15 @@
-<div class="space-header">
+<div class="space-header mat-app-background">
   <space-nav></space-nav>
-  <div class="space-header__search" [class.ready]="!!user">
+  <div class="space-header__search mat-app-background" [class.ready]="!!user">
     <input
-      class="space-header__search-input"
+      class="space-header__search-input mat-app-background"
       #boardSearchInput
       type="search"
       [formControl]="findControl"
       [class.space-header__search-input_visible]="isBoardSearchVisible"
     />
     <button
-      class="space-header__search-button space-header__icon"
+      class="space-header__search-button space-header__icon mat-app-background"
       nz-icon
       nzType="search"
       nzTheme="outline"

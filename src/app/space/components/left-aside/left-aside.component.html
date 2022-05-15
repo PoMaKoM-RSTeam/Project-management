@@ -1,51 +1,61 @@
 <!--close aside-->
 <strong
   (click)="closeAside($event)"
-  class="space-aside__close-button"
+  class="space-aside__close-button mat-app-background"
   [class.space-aside__close-button_visible]="!isCollapsed"
 >
   ‹
 </strong>
-<aside class="space-aside" [class.space-aside_open]="!isCollapsed" (click)="this.isCollapsed = false">
+<aside
+  class="space-aside mat-app-background"
+  [class.space-aside_open]="!isCollapsed"
+  (click)="this.isCollapsed = false"
+>
   <!--Title-->
-  <h2 class="space-aside__title">{{ pageName }}</h2>
+  <h2 class="space-aside__title mat-app-background">{{ pageName }}</h2>
 
-  <div class="bar">
-    <h3 class="bar__title">{{ title }}</h3>
+  <div class="bar mat-app-background">
+    <h3 class="bar__title mat-app-background">{{ title }}</h3>
 
     <button
-      class="bar__search-button"
+      class="bar__search-button mat-app-background"
       nz-icon
       nzType="search"
       nzTheme="outline"
       (click)="openSearchInput($event, barSearch.value)"
     ></button>
     <input
-      class="bar__search-input"
+      class="bar__search-input mat-app-background"
       #barSearch
       [class.bar__search-input_visible]="isSpaceSearchVisible"
       type="search"
     />
   </div>
 
-  <ul (click)="stopPropagation($event)" nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-    <li *ngFor="let board of boards" nz-menu-item>
+  <ul
+    (click)="stopPropagation($event)"
+    nz-menu
+    nzMode="inline"
+    [nzInlineCollapsed]="isCollapsed"
+    class="mat-app-background"
+  >
+    <li *ngFor="let board of boards" nz-menu-item class="mat-app-background">
       <i nz-icon [nzType]="iconBoard"></i>
       <span>{{ board.title }}</span>
-      <span class="bar_right">
+      <span class="bar_right mat-app-background">
         <app-dialog (emitText)="editBoard($event, board.id)" question="Edit board">
-          <button class="button button__icon" nz-icon nzType="edit" nzTheme="outline"></button>
+          <button class="button button__icon mat-app-background" nz-icon nzType="edit" nzTheme="outline"></button>
         </app-dialog>
         <app-confirm
           [question]="'Are you sure you want to delete \'' + board.title + '\'?'"
           (emitConfirm)="removeBoard($event, board.id)"
         >
-          <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+          <button class="button button__icon mat-app-background" nz-icon nzType="delete" nzTheme="outline"></button>
         </app-confirm>
       </span>
     </li>
   </ul>
   <app-dialog (emitText)="addBoard($event)" question="Add new board">
-    <button class="space-aside__add-button">+ Add Board</button>
+    <button class="space-aside__add-button mat-app-background">+ Add Board</button>
   </app-dialog>
 </aside>

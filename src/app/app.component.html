@@ -1,7 +1,13 @@
 <app-header></app-header>
-<main class="main-container">
+<main class="main-container mat-app-background">
   <section>
     <router-outlet></router-outlet>
   </section>
-  <app-footer class="main-container__footer"></app-footer>
+  <app-footer class="main-container__footer mat-app-background"> </app-footer>
+  <section>
+    <div class="flex-stretch mat-app-background"></div>
+    <mat-icon class="mr-8">brightness_5</mat-icon>
+    <mat-slide-toggle [formControl]="toggleControl" class="mr-8"></mat-slide-toggle>
+    <mat-icon>bedtime</mat-icon>
+  </section>
 </main>

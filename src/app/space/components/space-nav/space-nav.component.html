@@ -1,6 +1,6 @@
-<nav class="space-nav">
+<nav class="space-nav mat-app-background">
   <a
-    class="space-nav__link"
+    class="space-nav__link mat-app-background"
     *ngFor="let link of links.links"
     [class.space-nav__link_active]="link.url === links.active"
     [routerLink]="'/' + link.url"

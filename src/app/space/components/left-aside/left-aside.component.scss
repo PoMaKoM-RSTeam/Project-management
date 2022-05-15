@@ -5,7 +5,7 @@
   position: sticky;
   height: calc(100vh - #{$footer-height});
   overflow-y: auto;
-  background-color: $main-color;
+  // background-color: $main-color;
   border-right: $header-border;
 
   &_open {
@@ -70,7 +70,7 @@
     text-align: center;
     border-radius: 50%;
     border: $header-border;
-    background-color: $icont-second-color;
+    // background-color: $icont-second-color;
     color: $second-color;
     cursor: pointer;
 

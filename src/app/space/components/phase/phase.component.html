@@ -1,6 +1,12 @@
 <nz-collapse nzGhost cdkDropList (cdkDropListDropped)="drop($event)">
   <nz-table [nzData]="allData" [nzFrontPagination]="false" [nzShowPagination]="false">
-    <nz-collapse-panel class="phase" *ngFor="let board of allData" cdkDrag [nzHeader]="board.title" [nzActive]="false">
+    <nz-collapse-panel
+      class="phase mat-app-background"
+      *ngFor="let board of allData"
+      cdkDrag
+      [nzHeader]="board.title"
+      [nzActive]="false"
+    >
       <div style="margin: 0" *ngFor="let column of board?.columns">
         Column: {{ column.title | json }}
         <p style="margin: 0" *ngFor="let task of column?.tasks">Tasks: {{ task.title | json }}</p>
