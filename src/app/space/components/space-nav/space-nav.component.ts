@@ -22,7 +22,6 @@ export class SpaceNavComponent implements OnInit {
   }
 
   changeActive(title: string | undefined) {
-    console.log('title', title, this.links);
     if (title) {
       this.spaceHeaderService.setActive(title);
     }
