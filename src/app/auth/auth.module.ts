@@ -9,10 +9,19 @@ import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { AuthComponent } from './auth.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
+import { LoaderModule } from '../loader/loader.module';
 
 @NgModule({
   declarations: [AuthButtonComponent, AuthComponent],
-  imports: [CommonModule, NzAvatarModule, AuthRoutingModule, ReactiveFormsModule, NzButtonModule, NzTabsModule],
+  imports: [
+    CommonModule,
+    NzAvatarModule,
+    AuthRoutingModule,
+    ReactiveFormsModule,
+    NzButtonModule,
+    NzTabsModule,
+    LoaderModule,
+  ],
   exports: [AuthButtonComponent],
   providers: [NzMessageService],
 })
