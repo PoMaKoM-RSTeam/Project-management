@@ -1,14 +1,17 @@
 <div class="space">
   <space-left-aside pageName="Board Page"></space-left-aside>
   <div class="space__main">
-    <space-header></space-header>
-
     <board-header [title]="boardService.titleBoard"></board-header>
-    <div class="container-fluid">
+    <div
+      cdkDropList
+      (cdkDropListDropped)="dropColumns($event)"
+      cdkDropListOrientation="horizontal"
+      class="container-fluid"
+    >
       <div cdkDropListGroup class="board">
-        <div class="board-card" *ngFor="let column of boardService.getBoard$() | async">
+        <div class="board-card" *ngFor="let column of boardService.getBoard$() | async" cdkDrag cdkDragLockAxis="x">
           <!-- Column Title -->
-          <div class="board-title column-header">
+          <div class="board-title column-header" cdkDropList (cdkDropListDropped)="drop($event)">
             <app-edit-column-title [column]="column"></app-edit-column-title>
             <app-confirm
               [question]="'Are you sure you want to delete \'' + column.title + '\'?'"

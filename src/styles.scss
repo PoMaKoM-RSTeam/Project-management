@@ -10,6 +10,7 @@
 
 *::-webkit-scrollbar {
   width: 0.5em;
+  height: 0.5em;
   background-color: transparent;
 }
 
@@ -61,13 +62,15 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
 }
 
 input {
   color: black;
-  padding-left: 7px;
+  padding-left: 8px;
   padding-right: 4px;
-  width: 215px;
+  width: 100%;
+  max-width: 215px;
   margin-top: 5px;
   margin-bottom: 5px;
 }

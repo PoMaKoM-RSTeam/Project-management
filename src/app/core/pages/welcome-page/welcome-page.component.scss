@@ -20,7 +20,7 @@
 
   &__content {
     display: flex;
-    padding: $space-header-padding calc($space-header-padding * 2);
+    padding: $space-header-padding calc(#{$space-header-padding} * 2);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -56,10 +56,10 @@
 
   &__button {
     font-size: 1rem;
-    padding: calc($space-aside-button-size / 3) $space-aside-button-size;
+    padding: calc(#{$space-aside-button-size} / 3) $space-aside-button-size;
     border: 0;
     border-radius: $space-search-input-border;
-    margin-bottom: calc($space-header-padding/5);
+    margin-bottom: calc(#{$space-header-padding}/ 5);
     color: $icont-second-color;
     background-color: $icont-first-color;
     text-transform: uppercase;

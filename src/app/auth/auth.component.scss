@@ -42,16 +42,28 @@
       flex-direction: column;
       gap: 6px;
       font-size: 14px;
-      color: $error-color;
+      position: relative;
 
-      input {
+      .input {
         color: $first-color;
+        max-width: 173px;
 
         &.error {
           border: 1px solid $error-color;
           background-color: $fourth-color;
         }
+
+        &-eye {
+          position: absolute;
+          top: 35px;
+          left: 180px;
+          cursor: pointer;
+        }
       }
     }
   }
+}
+
+.alert {
+  color: $error-color;
 }

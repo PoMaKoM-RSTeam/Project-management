@@ -5,7 +5,7 @@ import { BoardComponent } from '../board/board/board.component';
 import { PathUrl } from '../../constants/enums';
 
 const routes: Routes = [
-  { path: PathUrl.LIST, component: SpaceComponent },
+  { path: PathUrl.BOARD, component: SpaceComponent },
   { path: `${PathUrl.BOARD}/:id`, component: BoardComponent },
 ];
 

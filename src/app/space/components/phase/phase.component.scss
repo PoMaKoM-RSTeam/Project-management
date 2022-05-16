@@ -1,6 +1,25 @@
 @import '../../../../styles/variables.scss';
 
 .phase {
-  border: $header-border;
-  margin: $phase-margin 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  &__img {
+    width: 100%;
+    max-width: 300px;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: $space-header-padding;
+    grid-area: img;
+    background-image: url('../../../../assets/img/welcome-img.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
