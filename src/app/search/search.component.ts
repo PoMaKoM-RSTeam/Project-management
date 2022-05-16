@@ -15,10 +15,6 @@ export class SearchComponent implements OnInit {
 
   findControl = new FormControl();
 
-  openSearchInput(search: string) {
-    if (!search) this.isBoardSearchVisible = !this.isBoardSearchVisible;
-  }
-
   ngOnInit(): void {
     this.findControl.valueChanges
       .pipe(
