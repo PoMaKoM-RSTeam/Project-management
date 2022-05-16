@@ -1,27 +1,40 @@
-# ProjectManagement
+# RSSchool + Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+This is a final project to demonstrate our skills after RSSchool study with Angular 13. It contains [all of the specs](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/project-management-app.md) all requirements as well as. Specs have been reformatted and converted to using best practices as outlined below.
 
-## Development server
+## Get started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Clone the repo
 
-## Code scaffolding
+```shell
+git clone https://github.com/PoMaKoM-RSTeam/Project-management.git
+cd intern-angular
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install npm packages
 
-## Build
+Install the `npm` packages described in the `package.json` and verify that it works:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```shell
+npm install
+npm start
+```
 
-## Running unit tests
+The `npm start` command builds (compiles TypeScript and copies assets) the application into `dist/`, watches for changes to the source files, and runs `server` on port `4200`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Shut it down manually with `Ctrl-C`.
 
-## Running end-to-end tests
+#### npm scripts
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+These are the most useful commands defined in `package.json`:
 
-## Further help
+- `npm start` - runs the TypeScript compiler, asset copier, and a server at the same time, all three in "watch mode".
+- `npm run build` - runs the TypeScript compiler and asset copier once.
+- `npm run build:watch` - runs the TypeScript compiler and asset copier in "watch mode"; when changes occur to source files, they will be recompiled or copied into `dist/`.
+- `npm run lint` - runs `eslint` on the project files.
+- `npm run serve` - runs `server`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+These are the test-related scripts:
+
+- `npm test` - builds the application and runs Intern tests (both unit and functional) one time.
+- `npm run ci` - cleans, lints, and builds the application and runs Intern tests (both unit and functional) one time.
