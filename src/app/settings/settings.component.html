@@ -1,6 +1,18 @@
-<section>
-  <div class="flex-stretch"></div>
-  <mat-icon>brightness_5</mat-icon>
-  <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode"></mat-slide-toggle>
-  <mat-icon>bedtime</mat-icon>
-</section>
+<div style="padding: 30px">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8">
+      <nz-card nzTitle="Dark Mode">
+        <mat-icon>brightness_5</mat-icon>
+        <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode"></mat-slide-toggle>
+        <mat-icon>bedtime</mat-icon>
+      </nz-card>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <nz-card nzTitle="Language">
+        <mat-icon>mood</mat-icon>
+        <mat-slide-toggle></mat-slide-toggle>
+        <mat-icon>mood_bad</mat-icon>
+      </nz-card>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsComponent } from './settings.component';
 
@@ -17,6 +19,8 @@ import { SettingsComponent } from './settings.component';
     MatButtonToggleModule,
     MatSlideToggleModule,
     FormsModule,
+    NzCardModule,
+    NzGridModule,
   ],
 })
 export class SettingsModule {}
