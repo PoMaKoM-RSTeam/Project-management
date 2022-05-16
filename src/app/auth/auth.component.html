@@ -27,7 +27,7 @@
           <label class="label">
             Password:
             <input
-              type="password"
+              [type]="showPassSighIn ? 'text' : 'password'"
               placeholder="your password"
               #myPassword
               [value]="authService.password"
@@ -39,6 +39,12 @@
                     && form.controls['userPassword'].touched
               }"
             />
+            <div class="input-eye" *ngIf="!showPassSighIn" (click)="showPassSighInHandle()">
+              <i nz-icon nzType="eye-invisible" nzTheme="outline"></i>
+            </div>
+            <div class="input-eye" *ngIf="showPassSighIn" (click)="showPassSighInHandle()">
+              <i nz-icon nzType="eye" nzTheme="outline"></i>
+            </div>
             <div
               class="alert alert-danger"
               *ngIf="form.controls['userPassword'].errors?.['required']
@@ -97,7 +103,7 @@
           <label class="label">
             Password:
             <input
-              type="password"
+              [type]="showPassSighUp ? 'text' : 'password'"
               placeholder="your password"
               #mySPassword
               [value]="authService.signUpPassword"
@@ -110,6 +116,12 @@
                     && formSignUp.controls['userNewPassword'].touched
               }"
             />
+            <div class="input-eye" *ngIf="!showPassSighUp" (click)="showPassSighUpHandle()">
+              <i nz-icon nzType="eye-invisible" nzTheme="outline"></i>
+            </div>
+            <div class="input-eye" *ngIf="showPassSighUp" (click)="showPassSighUpHandle()">
+              <i nz-icon nzType="eye" nzTheme="outline"></i>
+            </div>
             <div
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userNewPassword'].errors?.['required']

@@ -6,6 +6,7 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { AuthComponent } from './auth.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
@@ -21,6 +22,7 @@ import { LoaderModule } from '../loader/loader.module';
     NzButtonModule,
     NzTabsModule,
     LoaderModule,
+    NzIconModule,
   ],
   exports: [AuthButtonComponent],
   providers: [NzMessageService],
