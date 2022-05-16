@@ -1,23 +1,19 @@
 <div class="search">
   <input
-    class="space-header__search-input mat-app-background"
-    #boardSearchInput
+    class="search-input mat-app-background"
     type="search"
     [formControl]="findControl"
     [class.space-header__search-input_visible]="isBoardSearchVisible"
   />
-  <button
-    class="space-header__search-button space-header__icon mat-app-background"
-    nz-icon
-    nzType="search"
-    nzTheme="outline"
-    (click)="openSearchInput(boardSearchInput.value)"
-  ></button>
-  <div style="color: #000" *ngFor="let item of result | json">
-    <div class="search-result">
-      <div class="search-item">
-        <!--        <div class="search-item__title">{{item.title}}</div>-->
-        <!--        <div class="search-item__description">{{item.description}}</div>-->
+  <div class="search-result">
+    <div class="search-item" *ngFor="let item of searchService.result">
+      <div class="search-item__result">
+        <span class="search-item__name">Title:</span>
+        <span class="search-item__value">{{ item.title }}</span>
+      </div>
+      <div class="search-item__result">
+        <span class="search-item__name">Description:</span>
+        <span class="search-item__value">{{ item.description }}</span>
       </div>
     </div>
   </div>
