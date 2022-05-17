@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" target-language="ru" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="8873743743194838529" datatype="html">
+        <source> Please enter a login </source>
+        <target> Пожалуйста, введите логин </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">93,95</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1231696487273978126" datatype="html">
+        <source> Please enter a password </source>
+        <target> Пожалуйста, введите пароль </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">117,119</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">73,75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5207635742003539443" datatype="html">
+        <source>Sign in</source>
+        <target> Войти </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4866480635364862942" datatype="html">
+        <source> Please enter your name </source>
+        <target> Пожалуйста, введите имя </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">72,74</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="729795950242103605" datatype="html">
+        <source> Your password isn&apos;t strong enough </source>
+        <target> Ваш пароль недостаточно надежный </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">125,127</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">81,83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7028204981963450021" datatype="html">
+        <source>Sign up</source>
+        <target> Регистрация </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">129</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1801719060163713590" datatype="html">
+        <source>Leave a comment</source>
+        <target>Оставить комментарий</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/board/board-item/board-item.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3410061812069119955" datatype="html">
+        <source>New Column</source>
+        <target>Новая колонка</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/board/header/header.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7371803447468984899" datatype="html">
+        <source>Confirmation modal</source>
+        <target>Подтвердить</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirm/confirm-body/confirm-body.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9178182467454450952" datatype="html">
+        <source>Confirm</source>
+        <target>Подтвердить</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirm/confirm-body/confirm-body.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialog/dialog-body/dialog-body.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2159130950882492111" datatype="html">
+        <source>Cancel</source>
+        <target>Отмена</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirm/confirm-body/confirm-body.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialog/dialog-body/dialog-body.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6373809147161626429" datatype="html">
+        <source>App developers: </source>
+        <target>Разработчики: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/footer/footer.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1726363342938046830" datatype="html">
+        <source>About</source>
+        <target>О приложении</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7256386824855860371" datatype="html">
+        <source>Oops, not found!</source>
+        <target>Ой, не найдено!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/not-found/not-found.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1305200537622236179" datatype="html">
+        <source> Mistake vector created by pch.vector - www.freepik.com </source>
+        <target> Векторная графика от pch.vector - www.freepik.com </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/not-found/not-found.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4394695621534540352" datatype="html">
+        <source> Good boards for<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/> a good project. </source>
+        <target> Хорошие доски<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/> для хорошего проекта. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/welcome-page/welcome-page.component.html</context>
+          <context context-type="linenumber">8,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9173594513823369700" datatype="html">
+        <source> It is a project management program for small teams of developers, created by a group of <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://rs.school/&quot; target=&quot;_blank&quot;&gt;"/>Rs School<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> students as the final assignment of the <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://rs.school/angular/&quot; target=&quot;_blank&quot;&gt;"/>Angular<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> course, led by the Angular daddy - PoMaKoM. The program uses a project management paradigm called kanban. Crashes, bugs, crooked and poorly designed interface, fight against CORS - this describes this project well and is perfect for your project with the same characteristics. </source>
+        <target> Это программа для управления проектами для небольших групп разработчиков, созданная группой студентов <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://rs.school/&quot; target=&quot;_blank&quot;&gt;"/>Rs School<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, как финальное задание курса Angular, под предводительством отца всея <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://rs.school/angular/&quot; target=&quot;_blank&quot;&gt;"/>Angular<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>  – PoMaKoM. В программе используется парадигма управления проектами под названием канбан. Вылеты, баги, кривой и плохо проработанный интерфейс, борьба с CORS – это хорошо описывает этот проект и отлично подойдет для вашего проекта с такими же характеристиками. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/welcome-page/welcome-page.component.html</context>
+          <context context-type="linenumber">13,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6526811599610436966" datatype="html">
+        <source>get started</source>
+        <target>начать</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/welcome-page/welcome-page.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6115643278743881010" datatype="html">
+        <source>register now</source>
+        <target> зарегистрироваться </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/welcome-page/welcome-page.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2517309683610083249" datatype="html">
+        <source>Title:</source>
+        <target>Название:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialog/dialog-body/dialog-body.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6996799422725544865" datatype="html">
+        <source>Description:</source>
+        <target>Описание:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dialog/dialog-body/dialog-body.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4915431133669985304" datatype="html">
+        <source>Profile</source>
+        <target>Профайл</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7903421043332538394" datatype="html">
+        <source>Please fill all fields</source>
+        <target>Заполните все поля</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7658402240953727096" datatype="html">
+        <source>Name:</source>
+        <target>Имя:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9176569562112102455" datatype="html">
+        <source>Login:</source>
+        <target>Логин:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6865009229971482891" datatype="html">
+        <source>Password:</source>
+        <target>Пароль:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+        <target>Сохранить</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7351638370580778605" datatype="html">
+        <source>+ Add Board</source>
+        <target>+ Новая доска</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/space/components/left-aside/left-aside.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4384879196743882650" datatype="html">
+        <source> A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world. </source>
+        <target>Собака — это тип домашнего животного. Известный своей преданностью и верностью, он является желанным гостем во многих домах по всему миру.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/space/components/phase/phase.component.html</context>
+          <context context-type="linenumber">9,12</context>
+        </context-group>
+      </trans-unit>
+
+<trans-unit id="848099606610131698" datatype="html">
+        <source>This is a development management method that implements the principle of "just in time and contributes to an even distribution of workload among employees. With this approach, the entire development process is transparent to all team members. Tasks are entered into a separate list as they arrive, from where each developer can extract the required task.</source>
+        <target>Это метод управления разработкой, реализующий принцип «точно в срок» и способствующий равномерному распределению нагрузки между работниками. При данном подходе весь процесс разработки прозрачен для всех членов команды. Задачи по мере поступления заносятся в отдельный список, откуда каждый разработчик может извлечь требуемую задачу.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">24,27</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="5274640000604178890" datatype="html">
+        <source>How can I create a new column?</source>
+        <target>Как мне создать новую колонку?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="5608927181889035980" datatype="html">
+        <source>How to register?</source>
+        <target>Как зарегистрироваться на сайте?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="5961687341779337452" datatype="html">
+        <source>It is a cloud-based small group project management software developed by a group of Rs.School students. WAPA uses a project management paradigm known as kanban, a method originally popularized by Toyota in the 1980s for supply chain management.</source>
+        <target>Это облачная программа для управления проектами небольших групп, разработанная группой студентов курса Rs.School. WAPA использует парадигму для управления проектами, известную как канбан, метод, который первоначально был популяризирован Toyota в 1980-х для управления цепочками поставок.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">15,18</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="7351342761495862920" datatype="html">
+        <source>To do this, click on the “board” button on the left in the menu.
+       Then in Aside click on “+ Add Board”.
+        Write down the name of the new board and then confirm the creation using the &quot;Confirm&quot; button.</source>
+        <target>Для этого нажмите на кнопку “board” слева в меню. После чего в Aside нажмите на “+ Add Board”. Запишите название новой доски после чего подтвердите создание с помощью кнопки “Confirm”.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">49,51</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="3188649671713479908" datatype="html">
+        <source>To do this, click on the “board” button on the left in the menu.
+       Then click on the “New Column” button on the top right. Then write down the name of the new column
+        and then confirm the creation using the “Confirm” button.</source>
+        <target>Для этого нажмите на кнопку “board” слева в меню. После чего справа сверху нажмите на кнопку “New Column”. Затем запишите название новой колонки после чего подтвердите создание с помощью кнопки “Confirm”.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">57,59</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="6455305318054505399" datatype="html">
+        <source>your name</source>
+        <target>Ваше имя</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="6447212455977369351" datatype="html">
+        <source>search...</source>
+        <target>Ищу...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/search/search.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="5817372350807919607" datatype="html">
+        <source>your login</source>
+        <target>Ваш логин</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+
+            <trans-unit id="5696395102656653262" datatype="html">
+        <source>your password</source>
+        <target>Ваш пароль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+
+ <trans-unit id="7681704422967270180" datatype="html">
+        <source>To do this, click on the “Log in” button in
+       the lower left corner. Then go to the “Sign up” tab, enter your name, username and password.
+         The login must be unique, and the password must have uppercase and lowercase letters, 
+         numbers, and at least one symbol.</source>
+        <target>Для этого нажмите на кнопку “Log in” в левом нижнем углу. Затем перейдите на вкладку “Sign up”, укажите свое имя, логин и пароль. Логин должен быть уникальным, а пароль иметь большие и маленькие буквы, цифры и как минимум один символ.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">40,43</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="8328090389433861939" datatype="html">
+        <source>What is Kanban?</source>
+        <target>Что такое Канбан?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+
+
+<trans-unit id="8416984675646932639" datatype="html">
+        <source>How to login?</source>
+        <target>Как войти в WAPA?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+
+<trans-unit id="8752129194813172304" datatype="html">
+        <source>Where can I create a new board?</source>
+        <target>Где мне создать новую доску?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="7507948636555938109" datatype="html">
+        <source>Log out</source>
+        <target>выйти</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/components/auth-button/auth-button.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="2336550011721758066" datatype="html">
+        <source>Log in</source>
+        <target>войти</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/components/auth-button/auth-button.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+
+<trans-unit id="8906203504039939659" datatype="html">
+        <source>What is WAPA?</source>
+        <target>Что такое WAPA?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="9013839957055018472" datatype="html">
+        <source>To do this, click on the &quot;Log in&quot; button in the lower left corner.
+       Then enter a valid username and password, then click on the “Sign in” button.</source>
+        <target>Для этого нажмите на кнопку “Log in” в левом нижнем углу. Затем введите валидный логин и пароль, после чего нажмите на кнопку “Sign in”.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/pages/about-page/about-page.component.ts</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      
+
+      <trans-unit id="3848421206288606635" datatype="html">
+        <source>your new login</source>
+        <target>Ваш новый логин</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      
+      <trans-unit id="9176569562112102455" datatype="html">
+        <source>Login:</source>
+        <target>Логін:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="6865009229971482891" datatype="html">
+        <source>Password:</source>
+        <target>Пароль:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="4415720960983403472" datatype="html">
+        <source>your new name</source>
+        <target>Ваше новое имя</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+
+<trans-unit id="7044125558508374542" datatype="html">
+        <source>your new password</source>
+        <target>Ваш новый пароль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+
+    </body>
+  </file>
+</xliff>

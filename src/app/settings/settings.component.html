@@ -1,17 +1,17 @@
-<div style="padding: 30px">
+<div class="container">
   <div nz-row [nzGutter]="8">
     <div nz-col [nzSpan]="8">
       <nz-card nzTitle="Dark Mode">
-        <mat-icon>brightness_5</mat-icon>
+        <mat-icon class="side">brightness_5</mat-icon>
         <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode"></mat-slide-toggle>
-        <mat-icon>bedtime</mat-icon>
+        <mat-icon class="side">bedtime</mat-icon>
       </nz-card>
     </div>
     <div nz-col [nzSpan]="8">
       <nz-card nzTitle="Language">
-        <mat-icon>mood</mat-icon>
+        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" class="side" />
         <mat-slide-toggle></mat-slide-toggle>
-        <mat-icon>mood_bad</mat-icon>
+        <img src="https://i.ibb.co/nCsJgpZ/flag-copy.png" class="side" />
       </nz-card>
     </div>
   </div>
