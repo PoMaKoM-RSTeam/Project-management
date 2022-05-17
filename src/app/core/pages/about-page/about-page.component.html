@@ -6,12 +6,13 @@
 
   <nz-collapse nzGhost>
     <nz-collapse-panel
+      class="about__strong"
       *ngFor="let about of abouts | search: searchLine:['name', 'content']"
       [nzHeader]="about.name"
       [nzActive]="about.active"
       [nzDisabled]="about.disabled"
     >
-      <p style="margin: 0">{{ about.content }}</p>
+      <p class="about__text" style="margin: 0">{{ about.content }}</p>
     </nz-collapse-panel>
   </nz-collapse>
 </section>
