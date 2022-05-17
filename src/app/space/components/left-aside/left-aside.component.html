@@ -24,7 +24,7 @@
       [nzSelected]="board.id === route.snapshot.params['id']"
     >
       <i nz-icon [nzType]="iconBoard"></i>
-      <span>{{ board.title }}</span>
+      <span class="bar_left">{{ board.title }}</span>
       <span class="bar_right">
         <app-dialog question="Edit board" (click)="$event.stopPropagation()" (emitText)="editBoard($event, board.id)">
           <button class="button button__icon" nz-icon nzType="edit" nzTheme="outline"></button>

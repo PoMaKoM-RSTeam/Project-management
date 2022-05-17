@@ -115,6 +115,13 @@
     cursor: pointer;
   }
 
+  &_left {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 60%;
+  }
+
   &_right {
     margin-left: auto;
     display: flex;
