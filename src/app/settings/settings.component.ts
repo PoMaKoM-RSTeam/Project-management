@@ -18,7 +18,10 @@ export class SettingsComponent {
   toggleDarkMode() {
     this.isDarkMode = this.themeService.isDarkMode();
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    this.isDarkMode ? this.themeService.update('lightMode') : this.themeService.update('darkMode');
+    if (this.isDarkMode) {
+      this.themeService.update('lightMode');
+    } else {
+      this.themeService.update('darkMode');
+    }
   }
 }
