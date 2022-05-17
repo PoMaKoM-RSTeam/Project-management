@@ -8,35 +8,27 @@
           <context context-type="sourcefile">src/app/auth/auth.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">52</context>
-        </context-group>
       </trans-unit>
-      <trans-unit id="5817372350807919607" datatype="html">
-        <source>your login</source>
+      <trans-unit id="9176569562112102455" datatype="html">
+        <source>Login:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">83</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8873743743194838529" datatype="html">
-        <source> Please enter a login </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">24,26</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">97,99</context>
+          <context context-type="linenumber">7</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/profile/profile.component.html</context>
-          <context context-type="linenumber">50,52</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6865009229971482891" datatype="html">
+        <source>Password:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5696395102656653262" datatype="html">
@@ -47,18 +39,18 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">105</context>
+          <context context-type="linenumber">114</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1231696487273978126" datatype="html">
         <source> Please enter a password </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">48,50</context>
+          <context context-type="linenumber">54,56</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">122,124</context>
+          <context context-type="linenumber">137,139</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/profile/profile.component.html</context>
@@ -69,36 +61,54 @@
         <source>Sign up</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">61</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">134</context>
+          <context context-type="linenumber">149</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6455305318054505399" datatype="html">
         <source>your name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4866480635364862942" datatype="html">
         <source> Please enter your name </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">75,77</context>
+          <context context-type="linenumber">82,84</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/profile/profile.component.html</context>
           <context context-type="linenumber">27,29</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="5817372350807919607" datatype="html">
+        <source>your login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8873743743194838529" datatype="html">
+        <source> Please enter a login </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/auth.component.html</context>
+          <context context-type="linenumber">105,107</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
+          <context context-type="linenumber">50,52</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="729795950242103605" datatype="html">
         <source> Your password isn&apos;t strong enough </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/auth.component.html</context>
-          <context context-type="linenumber">130,132</context>
+          <context context-type="linenumber">145,147</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/profile/profile.component.html</context>
@@ -372,25 +382,11 @@
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="9176569562112102455" datatype="html">
-        <source>Login:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="3848421206288606635" datatype="html">
         <source>your new login</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/profile/profile.component.html</context>
           <context context-type="linenumber">36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6865009229971482891" datatype="html">
-        <source>Password:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/profile/profile.component.html</context>
-          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7044125558508374542" datatype="html">
