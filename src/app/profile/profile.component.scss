@@ -7,7 +7,8 @@
 
   .profile-wrapper {
     padding: 20px;
-    width: 265px;
+    max-width: 500px;
+    width: 100%;
     position: relative;
 
     display: flex;
@@ -39,13 +40,22 @@
       flex-direction: column;
       gap: 6px;
       font-size: 14px;
+      position: relative;
 
       .input {
         color: $first-color;
+        max-width: 173px;
 
         &.error {
           border: 1px solid $error-color;
           background-color: $fourth-color;
+        }
+
+        &-eye {
+          position: absolute;
+          top: 35px;
+          left: 180px;
+          cursor: pointer;
         }
       }
     }

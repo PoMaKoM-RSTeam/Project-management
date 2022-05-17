@@ -50,7 +50,7 @@
       <label class="label">
         Password:
         <input
-          type="password"
+          [type]="showPass ? 'text' : 'password'"
           placeholder="your new password"
           #mySPassword
           [value]="profileService.password"
@@ -63,6 +63,12 @@
                 && form.controls['userNewPassword'].touched
           }"
         />
+        <div class="input-eye" *ngIf="!showPass" (click)="showPassHandle()">
+          <i nz-icon nzType="eye-invisible" nzTheme="outline"></i>
+        </div>
+        <div class="input-eye" *ngIf="showPass" (click)="showPassHandle()">
+          <i nz-icon nzType="eye" nzTheme="outline"></i>
+        </div>
         <div
           class="alert alert-danger"
           *ngIf="form.controls['userNewPassword'].errors?.['required']
@@ -75,7 +81,8 @@
           *ngIf="form.controls['userNewPassword'].errors?.['pattern']
             && form.controls['userNewPassword'].touched"
         >
-          Your password isn't strong enough
+          Your password isn't strong enough! You should have one upper letter, one lower letter, one number, one special
+          symbol (?, !, @, #, $, %, ^, &, *, -) and length more 8 symbols.
         </div>
       </label>
       <button class="login-button" nzType="primary" nz-button>Save</button>

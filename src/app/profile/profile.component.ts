@@ -11,6 +11,8 @@ import { regexpPassword } from '../../constants/constants';
 export class ProfileComponent implements OnInit {
   form: FormGroup;
 
+  showPass = false;
+
   constructor(public profileService: ProfileService) {
     this.form = this.initForm('', '');
   }
@@ -41,5 +43,9 @@ export class ProfileComponent implements OnInit {
     if (isConfirm) {
       this.profileService.removeUser();
     }
+  }
+
+  showPassHandle() {
+    this.showPass = !this.showPass;
   }
 }
