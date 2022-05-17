@@ -43,22 +43,24 @@
     <div *ngIf="open" (click)="$event.stopPropagation()">
       <form class="w-100 mb-2">
         <div i18n>Leave a comment</div>
-        <input
-          class="input"
-          type="text"
-          name="comment"
-          id="comment"
-          [(ngModel)]="commentInput"
-          (mousedown)="$event.stopPropagation()"
-        />
-        <button
-          *ngIf="commentInput"
-          class="button button__icon"
-          nz-icon
-          nzType="check"
-          nzTheme="outline"
-          (click)="onCommentTextEmit(item.id)"
-        ></button>
+        <div class="board-comment-add">
+          <input
+            class="input"
+            type="text"
+            name="comment"
+            id="comment"
+            [(ngModel)]="commentInput"
+            (mousedown)="$event.stopPropagation()"
+          />
+          <button
+            *ngIf="commentInput"
+            class="button button__icon"
+            nz-icon
+            nzType="check"
+            nzTheme="outline"
+            (click)="onCommentTextEmit(item.id)"
+          ></button>
+        </div>
       </form>
 
       <ng-content></ng-content>
