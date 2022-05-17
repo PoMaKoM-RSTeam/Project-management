@@ -16,6 +16,8 @@ export class SearchService {
 
   result: Task[] = [];
 
+  showNotFound = false;
+
   search(value: string) {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
@@ -28,6 +30,9 @@ export class SearchService {
               this.user = column?.tasks.filter((task: any) => task?.title?.includes(value));
               if (this.user.length !== 0) {
                 this.result?.push(...this.user);
+                this.showNotFound = false;
+              } else {
+                this.showNotFound = true;
               }
             });
           });

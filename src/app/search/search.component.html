@@ -8,9 +8,11 @@
         type="search"
         [formControl]="findControl"
         [class.space-header__search-input_visible]="isBoardSearchVisible"
+        [class]="{error: findControl.errors?.['minlength']}"
       />
+      <div class="alert alert-danger" *ngIf="findControl.errors?.['minlength']">Minimum length 3 characters</div>
     </label>
-    <div class="search-result">
+    <div class="search-result" *ngIf="searchService.result.length">
       <div class="search-item" *ngFor="let item of searchService.result">
         <div class="search-item__result">
           <span class="search-item__name">Title:</span>
@@ -21,6 +23,9 @@
           <span class="search-item__value">{{ item.description }}</span>
         </div>
       </div>
+    </div>
+    <div *ngIf="!searchService.result.length && searchService.showNotFound">
+      <nz-empty></nz-empty>
     </div>
   </div>
 </div>

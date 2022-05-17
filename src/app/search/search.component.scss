@@ -25,6 +25,11 @@
     display: inline-block;
     border: 1px solid #dfdfdf;
     border-radius: 6px;
+
+    &.error {
+      border: 1px solid $error-color;
+      background-color: $fourth-color;
+    }
   }
 
   &-result {
