@@ -1,10 +1,11 @@
 <div class="login-page">
   <div class="login-wrapper">
     <nz-tabset class="login-tabs">
-      <nz-tab nzTitle="Sign in">
+      <nz-tab i18n-nzTitle nzTitle="Sign in">
         <form class="login-form" [formGroup]="form" novalidate (ngSubmit)="submit()">
           <label class="label">
             <input
+              i18n-placeholder
               type="text"
               placeholder="your login"
               #myLogin
@@ -17,6 +18,7 @@
               }"
             />
             <div
+              i18n
               class="alert alert-danger"
               *ngIf="form.controls['userEmail'].errors?.['required'] && form.controls['userEmail'].touched"
             >
@@ -25,6 +27,7 @@
           </label>
           <label class="label">
             <input
+              i18n-placeholder
               type="password"
               placeholder="your password"
               #myPassword
@@ -38,6 +41,7 @@
               }"
             />
             <div
+              i18n
               class="alert alert-danger"
               *ngIf="form.controls['userPassword'].errors?.['required']
                 && form.controls['userPassword'].touched"
@@ -45,14 +49,15 @@
               Please enter a password
             </div>
           </label>
-          <button class="login-button" nzType="primary" nz-button>Sign in</button>
+          <button i18n class="login-button" nzType="primary" nz-button>Sign in</button>
         </form>
       </nz-tab>
-      <nz-tab nzTitle="Sign up">
+      <nz-tab i18n-nzTitle nzTitle="Sign up">
         <form class="login-form" [formGroup]="formSignUp" novalidate (ngSubmit)="submitSignUp()">
           <label class="label">
             <input
               type="text"
+              i18n-placeholder
               placeholder="your name"
               #mySName
               [value]="authService.signUpName"
@@ -64,6 +69,7 @@
               }"
             />
             <div
+              i18n
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userName'].errors?.['required'] && formSignUp.controls['userName'].touched"
             >
@@ -73,6 +79,7 @@
           <label class="label">
             <input
               type="text"
+              i18n-placeholder
               placeholder="your login"
               #mySLogin
               [value]="authService.signUpLogin"
@@ -84,6 +91,7 @@
               }"
             />
             <div
+              i18n
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userLogin'].errors?.['required'] && formSignUp.controls['userLogin'].touched"
             >
@@ -93,6 +101,7 @@
           <label class="label">
             <input
               type="password"
+              i18n-placeholder
               placeholder="your password"
               #mySPassword
               [value]="authService.signUpPassword"
@@ -106,6 +115,7 @@
               }"
             />
             <div
+              i18n
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userNewPassword'].errors?.['required']
                 && formSignUp.controls['userNewPassword'].touched"
@@ -113,6 +123,7 @@
               Please enter a password
             </div>
             <div
+              i18n
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userNewPassword'].errors?.['pattern']
                 && formSignUp.controls['userNewPassword'].touched"
@@ -120,7 +131,7 @@
               Your password isn't strong enough
             </div>
           </label>
-          <button class="login-button" nzType="primary" nz-button>Sign up</button>
+          <button i18n class="login-button" nzType="primary" nz-button>Sign up</button>
         </form>
       </nz-tab>
     </nz-tabset>

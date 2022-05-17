@@ -12,6 +12,10 @@ export class AuthButtonComponent {
 
   public isLogged = false;
 
+  public logOut = $localize`Log out`;
+
+  public logIn = $localize`Log in`;
+
   private subscription: Subscription;
 
   constructor(public authService: AuthService) {
