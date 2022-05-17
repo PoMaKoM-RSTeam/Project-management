@@ -22,5 +22,10 @@
       color: $icont-second-color;
       background-color: $icont-first-color;
     }
+
+    &_active {
+      color: $icont-second-color;
+      background-color: $icont-first-color;
+    }
   }
 }

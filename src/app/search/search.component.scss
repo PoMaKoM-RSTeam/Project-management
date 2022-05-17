@@ -1,0 +1,52 @@
+@import '../../styles/variables';
+
+.search {
+  padding: 30px 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  &-input {
+    display: inline-block;
+    border: 1px solid #dfdfdf;
+    border-radius: 6px;
+  }
+
+  &-result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &-item {
+    width: 100%;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+    background-color: $task-color;
+    padding: 10px 10px 5px 10px;
+    border: solid 1px $border-color;
+    color: $main-color;
+    cursor: move;
+    font-size: 14px;
+    border-radius: 4px;
+
+    &__result {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    &__name {
+      font-weight: bold;
+      letter-spacing: 1.5px;
+    }
+  }
+}

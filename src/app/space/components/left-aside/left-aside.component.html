@@ -17,7 +17,12 @@
   </div>
 
   <ul (click)="stopPropagation($event)" nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-    <li *ngFor="let board of boards" nz-menu-item (click)="redirectToBoard(board.id)">
+    <li
+      *ngFor="let board of boards"
+      nz-menu-item
+      (click)="redirectToBoard(board.id)"
+      [nzSelected]="board.id === route.snapshot.params['id']"
+    >
       <i nz-icon [nzType]="iconBoard"></i>
       <span>{{ board.title }}</span>
       <span class="bar_right">
