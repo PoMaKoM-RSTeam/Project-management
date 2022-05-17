@@ -1,14 +1,13 @@
 <div class="profile-page">
   <div class="profile-wrapper">
     <div>
-      <h2 class="profile-title" i18n>Profile</h2>
-      <small i18n>Please fill all fields</small>
+      <h2 class="profile-title">Profile</h2>
+      <small>Please fill all fields</small>
     </div>
     <form class="profile-form" [formGroup]="form" novalidate (ngSubmit)="submit()">
       <label class="label">
-        <span i18n>Name:</span>
+        Name:
         <input
-          i18n-placeholder
           type="text"
           placeholder="your new name"
           #mySName
@@ -21,7 +20,6 @@
           }"
         />
         <div
-          i18n
           class="alert alert-danger"
           *ngIf="form.controls['userName'].errors?.['required'] && form.controls['userName'].touched"
         >
@@ -29,9 +27,8 @@
         </div>
       </label>
       <label class="label">
-        <span i18n>Login:</span>
+        Login:
         <input
-          i18n-placeholder
           type="text"
           placeholder="your new login"
           #mySLogin
@@ -44,7 +41,6 @@
           }"
         />
         <div
-          i18n
           class="alert alert-danger"
           *ngIf="form.controls['userLogin'].errors?.['required'] && form.controls['userLogin'].touched"
         >
@@ -52,10 +48,9 @@
         </div>
       </label>
       <label class="label">
-        <span i18n>Password:</span>
+        Password:
         <input
           [type]="showPass ? 'text' : 'password'"
-          i18n-placeholder
           placeholder="your new password"
           #mySPassword
           [value]="profileService.password"
@@ -75,7 +70,6 @@
           <i nz-icon nzType="eye" nzTheme="outline"></i>
         </div>
         <div
-          i18n
           class="alert alert-danger"
           *ngIf="form.controls['userNewPassword'].errors?.['required']
             && form.controls['userNewPassword'].touched"
@@ -83,7 +77,6 @@
           Please enter a password
         </div>
         <div
-          i18n
           class="alert alert-danger"
           *ngIf="form.controls['userNewPassword'].errors?.['pattern']
             && form.controls['userNewPassword'].touched"
@@ -92,7 +85,7 @@
           symbol (?, !, @, #, $, %, ^, &, *, -) and length more 8 symbols.
         </div>
       </label>
-      <button i18n class="login-button" nzType="primary" nz-button>Save</button>
+      <button class="login-button" nzType="primary" nz-button>Save</button>
     </form>
     <div class="profile-remove">
       <app-confirm

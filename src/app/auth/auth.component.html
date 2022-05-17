@@ -1,10 +1,10 @@
 <div class="login-page">
   <div class="login-wrapper">
     <nz-tabset class="login-tabs">
-      <nz-tab i18n-nzTitle nzTitle="Sign in">
+      <nz-tab nzTitle="Sign in">
         <form class="login-form" [formGroup]="form" novalidate (ngSubmit)="submit()">
           <label class="label">
-            <span i18n>Login:</span>
+            Login:
             <input
               type="text"
               placeholder="your login"
@@ -25,9 +25,8 @@
             </div>
           </label>
           <label class="label">
-            <span i18n>Password:</span>
+            Password:
             <input
-              i18n-placeholder
               [type]="showPassSighIn ? 'text' : 'password'"
               placeholder="your password"
               #myPassword
@@ -47,7 +46,6 @@
               <i nz-icon nzType="eye" nzTheme="outline"></i>
             </div>
             <div
-              i18n
               class="alert alert-danger"
               *ngIf="form.controls['userPassword'].errors?.['required']
                 && form.controls['userPassword'].touched"
@@ -58,12 +56,11 @@
           <button class="login-button" nzType="primary" nz-button>Sign in</button>
         </form>
       </nz-tab>
-      <nz-tab i18n-nzTitle nzTitle="Sign up">
+      <nz-tab nzTitle="Sign up">
         <form class="login-form" [formGroup]="formSignUp" novalidate (ngSubmit)="submitSignUp()">
           <label class="label">
             Name:
             <input
-              i18n-placeholder
               type="text"
               placeholder="your name"
               #mySName
@@ -76,7 +73,6 @@
               }"
             />
             <div
-              i18n
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userName'].errors?.['required'] && formSignUp.controls['userName'].touched"
             >
@@ -86,7 +82,6 @@
           <label class="label">
             Login:
             <input
-              i18n-placeholder
               type="text"
               placeholder="your login"
               #mySLogin
@@ -99,7 +94,6 @@
               }"
             />
             <div
-              i18n
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userLogin'].errors?.['required'] && formSignUp.controls['userLogin'].touched"
             >
@@ -109,7 +103,6 @@
           <label class="label">
             Password:
             <input
-              i18n-placeholder
               [type]="showPassSighUp ? 'text' : 'password'"
               placeholder="your password"
               #mySPassword
@@ -130,7 +123,6 @@
               <i nz-icon nzType="eye" nzTheme="outline"></i>
             </div>
             <div
-              i18n
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userNewPassword'].errors?.['required']
                 && formSignUp.controls['userNewPassword'].touched"
@@ -138,7 +130,6 @@
               Please enter a password
             </div>
             <div
-              i18n
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userNewPassword'].errors?.['pattern']
                 && formSignUp.controls['userNewPassword'].touched"
@@ -147,7 +138,7 @@
               special symbol (?, !, @, #, $, %, ^, &, *, -) and length more 8 symbols.
             </div>
           </label>
-          <button i18n class="login-button" nzType="primary" nz-button>Sign up</button>
+          <button class="login-button" nzType="primary" nz-button>Sign up</button>
         </form>
       </nz-tab>
     </nz-tabset>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { NZ_I18N, en_US, ru_RU, uk_UA } from 'ng-zorro-antd/i18n';
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
@@ -34,21 +34,7 @@ registerLocaleData(en);
     DialogModule,
   ],
   providers: [
-    {
-      provide: NZ_I18N,
-      useFactory: (localId: string) => {
-        switch (localId) {
-          case 'en':
-            return en_US;
-          case 'ru':
-            return ru_RU;
-          case 'uk':
-            return uk_UA;
-          default:
-            return en_US;
-        }
-      },
-    },
+    { provide: NZ_I18N, useValue: en_US },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorIntercept,
