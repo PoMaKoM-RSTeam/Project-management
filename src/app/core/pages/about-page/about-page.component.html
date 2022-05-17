@@ -1,18 +1,17 @@
 <section class="about">
   <div class="about__header">
-    <h1 class="about__title" i18n>About</h1>
+    <h1 class="about__title">About</h1>
     <app-search class="about__search" (searchLine)="changeSearchLine($event)"></app-search>
   </div>
 
   <nz-collapse nzGhost>
     <nz-collapse-panel
-      class="about__strong"
       *ngFor="let about of abouts | search: searchLine:['name', 'content']"
       [nzHeader]="about.name"
       [nzActive]="about.active"
       [nzDisabled]="about.disabled"
     >
-      <p class="about__text" style="margin: 0">{{ about.content }}</p>
+      <p style="margin: 0">{{ about.content }}</p>
     </nz-collapse-panel>
   </nz-collapse>
 </section>
