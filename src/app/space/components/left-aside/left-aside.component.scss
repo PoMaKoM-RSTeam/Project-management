@@ -25,17 +25,22 @@
 
     & .bar__search-button {
       display: block;
-      transform: scale(0.8);
+    }
+  }
+
+  &:not(.space-aside_open) {
+    .space-aside__title {
+      text-align: center;
     }
   }
 
   &__title {
     padding: calc(#{$space-aside-button-size}/ 2);
-    max-width: 80px;
+    max-width: 120px;
     font-size: 0.7rem;
     overflow: hidden;
     color: $second-color;
-    transition: 0.1s font-size, 0.1s max-width;
+    transition: 0.1s;
   }
 
   &__add-button {

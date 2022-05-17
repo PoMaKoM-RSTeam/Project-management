@@ -4,7 +4,7 @@
     *ngFor="let link of links.links"
     [class.space-nav__link_active]="link.url === links.active"
     [routerLink]="'/' + link.url"
-    (click)="changeActive(link.title)"
+    (click)="changeActive(link.url)"
   >
     <span nz-icon [nzType]="link.icon"></span> {{ link.title }}
   </a>

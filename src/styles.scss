@@ -1,6 +1,46 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+@import '@angular/material/theming';
+
 @import './styles/variables';
+@import './styles/reset';
 @import 'styles/elements/button';
 @import 'styles/elements/input';
+
+$angular-primary: mat.define-palette(mat.$teal-palette, 500, 100, 900);
+$angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$angular-warn: mat.define-palette(mat.$red-palette);
+
+$angular-default-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $angular-primary,
+      accent: $angular-accent,
+      warn: $angular-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($angular-default-theme);
+
+$angular-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$red-palette),
+      accent: mat.define-palette(mat.$red-palette),
+      warn: mat.define-palette(mat.$red-palette),
+    ),
+  )
+);
+
+.darkMode {
+  @include mat.all-component-colors($angular-dark-theme);
+}
+
+.lightMode {
+  @include mat.all-component-colors($angular-default-theme);
+}
 
 *::-webkit-scrollbar-thumb {
   display: block;
@@ -10,49 +50,9 @@
 
 *::-webkit-scrollbar {
   width: 0.5em;
+  height: 0.5em;
   background-color: transparent;
 }
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$project-management-primary: mat-palette($mat-indigo);
-$project-management-accent: mat-palette($mat-pink, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$project-management-warn: mat-palette($mat-red);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$project-management-theme: mat-light-theme(
-  (
-    color: (
-      primary: $project-management-primary,
-      accent: $project-management-accent,
-      warn: $project-management-warn,
-    ),
-  )
-);
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($project-management-theme);
-
-/* You can add global styles to this file, and also import other style files */
-
-// Imports functions, variables, and mixins that are needed by other Bootstrap files
-@import './styles/reset';
 
 html,
 body {
@@ -61,13 +61,15 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
 }
 
 input {
   color: black;
-  padding-left: 7px;
+  padding-left: 8px;
   padding-right: 4px;
-  width: 215px;
+  width: 100%;
+  max-width: 215px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -90,4 +92,8 @@ input {
   outline: none;
   box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
   transition: background 0s, width 0s cubic-bezier(0, 0, 0, 1) 0s;
+}
+
+.mr-8 {
+  margin-right: 8px;
 }

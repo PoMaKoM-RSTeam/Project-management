@@ -1,0 +1,20 @@
+<div class="search mat-app-background">
+  <input
+    class="search-input mat-app-background"
+    type="search"
+    [formControl]="findControl"
+    [class.space-header__search-input_visible]="isBoardSearchVisible"
+  />
+  <div class="search-result">
+    <div class="search-item" *ngFor="let item of searchService.result">
+      <div class="search-item__result">
+        <span class="search-item__name">Title:</span>
+        <span class="search-item__value">{{ item.title }}</span>
+      </div>
+      <div class="search-item__result">
+        <span class="search-item__name">Description:</span>
+        <span class="search-item__value">{{ item.description }}</span>
+      </div>
+    </div>
+  </div>
+</div>

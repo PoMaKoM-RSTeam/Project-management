@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Colors, NgIcon } from '../../../../constants/enums';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgIcon } from '../../../../constants/enums';
 import { BoardsAPIService } from '../../../services/boards-api.service';
 import { Board } from '../../../models/column.model';
 import { BoardService } from '../../../services/board.service';
@@ -14,8 +14,8 @@ export class LeftAsideComponent implements OnInit {
   constructor(
     private boardsAPIService: BoardsAPIService,
     private router: Router,
-    private reqToBoardsApi: BoardsAPIService,
     public boardService: BoardService,
+    public route: ActivatedRoute,
   ) {}
 
   @Input() pageName: string = 'Page Name';
@@ -91,15 +91,6 @@ export class LeftAsideComponent implements OnInit {
 
   redirectToBoard(id: string) {
     this.router.navigate([`/board/${id}`]);
-
-    const tokenId = window.localStorage.getItem('userTokenMid');
-    if (tokenId) {
-      this.reqToBoardsApi.getBoardByID(id, tokenId).subscribe((data) => {
-        this.boardService.changeTitleBoard(data.title);
-        this.boardService.changeBoardColumnsAll(
-          data.columns.sort((a, b) => (a.order > b.order ? 1 : -1)).map((item) => ({ ...item, color: Colors.GREEN })),
-        );
-      });
-    }
+    this.boardService.boardInit(id);
   }
 }

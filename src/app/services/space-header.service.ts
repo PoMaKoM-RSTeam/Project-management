@@ -9,11 +9,6 @@ export class SpaceHeaderService {
   navLinks: INavLinks = {
     links: [
       {
-        url: PathUrl.LIST,
-        icon: NgIcon.LIST,
-        title: PathTitle.LIST,
-      },
-      {
         url: PathUrl.BOARD,
         icon: NgIcon.BOARD,
         title: PathTitle.BOARD,

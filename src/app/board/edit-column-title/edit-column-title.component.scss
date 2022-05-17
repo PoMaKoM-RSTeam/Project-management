@@ -1,6 +1,10 @@
 .board-title {
   &_text {
     margin: 0;
+    max-width: 125px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   &_edit {

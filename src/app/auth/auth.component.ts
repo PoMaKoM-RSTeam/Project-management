@@ -13,6 +13,10 @@ export class AuthComponent {
 
   formSignUp: FormGroup;
 
+  showPassSighIn = false;
+
+  showPassSighUp = false;
+
   constructor(public authService: AuthService) {
     this.form = new FormGroup({
       userEmail: new FormControl('', [Validators.required]),
@@ -32,5 +36,13 @@ export class AuthComponent {
 
   submitSignUp() {
     if (this.formSignUp.valid) this.authService.signUpNewUser();
+  }
+
+  showPassSighInHandle() {
+    this.showPassSighIn = !this.showPassSighIn;
+  }
+
+  showPassSighUpHandle() {
+    this.showPassSighUp = !this.showPassSighUp;
   }
 }
