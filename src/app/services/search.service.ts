@@ -16,9 +16,22 @@ export class SearchService {
 
   result: Task[] = [];
 
+  showNotFound = false;
+
+  isLoading = false;
+
+  loading() {
+    this.isLoading = true;
+  }
+
+  loaded() {
+    this.isLoading = false;
+  }
+
   search(value: string) {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
+      this.loading();
       return this.reqToBoardsApi.getAllBoards(tokenId).subscribe((data) => {
         this.result = [];
         this.boards = data;
@@ -28,8 +41,12 @@ export class SearchService {
               this.user = column?.tasks.filter((task: any) => task?.title?.includes(value));
               if (this.user.length !== 0) {
                 this.result?.push(...this.user);
+                this.showNotFound = false;
+              } else {
+                this.showNotFound = true;
               }
             });
+            this.loaded();
           });
         });
       });

@@ -1,3 +1,11 @@
-<div class="loader">
-  <nz-spin nzSimple nzSize="large"></nz-spin>
+<div
+  class="loader"
+  [class]="{
+    block: isForBlock
+  }"
+  [style]="{
+    left: left
+  }"
+>
+  <nz-spin nzSimple [nzSize]="nzSize"></nz-spin>
 </div>

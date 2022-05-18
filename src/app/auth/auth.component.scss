@@ -11,7 +11,8 @@
 
   .login-wrapper {
     padding: 20px;
-    width: 265px;
+    max-width: 500px;
+    width: 100%;
 
     display: flex;
     flex-direction: column;

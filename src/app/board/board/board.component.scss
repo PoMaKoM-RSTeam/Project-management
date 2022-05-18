@@ -103,9 +103,15 @@
   min-height: 100%;
   background-color: $main-color;
   display: flex;
+
   &__main {
     width: 100%;
     min-height: 100%;
     background-color: $main-color;
+    position: relative;
+
+    &.disabled {
+      pointer-events: none;
+    }
   }
 }

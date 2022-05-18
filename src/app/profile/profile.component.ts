@@ -11,15 +11,19 @@ import { regexpPassword } from '../../constants/constants';
 export class ProfileComponent implements OnInit {
   form: FormGroup;
 
+  showPass = false;
+
   constructor(public profileService: ProfileService) {
     this.form = this.initForm('', '');
   }
 
   ngOnInit() {
+    this.profileService.loading();
     this.profileService.getUserData().subscribe((response) => {
       this.profileService.nameHandle(response.name);
       this.profileService.loginHandle(response.login);
       this.form = this.initForm(response.name, response.login);
+      this.profileService.loaded();
     });
   }
 
@@ -41,5 +45,9 @@ export class ProfileComponent implements OnInit {
     if (isConfirm) {
       this.profileService.removeUser();
     }
+  }
+
+  showPassHandle() {
+    this.showPass = !this.showPass;
   }
 }
