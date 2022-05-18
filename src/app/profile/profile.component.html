@@ -1,5 +1,10 @@
 <div class="profile-page">
-  <div class="profile-wrapper">
+  <div
+    class="profile-wrapper"
+    [class]="{
+      disabled: profileService.isLoadingBlock
+    }"
+  >
     <div>
       <h2 class="profile-title">Profile</h2>
       <small>Please fill all fields</small>
@@ -93,8 +98,16 @@
         (click)="$event.stopPropagation()"
         (emitConfirm)="onUserDelete($event)"
       >
-        <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+        <button
+          class="button button__icon"
+          nz-icon
+          nzType="delete"
+          nzTheme="outline"
+          [disabled]="profileService.isLoadingBlock"
+        ></button>
       </app-confirm>
     </div>
+    <app-loader *ngIf="profileService.isLoadingBlock" [isForBlock]="true"></app-loader>
   </div>
+  <app-loader *ngIf="profileService.isLoading"></app-loader>
 </div>

@@ -33,8 +33,10 @@ export class LeftAsideComponent implements OnInit {
   ngOnInit() {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
+      this.boardService.loading();
       this.boardsAPIService.getAllBoards(tokenId).subscribe((response) => {
         this.boards = response;
+        this.boardService.loaded();
       });
     }
   }
@@ -49,30 +51,30 @@ export class LeftAsideComponent implements OnInit {
     this.isSpaceSearchVisible = false;
   }
 
-  openSearchInput(event: Event, search: string) {
-    this.stopPropagation(event);
-
-    if (!search) this.isSpaceSearchVisible = !this.isSpaceSearchVisible;
-  }
-
   addBoard(title: string) {
     if (title) {
       const tokenId = window.localStorage.getItem('userTokenMid');
       if (tokenId) {
+        this.boardService.loadingBlock();
         this.boardsAPIService.createBoard(title, tokenId).subscribe((response) => {
           this.boards = [...this.boards, response];
+          this.boardService.loadedBlock();
         });
       }
     }
   }
 
   editBoard(title: string, id: string) {
-    const tokenId = window.localStorage.getItem('userTokenMid');
-    if (tokenId) {
-      this.boardsAPIService.updateBoard(id, { title }, tokenId).subscribe((response) => {
-        const index = this.boards.findIndex((board) => board.id === id);
-        this.boards[index] = response;
-      });
+    if (title) {
+      const tokenId = window.localStorage.getItem('userTokenMid');
+      if (tokenId) {
+        this.boardService.loadingBlock();
+        this.boardsAPIService.updateBoard(id, { title }, tokenId).subscribe((response) => {
+          const index = this.boards.findIndex((board) => board.id === id);
+          this.boards[index] = response;
+          this.boardService.loadedBlock();
+        });
+      }
     }
   }
 
@@ -80,10 +82,12 @@ export class LeftAsideComponent implements OnInit {
     if (isConfirm) {
       const tokenId = window.localStorage.getItem('userTokenMid');
       if (tokenId) {
+        this.boardService.loadingBlock();
         this.boardsAPIService.deleteBoard(id, tokenId).subscribe((response) => {
           if (response === null) {
             this.boards = this.boards.filter((board) => board.id !== id);
           }
+          this.boardService.loadedBlock();
         });
       }
     }

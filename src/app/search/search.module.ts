@@ -7,6 +7,7 @@ import { SearchComponent } from './search.component';
 import { SearchRoutingModule } from './search-routing.module';
 import { CoreModule } from '../core/core.module';
 import { BoardModule } from '../board/board.module';
+import { LoaderModule } from '../loader/loader.module';
 
 @NgModule({
   declarations: [SearchComponent],
@@ -18,6 +19,7 @@ import { BoardModule } from '../board/board.module';
     ReactiveFormsModule,
     BoardModule,
     NzEmptyModule,
+    LoaderModule,
   ],
 })
 export class SearchModule {}

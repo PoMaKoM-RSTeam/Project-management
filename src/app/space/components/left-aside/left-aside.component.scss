@@ -44,6 +44,7 @@
   }
 
   &__add-button {
+    position: relative;
     width: 120px;
     border: 0;
     font-weight: 600;
@@ -60,6 +61,11 @@
     &:hover {
       transition: 0.1s color;
       color: $second-color;
+    }
+
+    &:disabled {
+      color: $second-color;
+      cursor: default;
     }
   }
 
@@ -83,6 +89,10 @@
     &_visible {
       display: block;
     }
+  }
+
+  &.disabled {
+    pointer-events: none;
   }
 }
 

@@ -6,7 +6,14 @@
 >
   ‹
 </strong>
-<aside class="space-aside" [class.space-aside_open]="!isCollapsed" (click)="this.isCollapsed = false">
+<aside
+  class="space-aside"
+  [class.space-aside_open]="!isCollapsed"
+  (click)="this.isCollapsed = false"
+  [class]="{
+    disabled: boardService.isLoadingBlock
+  }"
+>
   <!--Title-->
   <h2 class="space-aside__title">{{ pageName }}</h2>
 
@@ -42,4 +49,6 @@
   <app-dialog (emitText)="addBoard($event)" question="Add new board">
     <button class="space-aside__add-button">+ Add Board</button>
   </app-dialog>
+  <app-loader *ngIf="boardService.isLoadingBlock" [isForBlock]="true"></app-loader>
 </aside>
+<app-loader *ngIf="boardService.isLoading"></app-loader>

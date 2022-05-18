@@ -24,6 +24,26 @@ export class ProfileService {
 
   password = '';
 
+  isLoading = false;
+
+  isLoadingBlock = false;
+
+  loading() {
+    this.isLoading = true;
+  }
+
+  loaded() {
+    this.isLoading = false;
+  }
+
+  loadingBlock() {
+    this.isLoadingBlock = true;
+  }
+
+  loadedBlock() {
+    this.isLoadingBlock = false;
+  }
+
   nameHandle(value: string) {
     this.name = value;
   }
@@ -51,10 +71,12 @@ export class ProfileService {
         login: this.login,
         password: this.password,
       };
+      this.loadingBlock();
       this.reqToUsersApi.updateUser(tokenInfo.userId, newUserData, tokenId).subscribe((response) => {
         window.localStorage.setItem('userLogin', response.login);
         this.password = '';
         this.message.create(Message.SUCCESS, `${response.name}, you updated your account!`);
+        this.loadedBlock();
       });
     }
   }
@@ -63,6 +85,7 @@ export class ProfileService {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
       const tokenInfo: ITokenInfo = jwt_decode(tokenId);
+      this.loadingBlock();
       this.reqToUsersApi.deleteUser(tokenInfo.userId, tokenId).subscribe((response) => {
         if (response === null) {
           this.authService.logoutHandle();
@@ -71,6 +94,7 @@ export class ProfileService {
             'You deleted your account and have been redirected to authentication page!',
           );
         }
+        this.loadedBlock();
       });
     }
   }

@@ -28,4 +28,5 @@
       <nz-empty></nz-empty>
     </div>
   </div>
+  <app-loader *ngIf="searchService.isLoading" [isForBlock]="true"></app-loader>
 </div>

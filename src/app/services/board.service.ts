@@ -28,6 +28,36 @@ export class BoardService {
 
   public titleBoard = 'Loading Board';
 
+  isLoading = false;
+
+  isLoadingBlock = false;
+
+  isLoadingDesk = false;
+
+  loading() {
+    this.isLoading = true;
+  }
+
+  loaded() {
+    this.isLoading = false;
+  }
+
+  loadingBlock() {
+    this.isLoadingBlock = true;
+  }
+
+  loadedBlock() {
+    this.isLoadingBlock = false;
+  }
+
+  loadingDesk() {
+    this.isLoadingDesk = true;
+  }
+
+  loadedDesk() {
+    this.isLoadingDesk = false;
+  }
+
   editTitleHandle(newTitle: string) {
     this.editTitle = newTitle;
   }
@@ -58,6 +88,7 @@ export class BoardService {
   }
 
   createColumn(body: IColumnPost, id: string, tokenId: string, order: number) {
+    this.loadingDesk();
     this.reqToColumnsApi.createColumn(body, id, tokenId).subscribe((response) => {
       const newColumn: Column = {
         id: response.id,
@@ -68,6 +99,7 @@ export class BoardService {
       };
       this.board = [...this.board, newColumn];
       this.board$.next([...this.board]);
+      this.loadedDesk();
     });
   }
 
@@ -95,6 +127,7 @@ export class BoardService {
   }
 
   createCard(boardId: string, columnId: string, newCard: TaskPost, tokenId: string) {
+    this.loadingDesk();
     this.reqToTasksApi.createTask(boardId, columnId, newCard, tokenId).subscribe((response) => {
       this.board = this.board.map((column: Column) => {
         const col = column;
@@ -109,6 +142,7 @@ export class BoardService {
       });
 
       this.board$.next([...this.board]);
+      this.loadedDesk();
     });
   }
 
@@ -149,11 +183,13 @@ export class BoardService {
   deleteColumn(columnId: string, boardId: string) {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
+      this.loadingDesk();
       this.reqToColumnsApi.deleteColumn(boardId, columnId, tokenId).subscribe((response) => {
         if (response === null) {
           this.board = this.board.filter((column: Column) => column.id !== columnId);
           this.board$.next([...this.board]);
         }
+        this.loadedDesk();
       });
     }
   }
@@ -161,6 +197,7 @@ export class BoardService {
   deleteCard(cardId: string, columnId: string, boardId: string) {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
+      this.loadingDesk();
       this.reqToTasksApi.deleteTask(boardId, columnId, cardId, tokenId).subscribe((response) => {
         if (response === null) {
           this.board = this.board.map((column: Column) => {
@@ -174,6 +211,7 @@ export class BoardService {
 
           this.board$.next([...this.board]);
         }
+        this.loadedDesk();
       });
     }
   }
@@ -256,12 +294,18 @@ export class BoardService {
         title,
         order: column.order,
       };
+      this.loadingDesk();
       this.reqToColumnsApi.updateColumn(boardId, column.id, body, tokenId).subscribe((response) => {
         if (response) {
-          const index = this.board.findIndex((item) => item.id === response.id);
-          this.board[index] = response;
+          this.board = this.board.map((col) => {
+            if (col.id === response.id) {
+              return { ...col, title: response.title };
+            }
+            return col;
+          });
           this.board$.next([...this.board]);
         }
+        this.loadedDesk();
       });
     }
   }
@@ -277,6 +321,7 @@ export class BoardService {
         boardId,
         columnId: oldItem.columnId,
       };
+      this.loadingDesk();
       this.reqToTasksApi.updateTask(boardId, oldItem.columnId, oldItem.id, data, tokenId).subscribe((response) => {
         if (response) {
           this.board = this.board.map((column) => {
@@ -300,6 +345,7 @@ export class BoardService {
           });
           this.board$.next([...this.board]);
         }
+        this.loadedDesk();
       });
     }
   }
@@ -307,6 +353,7 @@ export class BoardService {
   boardInit(boardId: string) {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
+      this.loading();
       this.reqToBoardsApi.getBoardByID(boardId, tokenId).subscribe((data) => {
         this.changeTitleBoard(data.title);
         this.changeBoardColumnsAll(
@@ -324,6 +371,7 @@ export class BoardService {
               })),
             })),
         );
+        this.loaded();
       });
     }
   }

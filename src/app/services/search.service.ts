@@ -18,9 +18,20 @@ export class SearchService {
 
   showNotFound = false;
 
+  isLoading = false;
+
+  loading() {
+    this.isLoading = true;
+  }
+
+  loaded() {
+    this.isLoading = false;
+  }
+
   search(value: string) {
     const tokenId = window.localStorage.getItem('userTokenMid');
     if (tokenId) {
+      this.loading();
       return this.reqToBoardsApi.getAllBoards(tokenId).subscribe((data) => {
         this.result = [];
         this.boards = data;
@@ -35,6 +46,7 @@ export class SearchService {
                 this.showNotFound = true;
               }
             });
+            this.loaded();
           });
         });
       });

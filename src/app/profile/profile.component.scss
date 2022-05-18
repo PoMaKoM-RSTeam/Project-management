@@ -1,6 +1,7 @@
 @import '../../styles/variables';
 
 .profile-page {
+  position: relative;
   padding: 50px 10px;
   display: flex;
   justify-content: center;
@@ -64,6 +65,10 @@
       position: absolute;
       top: 25px;
       right: 27px;
+    }
+
+    &.disabled {
+      pointer-events: none;
     }
   }
 }
