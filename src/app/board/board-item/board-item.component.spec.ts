@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { BoardItemComponent } from './board-item.component';
 
@@ -9,16 +11,16 @@ describe('BoardItemComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [BoardItemComponent],
+      imports: [RouterTestingModule, HttpClientTestingModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BoardItemComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component)?.toBeTruthy();
   });
 });

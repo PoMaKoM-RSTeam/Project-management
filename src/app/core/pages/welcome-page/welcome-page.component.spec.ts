@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { WelcomePageComponent } from './welcome-page.component';
 
@@ -9,6 +12,8 @@ describe('WelcomePageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [WelcomePageComponent],
+      imports: [BrowserDynamicTestingModule, RouterTestingModule],
+      providers: [{ provide: HttpClient, useValue: {} }],
     }).compileComponents();
   });
 

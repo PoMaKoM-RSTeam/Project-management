@@ -17,18 +17,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'project-management'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-
-    expect(app.title).toEqual('project-management');
-  });
-
-  it('should render title', () => {
+  it('should render', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
 
-    expect(compiled.querySelector('.content span')?.textContent).toContain('project-management app is running!');
+    expect(compiled.querySelector('.main-container')).toBeTruthy();
   });
 });
