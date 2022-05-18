@@ -11,7 +11,17 @@
   }
 
   &__title {
-    font-size: 1.4rem;
+    font-size: 1.4em;
     font-weight: 800;
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .about {
+    font-size: 1.4rem;
+
+    &__content {
+      font-size: 1.2em;
+    }
   }
 }
