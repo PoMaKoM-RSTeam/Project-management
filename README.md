@@ -18,7 +18,7 @@ https://wapa.netlify.app/
 
 **Client:** Angular, SCSS, TypeScript
 
-**Server:** Node, Express, Docker
+**Server:** Nextjs, PostgreSQL
 
 ## Features
 
