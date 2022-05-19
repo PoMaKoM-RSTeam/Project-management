@@ -11,3 +11,9 @@
     grid-area: footer;
   }
 }
+
+@media screen and(max-width:670px) {
+  .main-container {
+    grid-template-rows: 1fr auto;
+  }
+}

@@ -147,9 +147,49 @@
   }
 }
 
+.ant-menu-vertical > .ant-menu-item {
+  line-height: 20px;
+}
+
 .ant-menu.ant-menu-inline-collapsed {
   width: 120px;
 }
 .space-aside_open .space-aside__add-button {
   width: 100%;
+}
+
+@media screen and(max-width:1024px) {
+  .space-aside {
+    width: 90px;
+
+    &_open {
+      width: 275px;
+    }
+
+    &__title {
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-bottom: 0;
+    }
+
+    &__add-button {
+      font-size: 0.85rem;
+      max-width: 85px;
+      padding-left: 5px;
+      padding-right: 0;
+    }
+
+    &__close-button {
+      left: calc(#{$header-width}/ 1.5 + 275px);
+    }
+  }
+
+  .ant-menu.ant-menu-inline-collapsed {
+    width: 89px;
+  }
+
+  .bar {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }

@@ -115,3 +115,34 @@
     }
   }
 }
+
+@media screen and(max-width:1024px) {
+  .container-fluid {
+    padding-left: 2%;
+    padding-right: 2%;
+    overflow: hidden;
+  }
+  .board {
+    flex-wrap: wrap;
+  }
+  .board-card {
+    max-width: 40%;
+    flex: 1 1 25%;
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .board-card {
+    max-width: 100%;
+    flex: 1 1 22%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media screen and(max-width: 500px) {
+  .board-card {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

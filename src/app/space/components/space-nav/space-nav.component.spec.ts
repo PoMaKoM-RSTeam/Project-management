@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { SpaceNavComponent } from './space-nav.component';
 
@@ -9,6 +12,8 @@ describe('SpaceNavComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SpaceNavComponent],
+      imports: [RouterTestingModule, BrowserDynamicTestingModule],
+      providers: [{ provide: HttpClient, useValue: {} }],
     }).compileComponents();
   });
 
