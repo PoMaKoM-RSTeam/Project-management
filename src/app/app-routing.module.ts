@@ -38,7 +38,6 @@ const routes: Routes = [
   {
     path: PathUrl.SETTINGS,
     loadChildren: () => import('./settings/settings.module').then((m) => m.SettingsModule),
-    canActivate: [AuthGuard],
   },
   { path: '**', component: NotFoundComponent },
 ];
