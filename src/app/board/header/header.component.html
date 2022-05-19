@@ -3,8 +3,8 @@
     <span class="mat-h2">{{ title }}</span>
   </div>
   <div>
-    <app-dialog (emitText)="addColumn($event)" question="Add new column">
-      <button nz-button nzType="primary" [disabled]="boardService.isLoadingDesk">New Column</button>
+    <app-dialog (emitText)="addColumn($event)" [question]="'addNewColum' | translate">
+      <button nz-button nzType="primary" [disabled]="boardService.isLoadingDesk">{{ 'newColumn' | translate }}</button>
     </app-dialog>
   </div>
 </div>

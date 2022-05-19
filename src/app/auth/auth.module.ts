@@ -11,6 +11,7 @@ import { AuthComponent } from './auth.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 import { LoaderModule } from '../loader/loader.module';
+import { LocalizationModule } from '../localization/localization.module';
 
 @NgModule({
   declarations: [AuthButtonComponent, AuthComponent],
@@ -23,6 +24,7 @@ import { LoaderModule } from '../loader/loader.module';
     NzTabsModule,
     LoaderModule,
     NzIconModule,
+    LocalizationModule,
   ],
   exports: [AuthButtonComponent],
   providers: [NzMessageService],

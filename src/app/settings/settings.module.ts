@@ -6,8 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsComponent } from './settings.component';
+import { LocalizationModule } from '../localization/localization.module';
 
 @NgModule({
   declarations: [SettingsComponent],
@@ -21,6 +23,8 @@ import { SettingsComponent } from './settings.component';
     FormsModule,
     NzCardModule,
     NzGridModule,
+    NzSelectModule,
+    LocalizationModule,
   ],
 })
 export class SettingsModule {}

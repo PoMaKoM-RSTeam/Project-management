@@ -1,19 +1,29 @@
 <div class="container">
-  <h1 class="container__title">Settings</h1>
+  <h1 class="container__title">{{ 'settings' | translate }}</h1>
   <div nz-row [nzGutter]="8">
     <div nz-col class="settings-container__item">
-      <nz-card nzTitle="Dark Mode">
+      <nz-card [nzTitle]="'darkMode' | translate">
         <mat-icon class="side">brightness_5</mat-icon>
         <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode"></mat-slide-toggle>
         <mat-icon class="side">bedtime</mat-icon>
       </nz-card>
     </div>
     <div nz-col class="settings-container__item">
-      <nz-card nzTitle="Language">
-        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" class="side" />
-        <mat-slide-toggle></mat-slide-toggle>
-        <img src="https://i.ibb.co/nCsJgpZ/flag-copy.png" class="side" />
+      <nz-card [nzTitle]="'language' | translate">
+        <nz-select
+          [ngModel]="currentLangCode"
+          class="settings-container__input"
+          #langSelect
+          (ngModelChange)="toggleLanguage($event)"
+        >
+          <nz-option
+            *ngFor="let item of languageVariation | keyvalue"
+            [nzValue]="item.key"
+            [nzLabel]="item.value"
+          ></nz-option>
+        </nz-select>
       </nz-card>
     </div>
   </div>
 </div>
+<app-localization></app-localization>

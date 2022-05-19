@@ -1,13 +1,14 @@
+<app-localization></app-localization>
 <div class="login-page">
   <div class="login-wrapper">
     <nz-tabset class="login-tabs">
-      <nz-tab nzTitle="Sign in">
+      <nz-tab [nzTitle]="'signin' | translate">
         <form class="login-form" [formGroup]="form" novalidate (ngSubmit)="submit()">
           <label class="label">
-            Login:
+            {{ 'loginH' | translate }}:
             <input
               type="text"
-              placeholder="your login"
+              [placeholder]="'yourLogin' | translate"
               #myLogin
               [value]="authService.login"
               (input)="authService.loginHandle(myLogin.value)"
@@ -21,23 +22,20 @@
               class="alert alert-danger"
               *ngIf="form.controls['userEmail'].errors?.['required'] && form.controls['userEmail'].touched"
             >
-              Please enter a login
+              {{ 'enterALogin' | translate }}
             </div>
           </label>
           <label class="label">
-            Password:
+            {{ 'password' | translate }}:
             <input
               [type]="showPassSighIn ? 'text' : 'password'"
-              placeholder="your password"
+              [placeholder]="'yourPassword' | translate"
               #myPassword
               [value]="authService.password"
               (input)="authService.passwordHandle(myPassword.value)"
               formControlName="userPassword"
-              [class]="{
-                input: true,
-                error: form.controls['userPassword'].errors?.['required']
-                    && form.controls['userPassword'].touched
-              }"
+              [class]="{ input: true, error:
+            form.controls['userPassword'].errors?.['required'] && form.controls['userPassword'].touched }"
             />
             <div class="input-eye" *ngIf="!showPassSighIn" (click)="showPassSighInHandle()">
               <i nz-icon nzType="eye-invisible" nzTheme="outline"></i>
@@ -50,19 +48,19 @@
               *ngIf="form.controls['userPassword'].errors?.['required']
                 && form.controls['userPassword'].touched"
             >
-              Please enter a password
+              {{ 'enterAPassword' | translate }}
             </div>
           </label>
-          <button class="login-button" nzType="primary" nz-button>Sign in</button>
+          <button class="login-button" nzType="primary" nz-button>{{ 'signin' | translate }}</button>
         </form>
       </nz-tab>
-      <nz-tab nzTitle="Sign up">
+      <nz-tab [nzTitle]="'signup' | translate">
         <form class="login-form" [formGroup]="formSignUp" novalidate (ngSubmit)="submitSignUp()">
           <label class="label">
-            Name:
+            {{ 'name' | translate }}:
             <input
               type="text"
-              placeholder="your name"
+              [placeholder]="'yourName' | translate"
               #mySName
               [value]="authService.signUpName"
               (input)="authService.signUpNameHandle(mySName.value)"
@@ -76,14 +74,14 @@
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userName'].errors?.['required'] && formSignUp.controls['userName'].touched"
             >
-              Please enter your name
+              {{ 'enterYourName' | translate }}
             </div>
           </label>
           <label class="label">
-            Login:
+            {{ 'loginH' | translate }}:
             <input
               type="text"
-              placeholder="your login"
+              [placeholder]="'yourLogin' | translate"
               #mySLogin
               [value]="authService.signUpLogin"
               (input)="authService.signUpLoginHandle(mySLogin.value)"
@@ -97,14 +95,14 @@
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userLogin'].errors?.['required'] && formSignUp.controls['userLogin'].touched"
             >
-              Please enter a login
+              {{ 'enterALogin' | translate }}
             </div>
           </label>
           <label class="label">
-            Password:
+            {{ 'password' | translate }}:
             <input
               [type]="showPassSighUp ? 'text' : 'password'"
-              placeholder="your password"
+              [placeholder]="'yourPassword' | translate"
               #mySPassword
               [value]="authService.signUpPassword"
               (input)="authService.signUpPasswordHandle(mySPassword.value)"
@@ -127,18 +125,17 @@
               *ngIf="formSignUp.controls['userNewPassword'].errors?.['required']
                 && formSignUp.controls['userNewPassword'].touched"
             >
-              Please enter a password
+              {{ 'enterAPassword' | translate }}
             </div>
             <div
               class="alert alert-danger"
               *ngIf="formSignUp.controls['userNewPassword'].errors?.['pattern']
                 && formSignUp.controls['userNewPassword'].touched"
             >
-              Your password isn't strong enough! You should have one upper letter, one lower letter, one number, one
-              special symbol (?, !, @, #, $, %, ^, &, *, -) and length more 8 symbols.
+              {{ 'passwordVar' | translate }}
             </div>
           </label>
-          <button class="login-button" nzType="primary" nz-button>Sign up</button>
+          <button class="login-button" nzType="primary" nz-button>{{ 'signup' | translate }}</button>
         </form>
       </nz-tab>
     </nz-tabset>

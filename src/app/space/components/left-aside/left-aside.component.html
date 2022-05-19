@@ -37,7 +37,7 @@
           <button class="button button__icon" nz-icon nzType="edit" nzTheme="outline"></button>
         </app-dialog>
         <app-confirm
-          [question]="'Are you sure you want to delete \'' + board.title + '\'?'"
+          [question]="('deleteColumn' | translate) + board.title + '\'?'"
           (click)="$event.stopPropagation()"
           (emitConfirm)="removeBoard($event, board.id)"
         >
@@ -47,8 +47,9 @@
     </li>
   </ul>
   <app-dialog (emitText)="addBoard($event)" question="Add new board">
-    <button class="space-aside__add-button">+ Add Board</button>
+    <button class="space-aside__add-button">+ {{ 'addBoard' | translate }}</button>
   </app-dialog>
   <app-loader *ngIf="boardService.isLoadingBlock" [isForBlock]="true"></app-loader>
 </aside>
 <app-loader *ngIf="boardService.isLoading"></app-loader>
+<app-localization></app-localization>

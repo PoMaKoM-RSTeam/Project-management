@@ -1,3 +1,4 @@
+<app-localization></app-localization>
 <section class="about">
   <div class="about__header">
     <h1 class="about__title">About</h1>
@@ -6,12 +7,12 @@
 
   <nz-collapse nzGhost class="about__content">
     <nz-collapse-panel
-      *ngFor="let about of abouts | search: searchLine:['name', 'content']"
-      [nzHeader]="about.name"
-      [nzActive]="about.active"
-      [nzDisabled]="about.disabled"
+      *ngFor="let about of 'about' | translate | search: searchLine:['name', 'content']"
+      [nzHeader]="about && about.name"
+      [nzActive]="about && about?.active"
+      [nzDisabled]="about && about.disabled"
     >
-      <p style="margin: 0">{{ about.content }}</p>
+      <p style="margin: 0">{{ about && about.content }}</p>
     </nz-collapse-panel>
   </nz-collapse>
 </section>

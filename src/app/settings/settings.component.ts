@@ -10,9 +10,23 @@ import { ThemeService } from '../services/theme.service';
 export class SettingsComponent {
   isDarkMode: boolean;
 
+  languageVariation: { [key: string]: string } = {
+    en: 'English',
+    ru: 'Русский',
+    uk: 'Українська',
+    be: 'Беларуская',
+  };
+
+  currentLangCode: string = localStorage.getItem('lang') || 'en';
+
   constructor(private overlay: OverlayContainer, private themeService: ThemeService) {
     this.themeService.initTheme();
     this.isDarkMode = this.themeService.isDarkMode();
+  }
+
+  toggleLanguage(lang: string) {
+    localStorage.setItem('lang', lang);
+    window.location.reload();
   }
 
   toggleDarkMode() {

@@ -17,6 +17,7 @@ import { PhaseComponent } from './components/phase/phase.component';
 import { DialogModule } from '../dialog/dialog.module';
 import { ConfirmModule } from '../confirm/confirm.module';
 import { LoaderModule } from '../loader/loader.module';
+import { LocalizationModule } from '../localization/localization.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LoaderModule } from '../loader/loader.module';
     DialogModule,
     ConfirmModule,
     LoaderModule,
+    LocalizationModule,
   ],
   exports: [SpaceComponent, SpaceHeaderComponent, LeftAsideComponent],
 })
