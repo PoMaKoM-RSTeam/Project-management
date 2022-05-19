@@ -134,7 +134,8 @@
               *ngIf="formSignUp.controls['userNewPassword'].errors?.['pattern']
                 && formSignUp.controls['userNewPassword'].touched"
             >
-              Your password isn't strong enough
+              Your password isn't strong enough! You should have one upper letter, one lower letter, one number, one
+              special symbol (?, !, @, #, $, %, ^, &, *, -) and length more 8 symbols.
             </div>
           </label>
           <button class="login-button" nzType="primary" nz-button>Sign up</button>

@@ -1,6 +1,11 @@
 <div class="space">
   <space-left-aside pageName="Board Page"></space-left-aside>
-  <div class="space__main">
+  <div
+    class="space__main"
+    [class]="{
+      disabled: boardService.isLoadingDesk
+    }"
+  >
     <board-header [title]="boardService.titleBoard"></board-header>
     <div
       cdkDropList
@@ -53,5 +58,6 @@
         </div>
       </div>
     </div>
+    <app-loader *ngIf="boardService.isLoadingDesk" [isForBlock]="true"></app-loader>
   </div>
 </div>

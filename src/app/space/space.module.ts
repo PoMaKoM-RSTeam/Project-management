@@ -16,6 +16,7 @@ import { CoreModule } from '../core/core.module';
 import { PhaseComponent } from './components/phase/phase.component';
 import { DialogModule } from '../dialog/dialog.module';
 import { ConfirmModule } from '../confirm/confirm.module';
+import { LoaderModule } from '../loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ConfirmModule } from '../confirm/confirm.module';
     CoreModule,
     DialogModule,
     ConfirmModule,
+    LoaderModule,
   ],
   exports: [SpaceComponent, SpaceHeaderComponent, LeftAsideComponent],
 })

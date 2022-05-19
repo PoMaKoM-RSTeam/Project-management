@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { SpaceModule } from '../space/space.module';
 import { ConfirmModule } from '../confirm/confirm.module';
 import { EditColumnTitleComponent } from './edit-column-title/edit-column-title.component';
+import { LoaderModule } from '../loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { EditColumnTitleComponent } from './edit-column-title/edit-column-title.
     NzButtonModule,
     ConfirmModule,
     NzToolTipModule,
+    LoaderModule,
   ],
   exports: [BoardComponent, BoardItemComponent],
 })

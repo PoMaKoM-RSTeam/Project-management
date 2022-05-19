@@ -4,7 +4,7 @@
     <app-search class="about__search" (searchLine)="changeSearchLine($event)"></app-search>
   </div>
 
-  <nz-collapse nzGhost>
+  <nz-collapse nzGhost class="about__content">
     <nz-collapse-panel
       *ngFor="let about of abouts | search: searchLine:['name', 'content']"
       [nzHeader]="about.name"

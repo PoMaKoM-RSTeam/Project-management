@@ -32,6 +32,14 @@ export class AuthService {
 
   isLoading = false;
 
+  loading() {
+    this.isLoading = true;
+  }
+
+  loaded() {
+    this.isLoading = false;
+  }
+
   loginHandle(value: string) {
     this.login = value;
   }
@@ -68,9 +76,9 @@ export class AuthService {
 
   comeIn() {
     if (this.login && this.password) {
-      this.isLoading = true;
+      this.loading();
       this.authAPIService.signIn({ login: this.login, password: this.password }).subscribe((response) => {
-        this.isLoading = false;
+        this.loaded();
         if (response) {
           window.localStorage.setItem('userLogin', this.login);
           window.localStorage.setItem('userTokenMid', response.token);
@@ -85,11 +93,11 @@ export class AuthService {
 
   signUpNewUser() {
     if (this.signUpName && this.signUpLogin && this.signUpPassword) {
-      this.isLoading = true;
+      this.loading();
       this.authAPIService
         .signUp({ name: this.signUpName, login: this.signUpLogin, password: this.signUpPassword })
         .subscribe((response) => {
-          this.isLoading = false;
+          this.loaded();
           if (response) {
             this.message.create(
               Message.SUCCESS,
