@@ -9,6 +9,17 @@
 | <img src="https://svgshare.com/i/hSv.svg"> | This is a final project to demonstrate our skills after RSSchool study with Angular 13. It contains [all of the specs](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/project-management-app.md) all requirements as well as. Specs have been reformatted and converted to using best practices as outlined below. |
 | ------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
+## Table of contents
+- [Demo](#demo)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Installation](#installation)
+- [Developers](#Developers) :rocket:
+- [Support](#support)
+- [Used By](#used-by)
+- [FAQ](#faq)
+
+
 ## Demo
 
 Link to demo
@@ -18,7 +29,7 @@ https://wapa.netlify.app/
 
 **Client:** Angular, SCSS, TypeScript
 
-**Server:** Node, Express, Docker
+**Server:** Next.js, PostgreSQL
 
 ## Features
 
@@ -35,7 +46,7 @@ A short list of additional features implemented in our project:
 
 ```shell
 git clone https://github.com/PoMaKoM-RSTeam/Project-management.git
-cd intern-angular
+cd rsschool-angular
 ```
 
 ### Install npm packages
@@ -66,7 +77,7 @@ These are the test-related scripts:
 - `npm test` - builds the application and runs Intern tests (both unit and functional) one time.
 - `npm run ci` - cleans, lints, and builds the application and runs Intern tests (both unit and functional) one time.
 
-## 🚀 About Us (Authors)
+## :rocket: Developers <span id="Developers"><span>
 
 We are an international (Belarus <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Nuvola_Belarus_flag_1991.svg/240px-Nuvola_Belarus_flag_1991.svg.png" width="20px" height="20px">, Georgia <img src="https://cdn-0.emojis.wiki/emoji-pics/lg/georgia-lg.png" width="20px" height="20px">, Ukraine <img src="https://cdn-0.emojis.wiki/emoji-pics/lg/ukraine-lg.png" width="20px" height="20px">) team of **stage3** students at **RSSchool** who have chosen to further develop and learn **Angular**.
 
