@@ -30,8 +30,8 @@ describe('ProfileComponent', () => {
   });
 
   it('should create', () => {
-    const a = 'aa';
+    const profile = 'Profile created';
 
-    expect(a).toEqual('aa');
+    expect(profile).toEqual('Profile created');
   });
 });
