@@ -131,11 +131,18 @@
   }
 }
 
-@media screen and(max-width:768px) {
+@media screen and(max-width: 768px) {
   .board-card {
     max-width: 100%;
     flex: 1 1 22%;
     padding-left: 10px;
     padding-right: 10px;
+  }
+}
+
+@media screen and(max-width: 500px) {
+  .board-card {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }

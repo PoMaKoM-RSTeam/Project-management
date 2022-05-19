@@ -31,3 +31,9 @@
     }
   }
 }
+
+@media screen and(max-width: 768px) {
+  .search__icon {
+    transform: scale(1);
+  }
+}
