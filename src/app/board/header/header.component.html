@@ -1,10 +1,12 @@
 <div class="header">
   <div>
-    <span class="mat-h2">{{ title }}</span>
+    <span class="mat-h2 header__title">{{ title }}</span>
   </div>
   <div>
     <app-dialog (emitText)="addColumn($event)" question="Add new column">
-      <button nz-button nzType="primary" [disabled]="boardService.isLoadingDesk">New Column</button>
+      <button nz-button nzType="primary" [disabled]="boardService.isLoadingDesk" class="header__button">
+        New Column
+      </button>
     </app-dialog>
   </div>
 </div>
