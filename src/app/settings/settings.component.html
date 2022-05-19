@@ -1,13 +1,14 @@
 <div class="container">
+  <h1 class="container__title">Settings</h1>
   <div nz-row [nzGutter]="8">
-    <div nz-col [nzSpan]="8">
+    <div nz-col class="settings-container__item">
       <nz-card nzTitle="Dark Mode">
         <mat-icon class="side">brightness_5</mat-icon>
         <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode"></mat-slide-toggle>
         <mat-icon class="side">bedtime</mat-icon>
       </nz-card>
     </div>
-    <div nz-col [nzSpan]="8">
+    <div nz-col class="settings-container__item">
       <nz-card nzTitle="Language">
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" class="side" />
         <mat-slide-toggle></mat-slide-toggle>
