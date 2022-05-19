@@ -17,6 +17,7 @@ import { BoardModule } from './board/board.module';
 import { DialogModule } from './dialog/dialog.module';
 
 import { ErrorIntercept } from './services/error.interceptor';
+import { LocalizationModule } from './localization/localization.module';
 
 registerLocaleData(en);
 
@@ -32,6 +33,7 @@ registerLocaleData(en);
     SpaceModule,
     BoardModule,
     DialogModule,
+    LocalizationModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

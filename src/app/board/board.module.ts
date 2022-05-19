@@ -17,6 +17,7 @@ import { SpaceModule } from '../space/space.module';
 import { ConfirmModule } from '../confirm/confirm.module';
 import { EditColumnTitleComponent } from './edit-column-title/edit-column-title.component';
 import { LoaderModule } from '../loader/loader.module';
+import { LocalizationModule } from '../localization/localization.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { LoaderModule } from '../loader/loader.module';
     ConfirmModule,
     NzToolTipModule,
     LoaderModule,
+    LocalizationModule,
   ],
   exports: [BoardComponent, BoardItemComponent],
 })

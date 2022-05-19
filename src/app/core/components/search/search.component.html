@@ -3,6 +3,7 @@
     class="search__input"
     #searchInput
     type="search"
+    [placeholder]="'search' | translate"
     [class.search__input_visible]="isBoardSearchVisible"
     (input)="changeSearchLine(searchInput.value)"
   />
@@ -15,3 +16,4 @@
     (click)="openSearchInput(searchInput.value)"
   ></button>
 </div>
+<app-localization></app-localization>

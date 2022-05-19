@@ -1,25 +1,25 @@
 <div class="search mat-app-background">
   <div class="search-wrapper">
     <label class="label">
-      Search:
+      {{ 'searchH' | translate }}:
       <input
         class="search-input mat-app-background"
-        placeholder="search by tasks"
+        [placeholder]="'searchByTasks' | translate"
         type="search"
         [formControl]="findControl"
         [class.space-header__search-input_visible]="isBoardSearchVisible"
         [class]="{error: findControl.errors?.['minlength']}"
       />
-      <div class="alert alert-danger" *ngIf="findControl.errors?.['minlength']">Minimum length 3 characters</div>
+      <div class="alert alert-danger" *ngIf="findControl.errors?.['minlength']">{{ 'minimumLength' | translate }}</div>
     </label>
     <div class="search-result" *ngIf="searchService.result.length">
       <div class="search-item" *ngFor="let item of searchService.result">
         <div class="search-item__result">
-          <span class="search-item__name">Title:</span>
+          <span class="search-item__name">{{ 'title' | translate }}:</span>
           <span class="search-item__value">{{ item.title }}</span>
         </div>
         <div class="search-item__result">
-          <span class="search-item__name">Description:</span>
+          <span class="search-item__name">{{ 'description' | translate }}:</span>
           <span class="search-item__value">{{ item.description }}</span>
         </div>
       </div>
@@ -30,3 +30,4 @@
   </div>
   <app-loader *ngIf="searchService.isLoading" [isForBlock]="true"></app-loader>
 </div>
+<app-localization></app-localization>

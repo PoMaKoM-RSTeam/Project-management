@@ -1,12 +1,12 @@
 <app-dialog (emitText)="editTask($event, item)" [isNeedDescription]="true" [question]="'Edit task: ' + item.text">
-  <div nz-tooltip nzTooltipTitle="Edit" nzTooltipPlacement="left">
+  <div nz-tooltip [nzTooltipTitle]="'edit' | translate" nzTooltipPlacement="left">
     <div class="board-item">
       <div class="board-item__text">
         <div class="mt-1">{{ item.text }}</div>
         <div class="mt-1">{{ item.description }}</div>
       </div>
       <app-confirm
-        [question]="'Are you sure you want to delete \'' + item.text + '\'?'"
+        [question]="('deleteColumn' | translate) + item.text + '?'"
         (click)="$event.stopPropagation()"
         (emitConfirm)="onCardDelete($event, item.id)"
       >
@@ -42,7 +42,7 @@
 
     <div *ngIf="open" (click)="$event.stopPropagation()">
       <form class="w-100 mb-2">
-        <div>Leave a comment</div>
+        <div>{{ 'leaveAComment' | translate }}</div>
         <div class="board-comment-add">
           <input
             class="input"

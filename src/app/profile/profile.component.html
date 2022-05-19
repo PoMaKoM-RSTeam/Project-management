@@ -6,15 +6,15 @@
     }"
   >
     <div>
-      <h2 class="profile-title">Profile</h2>
-      <small>Please fill all fields</small>
+      <h2 class="profile-title">{{ 'profile' | translate }}</h2>
+      <small>{{ 'pleaseFillFields' | translate }}</small>
     </div>
     <form class="profile-form" [formGroup]="form" novalidate (ngSubmit)="submit()">
       <label class="label">
-        Name:
+        {{ 'name' | translate }}:
         <input
           type="text"
-          placeholder="your new name"
+          [placeholder]="'yourNewName' | translate"
           #mySName
           [value]="profileService.name"
           (input)="profileService.nameHandle(mySName.value)"
@@ -28,14 +28,14 @@
           class="alert alert-danger"
           *ngIf="form.controls['userName'].errors?.['required'] && form.controls['userName'].touched"
         >
-          Please enter your name
+          {{ 'enterYourName' | translate }}
         </div>
       </label>
       <label class="label">
-        Login:
+        {{ 'login' | translate }}:
         <input
           type="text"
-          placeholder="your new login"
+          [placeholder]="'yourNewLogin' | translate"
           #mySLogin
           [value]="profileService.login"
           (input)="profileService.loginHandle(mySLogin.value)"
@@ -49,14 +49,14 @@
           class="alert alert-danger"
           *ngIf="form.controls['userLogin'].errors?.['required'] && form.controls['userLogin'].touched"
         >
-          Please enter a login
+          {{ 'enterALogin' | translate }}
         </div>
       </label>
       <label class="label">
-        Password:
+        {{ 'password' | translate }}:
         <input
           [type]="showPass ? 'text' : 'password'"
-          placeholder="your new password"
+          [placeholder]="'yourNewPassword' | translate"
           #mySPassword
           [value]="profileService.password"
           (input)="profileService.passwordHandle(mySPassword.value)"
@@ -79,22 +79,21 @@
           *ngIf="form.controls['userNewPassword'].errors?.['required']
             && form.controls['userNewPassword'].touched"
         >
-          Please enter a password
+          {{ 'enterAPassword' | translate }}
         </div>
         <div
           class="alert alert-danger"
           *ngIf="form.controls['userNewPassword'].errors?.['pattern']
             && form.controls['userNewPassword'].touched"
         >
-          Your password isn't strong enough! You should have one upper letter, one lower letter, one number, one special
-          symbol (?, !, @, #, $, %, ^, &, *, -) and length more 8 symbols.
+          {{ 'passwordVar' | translate }}
         </div>
       </label>
-      <button class="login-button" nzType="primary" nz-button>Save</button>
+      <button class="login-button" nzType="primary" nz-button>{{ 'save' | translate }}</button>
     </form>
     <div class="profile-remove">
       <app-confirm
-        [question]="profileService.name + ', are you sure you want to delete your account?'"
+        [question]="profileService.name + ('sureDelete' | translate)"
         (click)="$event.stopPropagation()"
         (emitConfirm)="onUserDelete($event)"
       >
@@ -111,3 +110,4 @@
   </div>
   <app-loader *ngIf="profileService.isLoading"></app-loader>
 </div>
+<app-localization></app-localization>

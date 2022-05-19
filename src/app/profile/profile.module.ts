@@ -8,6 +8,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { ConfirmModule } from '../confirm/confirm.module';
 import { LoaderModule } from '../loader/loader.module';
+import { LocalizationModule } from '../localization/localization.module';
 
 @NgModule({
   declarations: [ProfileComponent],
@@ -20,6 +21,7 @@ import { LoaderModule } from '../loader/loader.module';
     ConfirmModule,
     NzIconModule,
     LoaderModule,
+    LocalizationModule,
   ],
 })
 export class ProfileModule {}

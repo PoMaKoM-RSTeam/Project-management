@@ -1,5 +1,6 @@
+<app-localization></app-localization>
 <div class="space">
-  <space-left-aside pageName="Board Page"></space-left-aside>
+  <space-left-aside [pageName]="'boardPage' | translate"></space-left-aside>
   <div
     class="space__main"
     [class]="{
@@ -19,7 +20,7 @@
           <div class="board-title column-header" cdkDropList (cdkDropListDropped)="drop($event)">
             <app-edit-column-title [column]="column"></app-edit-column-title>
             <app-confirm
-              [question]="'Are you sure you want to delete \'' + column.title + '\'?'"
+              [question]="('deleteColumn' | translate) + column.title + '?'"
               (click)="$event.stopPropagation()"
               (emitConfirm)="onDeleteColumn($event, column.id)"
             >
@@ -31,7 +32,7 @@
           <app-dialog
             (emitText)="onAddCard($event, column.id)"
             [isNeedDescription]="true"
-            [question]="'Add new card in ' + column.title + ' column'"
+            [question]="('addCard' | translate) + column.title + ' ' + ('column' | translate)"
           >
             <button class="btn-add" nzType="default" nz-button>+</button>
           </app-dialog>
