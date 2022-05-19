@@ -14,7 +14,7 @@
 - [Tech Stack](#tech-stack)
 - [Features](#features)
 - [Installation](#installation)
-- [Developers](#Developers):rocket:
+- [Developers](#Developers) :rocket:
 - [Support](#support)
 - [Used By](#used-by)
 - [FAQ](#faq)
@@ -29,7 +29,7 @@ https://wapa.netlify.app/
 
 **Client:** Angular, SCSS, TypeScript
 
-**Server:** Nextjs, PostgreSQL
+**Server:** Next.js, PostgreSQL
 
 ## Features
 
@@ -46,7 +46,7 @@ A short list of additional features implemented in our project:
 
 ```shell
 git clone https://github.com/PoMaKoM-RSTeam/Project-management.git
-cd intern-angular
+cd rsschool-angular
 ```
 
 ### Install npm packages

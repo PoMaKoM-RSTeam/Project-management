@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SearchPipe } from '../../pipes/search/search.pipe';
 
 import { AboutPageComponent } from './about-page.component';
 
@@ -8,7 +9,7 @@ describe('AboutPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AboutPageComponent],
+      declarations: [AboutPageComponent, SearchPipe],
     }).compileComponents();
   });
 

@@ -15,10 +15,9 @@ describe('CommentItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CommentItemComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component)?.toBeTruthy();
   });
 });
