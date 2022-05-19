@@ -48,6 +48,7 @@
   .footer {
     &__img-link {
       width: 10%;
+      max-height: 24px;
     }
   }
 }
@@ -59,6 +60,7 @@
 
     &__img-link {
       width: 30%;
+      margin-bottom: 14px;
     }
 
     &__links {
