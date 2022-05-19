@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+
+.comment-item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: -5px 5px 10px -2px inset $bg-loader;
+}
+
+.icon-delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

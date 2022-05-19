@@ -1,0 +1,187 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+@import '@angular/material/theming';
+
+@import './styles/variables';
+@import './styles/reset';
+@import 'styles/elements/button';
+@import 'styles/elements/input';
+
+$angular-primary: mat.define-palette(mat.$teal-palette, 500, 100, 900);
+$angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$angular-warn: mat.define-palette(mat.$red-palette);
+
+$angular-default-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $angular-primary,
+      accent: $angular-accent,
+      warn: $angular-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($angular-default-theme);
+
+$angular-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$red-palette),
+      accent: mat.define-palette(mat.$red-palette),
+      warn: mat.define-palette(mat.$red-palette),
+    ),
+  )
+);
+
+.darkMode {
+  @include mat.all-component-colors($angular-dark-theme);
+}
+
+.lightMode {
+  @include mat.all-component-colors($angular-default-theme);
+}
+
+*::-webkit-scrollbar-thumb {
+  display: block;
+  background: $border-color;
+  border-radius: 0.3em;
+}
+
+*::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+  background-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
+}
+
+input {
+  color: black;
+  padding-left: 8px;
+  padding-right: 4px;
+  width: 100%;
+  max-width: 215px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.ant-menu {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  font-feature-settings: 'tnum', 'tnum';
+  margin-bottom: 0;
+  padding-left: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  line-height: 0;
+  text-align: left;
+  list-style: none;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+  transition: background 0s, width 0s cubic-bezier(0, 0, 0, 1) 0s;
+}
+
+.mr-8 {
+  margin-right: 8px;
+}
+
+.ant-menu {
+  background-color: $bg-light !important;
+  color: $light-color !important;
+}
+
+.darkMode {
+  .footer__link,
+  .header-nav__link,
+  .welcome__link,
+  .phase__link {
+    color: $link-color-dark !important;
+
+    &:hover {
+      color: $main-color !important;
+    }
+  }
+
+  .ant-card {
+    background: $bg-dark !important;
+    color: $main-color !important;
+  }
+
+  .ant-card-head {
+    background: $bg-dark !important;
+    color: $main-color !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $main-color !important;
+  }
+
+  .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+    background: $bg-dark !important;
+    color: $main-color !important;
+  }
+
+  .ant-collapse-content {
+    background: $bg-dark !important;
+    color: $main-color !important;
+  }
+
+  .search-input.error {
+    background-color: transparent !important;
+  }
+
+  .ant-tabs {
+    color: $main-color !important;
+  }
+
+  .welcome__slogan {
+    color: $main-color !important;
+  }
+
+  .welcome__text {
+    color: $main-color !important;
+
+    a {
+      color: $link-color-dark !important;
+
+      &:hover {
+        color: $main-color !important;
+      }
+    }
+  }
+
+  .welcome__title {
+    border-right: $main-color solid 2px !important;
+  }
+
+  .ant-menu {
+    background: $bg-dark !important;
+    color: $main-color !important;
+  }
+
+  .space-aside__add-button {
+    color: $link-color-dark !important;
+  }
+
+  .bar_right {
+    color: $link-color-dark !important;
+  }
+}

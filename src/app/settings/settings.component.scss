@@ -1,0 +1,42 @@
+.container {
+  padding: 30px;
+
+  &__title {
+    font-size: 1.4em;
+    font-weight: 800;
+  }
+}
+
+.settings-container {
+  &__item {
+    width: 30%;
+  }
+
+  &__input {
+    width: 100%;
+  }
+}
+
+.side {
+  height: 31px;
+  width: 31px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+@media screen and(max-width:815px) {
+  .settings-container {
+    &__item {
+      flex: 1 1 50%;
+    }
+  }
+}
+
+@media screen and(max-width:535px) {
+  .settings-container {
+    &__item {
+      margin-bottom: 15px;
+      flex: 1 1 100%;
+    }
+  }
+}

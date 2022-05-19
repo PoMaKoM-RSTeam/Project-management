@@ -1,0 +1,33 @@
+@import '../../../../styles/variables.scss';
+
+.space-nav {
+  display: flex;
+  height: $space-header-height;
+  margin: 0 $space-header-gap;
+  align-items: center;
+
+  &__link {
+    display: block;
+    padding: 0 $space-header-gap;
+    color: $second-color;
+
+    &_active {
+      align-self: flex-end;
+      height: 85%;
+      border-top-left-radius: $space-search-input-border;
+      border-top-right-radius: $space-search-input-border;
+      line-height: calc(#{$space-header-height} * 0.66);
+      background-color: $main-color;
+      font-weight: 600;
+    }
+
+    &_section {
+      padding: 0 calc(#{$space-header-gap} * 1.5);
+      border-left: $header-border;
+    }
+
+    &_strong {
+      font-weight: 600;
+    }
+  }
+}

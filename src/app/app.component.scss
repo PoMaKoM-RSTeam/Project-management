@@ -1,0 +1,19 @@
+@import '../styles/variables.scss';
+
+.main-container {
+  margin-left: $header-width;
+  display: grid;
+  grid-template-rows: 1fr $footer-height;
+  grid-template-areas: 'main' 'footer';
+  min-height: 100vh;
+
+  &__footer {
+    grid-area: footer;
+  }
+}
+
+@media screen and(max-width:670px) {
+  .main-container {
+    grid-template-rows: 1fr auto;
+  }
+}

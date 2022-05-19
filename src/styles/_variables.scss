@@ -1,0 +1,60 @@
+//
+// color
+//
+$main-color: #fff;
+$first-color: #000000ff;
+$second-color: #2c2c2cff;
+$fourth-color: #eeeeeeff;
+$error-color: #f95959;
+$bg-loader: #0002;
+$bg-dark: #303030;
+$bg-light: #fafafa;
+$task-color: #07a092;
+$light-color: #000000de;
+
+$border-color: #dfdfdfff;
+
+$icont-first-color: #07a092ff;
+$icont-second-color: #fff;
+
+$link-color: #3f51b5;
+$link-color-dark: #89d5ff;
+
+//
+// sizes
+//
+$header-width: 50px;
+
+$header-border-size: 1px;
+
+$footer-height: 50px;
+
+$main-padding: 5%;
+
+$login-container-height: 75px;
+
+$space-aside-width: 350px;
+$space-aside-button-size: 30px;
+$space-search-input-border: 6px;
+
+$space-header-height: 50px;
+$space-header-padding: 5%;
+$space-header-gap: 10px;
+$space-header-user-size: 25px;
+
+$list-bar-height: 50px;
+$list-bar-button: 12px;
+$list-bar-count: 6px;
+$list-bar-gap: 10px;
+
+$phase-margin: 12px;
+
+$about-padding: 20px;
+
+//
+// var
+//
+$header-border: $header-border-size solid $border-color;
+$link-hover-color: currentColor;
+$link-hover-decoration: none;
+$label-margin-bottom: 0;

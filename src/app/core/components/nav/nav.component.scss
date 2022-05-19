@@ -1,0 +1,31 @@
+@import '../../../../styles/variables.scss';
+
+.header-nav {
+  display: flex;
+  margin: 0 15%;
+  padding-bottom: 5%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &_with-border {
+    border-bottom: $header-border;
+  }
+
+  &__link {
+    margin: 6px 0;
+    padding: 4px;
+    border-radius: 2px;
+    transform: scale(1.2);
+
+    &:hover {
+      color: $icont-second-color;
+      background-color: $icont-first-color;
+    }
+
+    &_active {
+      color: $icont-second-color;
+      background-color: $icont-first-color;
+    }
+  }
+}

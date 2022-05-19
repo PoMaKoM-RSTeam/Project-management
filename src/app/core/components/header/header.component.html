@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="header__main">
+    <a class="header__logo-link" routerLink="/">
+      <img class="header__logo" src="./assets/img/logo.svg" alt="app logo" />
+    </a>
+    <header-nav [links]="nav_links" [withBorder]="true"></header-nav>
+  </div>
+  <div>
+    <header-nav [links]="nav_more" [withBorder]="false"></header-nav>
+  </div>
+  <auth-button class="header__login-container" (click)="logoutUser()"></auth-button>
+</header>

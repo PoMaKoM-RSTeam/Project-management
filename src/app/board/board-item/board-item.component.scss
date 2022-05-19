@@ -1,0 +1,40 @@
+@import '../../../styles/variables.scss';
+
+.board-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+
+  .mt-1 {
+    max-width: 120px;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.board-item-next {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+::ng-deep .mat-form-field.mat-focused {
+  .mat-form-field-required-marker {
+    color: $first-color;
+  }
+
+  .mat-input-element {
+    color: $first-color;
+  }
+}
+
+.board-comment-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}

@@ -1,0 +1,55 @@
+<!--close aside-->
+<strong
+  (click)="closeAside($event)"
+  class="space-aside__close-button"
+  [class.space-aside__close-button_visible]="!isCollapsed"
+>
+  ‹
+</strong>
+<aside
+  class="space-aside"
+  [class.space-aside_open]="!isCollapsed"
+  (click)="this.isCollapsed = false"
+  [class]="{
+    disabled: boardService.isLoadingBlock
+  }"
+>
+  <!--Title-->
+  <h2 class="space-aside__title">{{ pageName }}</h2>
+
+  <div class="bar">
+    <h3 class="bar__title">{{ title }}</h3>
+
+    <app-search class="bar__search-button" buttonDirection="left"></app-search>
+  </div>
+
+  <ul (click)="stopPropagation($event)" nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+    <li
+      *ngFor="let board of boards"
+      nz-menu-item
+      (click)="redirectToBoard(board.id)"
+      [nzSelected]="board.id === route.snapshot.params['id']"
+    >
+      <i nz-icon [nzType]="iconBoard"></i>
+      <span class="bar_left">{{ board.title }}</span>
+      <span class="bar_right">
+        <app-dialog question="Edit board" (click)="$event.stopPropagation()" (emitText)="editBoard($event, board.id)">
+          <button class="button button__icon" nz-icon nzType="edit" nzTheme="outline"></button>
+        </app-dialog>
+        <app-confirm
+          [question]="('deleteColumn' | translate) + board.title + '\'?'"
+          (click)="$event.stopPropagation()"
+          (emitConfirm)="removeBoard($event, board.id)"
+        >
+          <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+        </app-confirm>
+      </span>
+    </li>
+  </ul>
+  <app-dialog (emitText)="addBoard($event)" question="Add new board">
+    <button class="space-aside__add-button">+ {{ 'addBoard' | translate }}</button>
+  </app-dialog>
+  <app-loader *ngIf="boardService.isLoadingBlock" [isForBlock]="true"></app-loader>
+</aside>
+<app-loader *ngIf="boardService.isLoading"></app-loader>
+<app-localization></app-localization>

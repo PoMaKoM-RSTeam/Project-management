@@ -1,0 +1,69 @@
+<app-dialog (emitText)="editTask($event, item)" [isNeedDescription]="true" [question]="'Edit task: ' + item.text">
+  <div nz-tooltip [nzTooltipTitle]="'edit' | translate" nzTooltipPlacement="left">
+    <div class="board-item">
+      <div class="board-item__text">
+        <div class="mt-1">{{ item.text }}</div>
+        <div class="mt-1">{{ item.description }}</div>
+      </div>
+      <app-confirm
+        [question]="('deleteColumn' | translate) + item.text + '?'"
+        (click)="$event.stopPropagation()"
+        (emitConfirm)="onCardDelete($event, item.id)"
+      >
+        <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+      </app-confirm>
+    </div>
+
+    <div class="board-item-next">
+      <button
+        class="button button__icon"
+        nz-icon
+        nzType="dislike"
+        nzTheme="outline"
+        (click)="$event.stopPropagation(); onCardItemEmit(item, false)"
+      ></button>
+      <button
+        class="button button__icon"
+        nz-icon
+        nzType="like"
+        nzTheme="outline"
+        (click)="$event.stopPropagation(); onCardItemEmit(item, true)"
+      ></button>
+      <span>{{ item.like }}</span>
+      <button
+        class="button button__icon"
+        nz-icon
+        nzType="comment"
+        nzTheme="outline"
+        (click)="$event.stopPropagation(); onOpenComment()"
+      ></button>
+      <span>{{ item.comments?.length }}</span>
+    </div>
+
+    <div *ngIf="open" (click)="$event.stopPropagation()">
+      <form class="w-100 mb-2">
+        <div>{{ 'leaveAComment' | translate }}</div>
+        <div class="board-comment-add">
+          <input
+            class="input"
+            type="text"
+            name="comment"
+            id="comment"
+            [(ngModel)]="commentInput"
+            (mousedown)="$event.stopPropagation()"
+          />
+          <button
+            *ngIf="commentInput"
+            class="button button__icon"
+            nz-icon
+            nzType="check"
+            nzTheme="outline"
+            (click)="onCommentTextEmit(item.id)"
+          ></button>
+        </div>
+      </form>
+
+      <ng-content></ng-content>
+    </div>
+  </div>
+</app-dialog>

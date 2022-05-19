@@ -1,0 +1,10 @@
+@import '../../../../styles/variables.scss';
+
+.space {
+  min-height: 100%;
+  display: flex;
+  &__main {
+    width: 100%;
+    min-height: 100%;
+  }
+}

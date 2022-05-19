@@ -1,0 +1,64 @@
+<app-localization></app-localization>
+<div class="space">
+  <space-left-aside [pageName]="'boardPage' | translate"></space-left-aside>
+  <div
+    class="space__main"
+    [class]="{
+      disabled: boardService.isLoadingDesk
+    }"
+  >
+    <board-header [title]="boardService.titleBoard"></board-header>
+    <div
+      cdkDropList
+      (cdkDropListDropped)="dropColumns($event)"
+      cdkDropListOrientation="horizontal"
+      class="container-fluid"
+    >
+      <div cdkDropListGroup class="board">
+        <div class="board-card" *ngFor="let column of boardService.getBoard$() | async" cdkDrag cdkDragLockAxis="x">
+          <!-- Column Title -->
+          <div class="board-title column-header" cdkDropList (cdkDropListDropped)="drop($event)">
+            <app-edit-column-title [column]="column"></app-edit-column-title>
+            <app-confirm
+              [question]="('deleteColumn' | translate) + column.title + '?'"
+              (click)="$event.stopPropagation()"
+              (emitConfirm)="onDeleteColumn($event, column.id)"
+            >
+              <button class="button button__icon" nz-icon nzType="delete" nzTheme="outline"></button>
+            </app-confirm>
+          </div>
+
+          <!-- Add New Card To Column -->
+          <app-dialog
+            (emitText)="onAddCard($event, column.id)"
+            [isNeedDescription]="true"
+            [question]="('addCard' | translate) + column.title + ' ' + ('column' | translate)"
+          >
+            <button class="btn-add" nzType="default" nz-button>+</button>
+          </app-dialog>
+
+          <!-- Color Panel -->
+          <app-color-panel (emitColor)="onColorChange($event, column.id)"></app-color-panel>
+          <div cdkDropList [cdkDropListData]="column.tasks" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div cdkDrag class="example-box" [ngStyle]="{ background: column.color }" *ngFor="let item of column.tasks">
+              <app-board-item
+                [item]="item"
+                (emitText)="onAddComment($event, column.id)"
+                (emitCardItem)="onChangeLike($event, column.id)"
+                (emitDeleteCard)="onDeleteCard($event, column.id)"
+              >
+                <div *ngFor="let comment of item.comments">
+                  <app-comment-item
+                    [comment]="comment"
+                    (emitComment)="onDeleteComment($event, column.id, item)"
+                  ></app-comment-item>
+                </div>
+              </app-board-item>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-loader *ngIf="boardService.isLoadingDesk" [isForBlock]="true"></app-loader>
+  </div>
+</div>

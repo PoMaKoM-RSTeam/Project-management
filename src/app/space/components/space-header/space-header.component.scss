@@ -1,0 +1,30 @@
+@import '../../../../styles/variables.scss';
+
+.space-header {
+  display: flex;
+  height: $space-header-height;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 $space-header-padding;
+  background-color: $fourth-color;
+
+  &__title {
+    color: $second-color;
+    margin-bottom: 0;
+  }
+
+  &__creator_bot {
+    height: $space-header-user-size;
+    width: $space-header-user-size;
+    margin: 0 $space-header-gap;
+    line-height: $space-header-user-size;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: $border-color 2px 1px 5px;
+    color: $icont-first-color;
+  }
+
+  &__search {
+    margin: 0 $space-header-gap 0 auto;
+  }
+}

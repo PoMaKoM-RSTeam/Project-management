@@ -1,0 +1,29 @@
+@import '../../../../styles/variables';
+
+.about {
+  height: 100%;
+  padding: $about-padding;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: 1.4em;
+    font-weight: 800;
+    margin: 0;
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .about {
+    font-size: 1.4rem;
+
+    &__content {
+      font-size: 0.65em;
+    }
+  }
+}

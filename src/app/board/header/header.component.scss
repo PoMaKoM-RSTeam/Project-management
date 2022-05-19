@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  box-sizing: border-box;
+  padding: 30px 5%;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  height: 64px;
+}
+
+@media screen and(max-width:420px) {
+  .header {
+    &__title {
+      font-size: 0.8rem;
+    }
+
+    &__button {
+      padding: 2px 7.5px;
+      font-size: 0.7rem;
+    }
+  }
+}

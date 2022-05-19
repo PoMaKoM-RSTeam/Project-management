@@ -1,0 +1,66 @@
+@import '../../../../styles/variables.scss';
+
+.footer {
+  height: 100%;
+  display: flex;
+  padding: 0 $main-padding;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid $border-color;
+
+  &__text {
+    margin: 0;
+  }
+
+  &__img-link {
+    height: 50%;
+    width: 20%;
+  }
+
+  &__img {
+    max-height: 100%;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    &:hover {
+      color: $link-color !important;
+    }
+  }
+}
+
+@media screen and (max-width: 754px) {
+  .footer {
+    &__img-link {
+      width: 10%;
+      max-height: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .footer {
+    flex-wrap: wrap;
+    padding-top: 10px;
+
+    &__img-link {
+      width: 30%;
+      margin-bottom: 14px;
+    }
+
+    &__links {
+      flex-wrap: wrap;
+    }
+  }
+}

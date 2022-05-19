@@ -1,0 +1,13 @@
+@import '../../../../styles/variables.scss';
+
+.dropdown-filter {
+  &__title {
+    display: inline-block;
+    font-weight: 600;
+    color: $second-color;
+  }
+
+  &__current {
+    color: $second-color;
+  }
+}

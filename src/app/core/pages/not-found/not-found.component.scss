@@ -1,0 +1,17 @@
+@import '../../../../styles/variables.scss';
+
+.not-found {
+  display: flex;
+  height: calc(100vh - #{$footer-height});
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__picture {
+    max-height: 30%;
+  }
+
+  &__link-to-freepik {
+    color: $border-color;
+  }
+}

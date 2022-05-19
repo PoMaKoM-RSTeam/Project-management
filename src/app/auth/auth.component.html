@@ -1,0 +1,144 @@
+<app-localization></app-localization>
+<div class="login-page">
+  <div class="login-wrapper">
+    <nz-tabset class="login-tabs">
+      <nz-tab [nzTitle]="'signin' | translate">
+        <form class="login-form" [formGroup]="form" novalidate (ngSubmit)="submit()">
+          <label class="label">
+            {{ 'loginH' | translate }}:
+            <input
+              type="text"
+              [placeholder]="'yourLogin' | translate"
+              #myLogin
+              [value]="authService.login"
+              (input)="authService.loginHandle(myLogin.value)"
+              formControlName="userEmail"
+              [class]="{
+                input: true,
+                error: form.controls['userEmail'].errors?.['required'] && form.controls['userEmail'].touched
+              }"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="form.controls['userEmail'].errors?.['required'] && form.controls['userEmail'].touched"
+            >
+              {{ 'enterALogin' | translate }}
+            </div>
+          </label>
+          <label class="label">
+            {{ 'password' | translate }}:
+            <input
+              [type]="showPassSighIn ? 'text' : 'password'"
+              [placeholder]="'yourPassword' | translate"
+              #myPassword
+              [value]="authService.password"
+              (input)="authService.passwordHandle(myPassword.value)"
+              formControlName="userPassword"
+              [class]="{ input: true, error:
+            form.controls['userPassword'].errors?.['required'] && form.controls['userPassword'].touched }"
+            />
+            <div class="input-eye" *ngIf="!showPassSighIn" (click)="showPassSighInHandle()">
+              <i nz-icon nzType="eye-invisible" nzTheme="outline"></i>
+            </div>
+            <div class="input-eye" *ngIf="showPassSighIn" (click)="showPassSighInHandle()">
+              <i nz-icon nzType="eye" nzTheme="outline"></i>
+            </div>
+            <div
+              class="alert alert-danger"
+              *ngIf="form.controls['userPassword'].errors?.['required']
+                && form.controls['userPassword'].touched"
+            >
+              {{ 'enterAPassword' | translate }}
+            </div>
+          </label>
+          <button class="login-button" nzType="primary" nz-button>{{ 'signin' | translate }}</button>
+        </form>
+      </nz-tab>
+      <nz-tab [nzTitle]="'signup' | translate">
+        <form class="login-form" [formGroup]="formSignUp" novalidate (ngSubmit)="submitSignUp()">
+          <label class="label">
+            {{ 'name' | translate }}:
+            <input
+              type="text"
+              [placeholder]="'yourName' | translate"
+              #mySName
+              [value]="authService.signUpName"
+              (input)="authService.signUpNameHandle(mySName.value)"
+              formControlName="userName"
+              [class]="{
+                input: true,
+                error: formSignUp.controls['userName'].errors?.['required'] && formSignUp.controls['userName'].touched
+              }"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="formSignUp.controls['userName'].errors?.['required'] && formSignUp.controls['userName'].touched"
+            >
+              {{ 'enterYourName' | translate }}
+            </div>
+          </label>
+          <label class="label">
+            {{ 'loginH' | translate }}:
+            <input
+              type="text"
+              [placeholder]="'yourLogin' | translate"
+              #mySLogin
+              [value]="authService.signUpLogin"
+              (input)="authService.signUpLoginHandle(mySLogin.value)"
+              formControlName="userLogin"
+              [class]="{
+                input: true,
+                error: formSignUp.controls['userLogin'].errors?.['required'] && formSignUp.controls['userLogin'].touched
+              }"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="formSignUp.controls['userLogin'].errors?.['required'] && formSignUp.controls['userLogin'].touched"
+            >
+              {{ 'enterALogin' | translate }}
+            </div>
+          </label>
+          <label class="label">
+            {{ 'password' | translate }}:
+            <input
+              [type]="showPassSighUp ? 'text' : 'password'"
+              [placeholder]="'yourPassword' | translate"
+              #mySPassword
+              [value]="authService.signUpPassword"
+              (input)="authService.signUpPasswordHandle(mySPassword.value)"
+              formControlName="userNewPassword"
+              [class]="{
+                input: true,
+                error: (formSignUp.controls['userNewPassword'].errors?.['required']
+                    || formSignUp.controls['userNewPassword'].errors?.['pattern'])
+                    && formSignUp.controls['userNewPassword'].touched
+              }"
+            />
+            <div class="input-eye" *ngIf="!showPassSighUp" (click)="showPassSighUpHandle()">
+              <i nz-icon nzType="eye-invisible" nzTheme="outline"></i>
+            </div>
+            <div class="input-eye" *ngIf="showPassSighUp" (click)="showPassSighUpHandle()">
+              <i nz-icon nzType="eye" nzTheme="outline"></i>
+            </div>
+            <div
+              class="alert alert-danger"
+              *ngIf="formSignUp.controls['userNewPassword'].errors?.['required']
+                && formSignUp.controls['userNewPassword'].touched"
+            >
+              {{ 'enterAPassword' | translate }}
+            </div>
+            <div
+              class="alert alert-danger"
+              *ngIf="formSignUp.controls['userNewPassword'].errors?.['pattern']
+                && formSignUp.controls['userNewPassword'].touched"
+            >
+              {{ 'passwordVar' | translate }}
+            </div>
+          </label>
+          <button class="login-button" nzType="primary" nz-button>{{ 'signup' | translate }}</button>
+        </form>
+      </nz-tab>
+    </nz-tabset>
+  </div>
+  <app-loader *ngIf="authService.isLoading"></app-loader>
+</div>

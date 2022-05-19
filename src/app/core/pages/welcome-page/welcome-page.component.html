@@ -1,0 +1,20 @@
+<section class="welcome">
+  <div class="welcome__img">
+    <a class="welcome__link" href="http://www.freepik.com" target="_blank">Designed by vectorjuice / Freepik</a>
+  </div>
+  <div class="welcome__content">
+    <div class="welcome__logo">
+      <h1 class="welcome__title">WAPA</h1>
+      <div class="welcome__slogan">{{ 'goodBoards' | translate }}<br />{{ 'goodProject' | translate }}</div>
+    </div>
+    <div class="welcome__text">
+      {{ 'welcomePart1' | translate }}
+      <a href="https://rs.school/" target="_blank">Rs School</a> {{ 'welcomePart2' | translate }}
+      <a href="https://rs.school/angular/" target="_blank">Angular</a> {{ 'welcomePart3' | translate }}
+    </div>
+
+    <button class="welcome__button" routerLink="/board">{{ 'getStarted' | translate }}</button>
+    <button class="welcome__button_shadow" routerLink="/auth">{{ 'registerNow' | translate }}</button>
+  </div>
+</section>
+<app-localization></app-localization>

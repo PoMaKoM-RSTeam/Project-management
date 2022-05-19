@@ -1,0 +1,113 @@
+<div class="profile-page">
+  <div
+    class="profile-wrapper"
+    [class]="{
+      disabled: profileService.isLoadingBlock
+    }"
+  >
+    <div>
+      <h2 class="profile-title">{{ 'profile' | translate }}</h2>
+      <small>{{ 'pleaseFillFields' | translate }}</small>
+    </div>
+    <form class="profile-form" [formGroup]="form" novalidate (ngSubmit)="submit()">
+      <label class="label">
+        {{ 'name' | translate }}:
+        <input
+          type="text"
+          [placeholder]="'yourNewName' | translate"
+          #mySName
+          [value]="profileService.name"
+          (input)="profileService.nameHandle(mySName.value)"
+          formControlName="userName"
+          [class]="{
+            input: true,
+            error: form.controls['userName'].errors?.['required'] && form.controls['userName'].touched
+          }"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="form.controls['userName'].errors?.['required'] && form.controls['userName'].touched"
+        >
+          {{ 'enterYourName' | translate }}
+        </div>
+      </label>
+      <label class="label">
+        {{ 'login' | translate }}:
+        <input
+          type="text"
+          [placeholder]="'yourNewLogin' | translate"
+          #mySLogin
+          [value]="profileService.login"
+          (input)="profileService.loginHandle(mySLogin.value)"
+          formControlName="userLogin"
+          [class]="{
+            input: true,
+            error: form.controls['userLogin'].errors?.['required'] && form.controls['userLogin'].touched
+          }"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="form.controls['userLogin'].errors?.['required'] && form.controls['userLogin'].touched"
+        >
+          {{ 'enterALogin' | translate }}
+        </div>
+      </label>
+      <label class="label">
+        {{ 'password' | translate }}:
+        <input
+          [type]="showPass ? 'text' : 'password'"
+          [placeholder]="'yourNewPassword' | translate"
+          #mySPassword
+          [value]="profileService.password"
+          (input)="profileService.passwordHandle(mySPassword.value)"
+          formControlName="userNewPassword"
+          [class]="{
+            input: true,
+            error: (form.controls['userNewPassword'].errors?.['required']
+                || form.controls['userNewPassword'].errors?.['pattern'])
+                && form.controls['userNewPassword'].touched
+          }"
+        />
+        <div class="input-eye" *ngIf="!showPass" (click)="showPassHandle()">
+          <i nz-icon nzType="eye-invisible" nzTheme="outline"></i>
+        </div>
+        <div class="input-eye" *ngIf="showPass" (click)="showPassHandle()">
+          <i nz-icon nzType="eye" nzTheme="outline"></i>
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="form.controls['userNewPassword'].errors?.['required']
+            && form.controls['userNewPassword'].touched"
+        >
+          {{ 'enterAPassword' | translate }}
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="form.controls['userNewPassword'].errors?.['pattern']
+            && form.controls['userNewPassword'].touched"
+        >
+          {{ 'passwordVar' | translate }}
+        </div>
+      </label>
+      <button class="login-button" nzType="primary" nz-button>{{ 'save' | translate }}</button>
+    </form>
+    <div class="profile-remove">
+      <app-confirm
+        [question]="profileService.name + ('sureDelete' | translate)"
+        (click)="$event.stopPropagation()"
+        (emitConfirm)="onUserDelete($event)"
+      >
+        <button
+          class="button button__icon"
+          nz-icon
+          nzType="delete"
+          nzTheme="outline"
+          [disabled]="profileService.isLoadingBlock"
+        ></button>
+      </app-confirm>
+    </div>
+    <app-loader *ngIf="profileService.isLoadingBlock" [isForBlock]="true"></app-loader>
+  </div>
+  <app-loader *ngIf="profileService.isLoading"></app-loader>
+</div>
+<app-localization></app-localization>
