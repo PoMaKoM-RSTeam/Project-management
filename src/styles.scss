@@ -97,3 +97,91 @@ input {
 .mr-8 {
   margin-right: 8px;
 }
+
+.ant-menu {
+  background-color: $bg-light !important;
+  color: $light-color !important;
+}
+
+.darkMode {
+  .footer__link,
+  .header-nav__link,
+  .welcome__link,
+  .phase__link {
+    color: $link-color-dark !important;
+
+    &:hover {
+      color: $main-color !important;
+    }
+  }
+
+  .ant-card {
+    background: $bg-dark !important;
+    color: $main-color !important;
+  }
+
+  .ant-card-head {
+    background: $bg-dark !important;
+    color: $main-color !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $main-color !important;
+  }
+
+  .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+    background: $bg-dark !important;
+    color: $main-color !important;
+  }
+
+  .ant-collapse-content {
+    background: $bg-dark !important;
+    color: $main-color !important;
+  }
+
+  .search-input.error {
+    background-color: transparent !important;
+  }
+
+  .ant-tabs {
+    color: $main-color !important;
+  }
+
+  .welcome__slogan {
+    color: $main-color !important;
+  }
+
+  .welcome__text {
+    color: $main-color !important;
+
+    a {
+      color: $link-color-dark !important;
+
+      &:hover {
+        color: $main-color !important;
+      }
+    }
+  }
+
+  .welcome__title {
+    border-right: $main-color solid 2px !important;
+  }
+
+  .ant-menu {
+    background: $bg-dark !important;
+    color: $main-color !important;
+  }
+
+  .space-aside__add-button {
+    color: $link-color-dark !important;
+  }
+
+  .bar_right {
+    color: $link-color-dark !important;
+  }
+}

@@ -5,7 +5,6 @@
   position: sticky;
   height: calc(100vh - #{$footer-height});
   overflow-y: auto;
-  background-color: $main-color;
   border-right: $header-border;
 
   &_open {
